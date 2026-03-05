@@ -1,0 +1,1044 @@
+% ============================================================================
+% PAPER: Sistema Multi-Agente para Generacion Automatica de Preguntas Tipo Test
+% Formato: Articulo academico a dos columnas (IEEE style)
+% ============================================================================
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+% --- Paquetes ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{times}
+\usepackage[margin=1.8cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{
+  shapes.geometric,
+  arrows.meta,
+  positioning,
+  fit,
+  backgrounds,
+  calc,
+  decorations.pathreplacing,
+  patterns
+}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% --- Colores personalizados ---
+\definecolor{agentZ}{HTML}{4A90D9}
+\definecolor{agentB}{HTML}{E8913A}
+\definecolor{agentC}{HTML}{50B86C}
+\definecolor{agentD}{HTML}{9B59B6}
+\definecolor{agentE}{HTML}{E74C3C}
+\definecolor{dbcolor}{HTML}{2C3E50}
+\definecolor{pipecolor}{HTML}{7F8C8D}
+\definecolor{bglight}{HTML}{F8F9FA}
+\definecolor{bordercolor}{HTML}{DEE2E6}
+\definecolor{codegreen}{HTML}{28A745}
+\definecolor{codegray}{HTML}{6C757D}
+\definecolor{codeblue}{HTML}{0366D6}
+
+% --- Configuracion de secciones ---
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\small\bfseries\itshape}{\thesubsubsection}{0.5em}{}
+
+% --- Header ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Sistema Multi-Agente de Generaci\'on de Preguntas}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Code environment sin listings ---
+\newtcolorbox{codebox}[1][]{
+  colback=bglight, colframe=bordercolor, boxrule=0.5pt, arc=2pt,
+  fontupper=\small\ttfamily, left=4pt, right=4pt, top=2pt, bottom=2pt, #1
+}
+
+% ============================================================================
+\begin{document}
+
+% --- Titulo (one-column) ---
+\twocolumn[%
+\begin{center}
+{\LARGE\bfseries Sistema Multi-Agente para Generaci\'on Autom\'atica
+de Preguntas Tipo Test con Control de Calidad}\par
+\vspace{10pt}
+{\large Documentaci\'on T\'ecnica del Sistema}\par
+\vspace{6pt}
+{\normalsize Isyfu --- Plataforma de Preparaci\'on de Oposiciones}\par
+\vspace{4pt}
+{\small Marzo 2026}\par
+\vspace{4pt}
+\rule{\textwidth}{0.4pt}
+\end{center}
+\vspace{8pt}
+\noindent\textbf{Resumen.}
+Se presenta un sistema multi-agente basado en LangGraph para la generaci\'on autom\'atica
+de preguntas tipo test a partir de documentos legislativos. El sistema emplea cinco agentes
+especializados que operan en un patr\'on Map-Reduce: (Z)~fragmentaci\'on coherente de documentos,
+(B)~generaci\'on de preguntas con aprendizaje few-shot y 8 t\'ecnicas de distracci\'on documentadas,
+(C)~evaluaci\'on dual de calidad mediante criterios especializados y m\'etricas Ragas,
+(D)~persistencia con deduplicaci\'on sem\'antica, y (E)~exportaci\'on a PDF profesional.
+La arquitectura permite procesamiento paralelo, reintentos autom\'aticos con retroalimentaci\'on
+espec\'ifica, y un esquema de base de datos relacional compatible con Supabase.
+El sistema ha sido dise\~nado para la preparaci\'on de oposiciones a la Guardia Civil espa\~nola,
+procesando actualmente 23 temas legislativos.
+\vspace{14pt}
+]
+
+% ============================================================================
+\section{Introducci\'on}
+% ============================================================================
+
+La preparaci\'on de oposiciones requiere un volumen masivo de preguntas tipo test de alta
+calidad, fundamentadas en legislaci\'on vigente y con distractores plausibles. La creaci\'on
+manual de estas preguntas es un proceso costoso, lento y propenso a inconsistencias.
+
+Este documento describe un sistema multi-agente que automatiza el ciclo completo:
+desde la ingesta de documentos PDF legislativos hasta la generaci\'on de ex\'amenes en PDF,
+pasando por la generaci\'on inteligente de preguntas, validaci\'on de calidad y persistencia
+en base de datos.
+
+El sistema se distingue por:
+\begin{itemize}[nosep,leftmargin=*]
+  \item Arquitectura de 5 agentes con responsabilidades claras
+  \item Aprendizaje few-shot con 6 ejemplos reales de ex\'amenes
+  \item 8 t\'ecnicas de distracci\'on basadas en an\'alisis de 105 ex\'amenes reales
+  \item Validaci\'on dual: criterios especializados + m\'etricas Ragas
+  \item Deduplicaci\'on sem\'antica con embeddings de OpenAI
+  \item Recuperaci\'on multi-chunk con FAISS para contexto enriquecido
+\end{itemize}
+
+% ============================================================================
+\section{Arquitectura General del Sistema}
+% ============================================================================
+
+La Figura~\ref{fig:architecture} muestra la arquitectura de alto nivel. El sistema
+sigue un patr\'on \textbf{Map-Reduce}: el Agente~Z fragmenta documentos en chunks
+(map), los Agentes~B y C procesan cada chunk en paralelo (map), y los Agentes~D
+y E consolidan resultados (reduce).
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  node distance=1.2cm and 1.8cm,
+  agent/.style={
+    rectangle, rounded corners=6pt, minimum width=3.2cm, minimum height=1.4cm,
+    text width=3cm, align=center, font=\small\bfseries,
+    draw, line width=1pt
+  },
+  data/.style={
+    rectangle, rounded corners=3pt, minimum width=2.4cm, minimum height=0.8cm,
+    text width=2.2cm, align=center, font=\scriptsize,
+    draw, dashed, line width=0.6pt, fill=bglight
+  },
+  arrow/.style={-{Stealth[length=6pt]}, line width=1.2pt},
+  darrow/.style={-{Stealth[length=5pt]}, line width=0.8pt, dashed},
+  label/.style={font=\scriptsize\itshape, text=codegray}
+]
+
+% Agentes
+\node[agent, fill=agentZ!15, draw=agentZ] (Z) {Agente Z\\{\scriptsize Fragmentaci\'on\\ y Reescritura}};
+\node[agent, fill=agentB!15, draw=agentB, right=2.5cm of Z] (B) {Agente B\\{\scriptsize Generaci\'on\\de Preguntas}};
+\node[agent, fill=agentC!15, draw=agentC, right=2.5cm of B] (C) {Agente C\\{\scriptsize Evaluaci\'on\\de Calidad}};
+\node[agent, fill=agentD!15, draw=agentD, below=2cm of B] (D) {Agente D\\{\scriptsize Persistencia\\y Deduplicaci\'on}};
+\node[agent, fill=agentE!15, draw=agentE, right=2.5cm of D] (E) {Agente E\\{\scriptsize Generaci\'on\\de PDFs}};
+
+% Datos
+\node[data, left=1.5cm of Z] (input) {PDF / TXT / MD\\{\tiny input\_docs/}};
+\node[data, below=0.6cm of Z] (cache) {JSON Cache\\{\tiny rewritten/}};
+\node[data, below=0.6cm of D] (db) {SQLite DB\\{\tiny questions.db}};
+\node[data, below=0.6cm of E] (pdf) {Ex\'amenes PDF\\{\tiny output/pdfs/}};
+
+% Flujo principal
+\draw[arrow, color=agentZ] (input) -- (Z);
+\draw[arrow, color=agentZ] (Z) -- node[above, label] {chunks} (B);
+\draw[arrow, color=agentB] (B) -- node[above, label] {preguntas} (C);
+\draw[arrow, color=agentC] (C) -- node[right, label, pos=0.3] {validadas} (D);
+\draw[arrow, color=agentD] (D) -- node[above, label] {IDs} (E);
+
+% Flujo secundario
+\draw[darrow, color=agentZ] (Z) -- (cache);
+\draw[darrow, color=agentD] (D) -- (db);
+\draw[darrow, color=agentE] (E) -- (pdf);
+
+% Retry loop
+\draw[arrow, color=agentE!70!black, line width=0.9pt]
+  (C.south) -- ++(0,-0.5) -| node[below, label, pos=0.25] {retry con feedback} (B.south);
+
+% Background pipeline box
+\begin{scope}[on background layer]
+  \node[fit=(Z)(B)(C)(D)(E), inner sep=12pt, rounded corners=10pt,
+        draw=pipecolor, line width=0.6pt, dashed, fill=white] {};
+\end{scope}
+
+\end{tikzpicture}
+\caption{Arquitectura general del sistema multi-agente. Las flechas s\'olidas representan
+el flujo principal del pipeline; las discontinuas, almacenamiento intermedio.
+El bucle de retry entre C y B permite hasta 3 reintentos con retroalimentaci\'on espec\'ifica.}
+\label{fig:architecture}
+\end{figure*}
+
+% ============================================================================
+\section{Agentes del Sistema}
+% ============================================================================
+
+\subsection{Agente Z: Fragmentaci\'on Coherente}
+
+El Agente~Z es responsable de transformar documentos legislativos en bruto en
+\textbf{chunks sem\'anticamente coherentes}. Implementado como un \texttt{StateGraph}
+con patr\'on ReAct, realiza las siguientes tareas:
+
+\begin{enumerate}[nosep,leftmargin=*]
+  \item \textbf{Carga del documento}: Soporta PDF (pypdf), TXT y MD
+  \item \textbf{Filtrado de metadatos}: Elimina encabezados, pies de p\'agina,
+        emails, URLs y n\'umeros de p\'agina mediante el \texttt{PDFMetadataFilter}
+  \item \textbf{An\'alisis estructural}: Identifica art\'iculos, cap\'itulos, secciones
+        y t\'itulos del documento legal
+  \item \textbf{Fragmentaci\'on}: Genera chunks con tama\~no configurable (por defecto
+        1000 caracteres, 200 de solapamiento)
+  \item \textbf{Evaluaci\'on de sustantividad}: Calcula un ratio que mide el contenido
+        legislativo real vs.\ ruido (\texttt{min\_substantive\_ratio: 0.3})
+  \item \textbf{Aprendizaje de patrones}: Registra patrones regex de limpieza
+        para reutilizaci\'on entre documentos
+\end{enumerate}
+
+Cada chunk generado incluye: \texttt{chunk\_id}, \texttt{content},
+\texttt{source\_document}, \texttt{page}, \texttt{token\_count},
+\texttt{is\_substantive} y \texttt{metadata}.
+
+\begin{tcolorbox}[colback=agentZ!5, colframe=agentZ, title={\small Modelo de Chunk},
+  fonttitle=\bfseries\small, boxrule=0.5pt, arc=3pt]
+{\small\ttfamily
+class Chunk:\\
+\hspace*{1em}chunk\_id: str\\
+\hspace*{1em}content: str\\
+\hspace*{1em}source\_document: str\\
+\hspace*{1em}page: int\\
+\hspace*{1em}token\_count: int\\
+\hspace*{1em}is\_substantive: bool\\
+\hspace*{1em}substantive\_ratio: float\\
+\hspace*{1em}related\_chunk\_ids: List[str]
+}
+\end{tcolorbox}
+
+% ---
+\subsection{Agente B: Generaci\'on de Preguntas}
+
+El Agente~B constituye el n\'ucleo generativo del sistema. Implementado como
+\texttt{StateGraph} con aprendizaje few-shot, genera preguntas tipo test
+de calidad profesional.
+
+\subsubsection{Aprendizaje Few-Shot}
+Se incorporan \textbf{6 ejemplos reales} de ex\'amenes oficiales de la Guardia Civil
+directamente en el prompt del sistema. Estos ejemplos establecen el formato,
+nivel de dificultad y estilo esperado.
+
+\subsubsection{T\'ecnicas de Distracci\'on}
+Bas\'andose en el an\'alisis de 105 ex\'amenes reales, se han documentado 8 t\'ecnicas
+para crear distractores plausibles (Tabla~\ref{tab:distractors}).
+
+\begin{table}[H]
+\centering
+\caption{T\'ecnicas de distracci\'on documentadas}
+\label{tab:distractors}
+\scriptsize
+\begin{tabularx}{\columnwidth}{cX}
+\toprule
+\textbf{\#} & \textbf{T\'ecnica} \\
+\midrule
+1 & Cambio de conjunci\'on/disyunci\'on (Y $\leftrightarrow$ O) \\
+2 & Manipulaci\'on de plazos temporales \\
+3 & Eliminaci\'on de excepciones legales \\
+4 & Atribuci\'on incorrecta de funciones \\
+5 & Confusi\'on de nivel normativo (ley vs.\ reglamento) \\
+6 & Falsa limitaci\'on de \'ambito \\
+7 & Alteraci\'on de cifras o cantidades \\
+8 & Contexto correcto con final modificado \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Recuperaci\'on Multi-Chunk}
+Para preguntas que requieren contexto de m\'ultiples art\'iculos, el sistema emplea
+el \texttt{ChunkRetrieverService} basado en FAISS:
+
+\begin{enumerate}[nosep,leftmargin=*]
+  \item Indexa todos los chunks del documento con embeddings
+  \item Para cada chunk primario, recupera los $k$ chunks m\'as similares
+        (\texttt{max\_related\_chunks: 3})
+  \item Construye un \texttt{EnrichedContext} combinando chunk primario +
+        chunks relacionados
+  \item Eval\'ua suficiencia del contexto antes de generar
+\end{enumerate}
+
+% ---
+\subsection{Agente C: Evaluaci\'on de Calidad}
+
+El Agente~C implementa un \textbf{sistema dual de validaci\'on} que combina
+criterios especializados para oposiciones con m\'etricas automatizadas.
+
+\subsubsection{Evaluaci\'on Especializada (Primaria)}
+Cinco criterios ponderados por criticidad:
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item[\textbf{C}] \textbf{Referencias legales expl\'icitas} --- La pregunta debe
+        citar art\'iculos o leyes espec\'ificas
+  \item[\textbf{C}] \textbf{Precisi\'on t\'ecnica absoluta} --- Sin ambig\"uedades ni
+        errores jur\'idicos
+  \item[\textbf{A}] \textbf{Distractores plausibles} --- Las opciones incorrectas
+        deben ser cre\'ibles
+  \item[\textbf{A}] \textbf{Retroalimentaci\'on estructurada} --- El ``tip'' debe
+        explicar por qu\'e la respuesta es correcta
+  \item[\textbf{M}] \textbf{Formato oficial} --- 4 opciones, sin ambig\"uedad en
+        la correcta
+\end{itemize}
+
+{\scriptsize (C = Cr\'itico, A = Alto, M = Medio)}
+
+\subsubsection{M\'etricas Ragas (Complementaria)}
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Faithfulness}: Es la respuesta fiel al contexto? ($0$--$1$)
+  \item \textbf{Answer Relevancy}: Es la respuesta relevante a la pregunta? ($0$--$1$)
+\end{itemize}
+
+\subsubsection{Clasificaci\'on de Resultados}
+
+La Figura~\ref{fig:quality} ilustra el sistema de clasificaci\'on tripartito.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  box/.style={rectangle, rounded corners=4pt, minimum width=2.8cm, minimum height=0.9cm,
+    text width=2.6cm, align=center, font=\scriptsize\bfseries, draw, line width=0.8pt},
+  score/.style={font=\tiny, text=codegray}
+]
+
+% Boxes
+\node[box, fill=green!15, draw=green!60!black] (pass) at (0,0) {AUTO\_PASS\\{\tiny Aprobado}};
+\node[box, fill=yellow!15, draw=yellow!60!black] (review) at (0,-1.3) {MANUAL\_REVIEW\\{\tiny Revisi\'on humana}};
+\node[box, fill=red!15, draw=red!60!black] (fail) at (0,-2.6) {AUTO\_FAIL\\{\tiny Regenerar}};
+
+% Scores
+\node[score, right=0.3cm of pass] {$F \geq 0.85$ \textbf{y} $R \geq 0.85$};
+\node[score, right=0.3cm of review] {$0.60 \leq F < 0.85$};
+\node[score, right=0.3cm of fail] {$F < 0.60$ \textbf{\'o} $R < 0.60$};
+
+% Brace
+\draw[decorate, decoration={brace, amplitude=5pt, mirror}, line width=0.6pt]
+  (-1.6,0.5) -- (-1.6,-3.1) node[midway, left=8pt, font=\scriptsize, align=right]
+  {Umbral\\configurable};
+
+\end{tikzpicture}
+\caption{Sistema de clasificaci\'on de calidad. $F$ = Faithfulness, $R$ = Answer Relevancy.}
+\label{fig:quality}
+\end{figure}
+
+Las preguntas clasificadas como \texttt{auto\_fail} se reenv\'ian al Agente~B con
+retroalimentaci\'on espec\'ifica, permitiendo hasta \textbf{3 reintentos} por chunk.
+
+% ---
+\subsection{Agente D: Persistencia y Deduplicaci\'on}
+
+El Agente~D gestiona la inserci\'on en base de datos con deduplicaci\'on sem\'antica:
+
+\begin{enumerate}[nosep,leftmargin=*]
+  \item Genera embedding de \texttt{question + correct\_answer}
+  \item Calcula similitud coseno contra preguntas existentes
+  \item Si similitud $> 0.85$: marca como duplicado
+  \item Si es \'unica: inserta en SQLite con todos los metadatos
+  \item Genera estad\'isticas: total, \'unicas, duplicadas
+\end{enumerate}
+
+% ---
+\subsection{Agente E: Generaci\'on de PDFs}
+
+Implementado con ReportLab, genera tres formatos de salida:
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Solo examen}: Preguntas con opciones, sin soluciones
+  \item \textbf{Con soluciones}: Incluye tips y explicaciones
+  \item \textbf{Hoja de respuestas}: Plantilla de correcci\'on r\'apida
+\end{itemize}
+
+Las preguntas se agrupan por tema y se incluyen estad\'isticas de dificultad.
+
+% ============================================================================
+\section{Pipeline de Datos}
+% ============================================================================
+
+La Figura~\ref{fig:pipeline} muestra el flujo de datos detallado a trav\'es del
+sistema, incluyendo las transformaciones en cada etapa.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  phase/.style={
+    rectangle, rounded corners=5pt, minimum width=2.6cm, minimum height=2.4cm,
+    text width=2.4cm, align=center, font=\scriptsize, draw, line width=0.8pt
+  },
+  io/.style={
+    rectangle, rounded corners=3pt,
+    minimum width=1.8cm, minimum height=0.6cm,
+    text width=1.6cm, align=center, font=\tiny, draw, line width=0.6pt, fill=bglight
+  },
+  store/.style={
+    rectangle, rounded corners=3pt, draw, minimum height=0.8cm, minimum width=1.4cm,
+    font=\tiny, align=center, line width=0.6pt, fill=bglight
+  },
+  arr/.style={-{Stealth[length=5pt]}, line width=1pt},
+  darr/.style={-{Stealth[length=4pt]}, line width=0.6pt, dashed}
+]
+
+% Fases
+\node[phase, fill=agentZ!10, draw=agentZ] (p1) at (0,0)
+  {\textbf{FASE 1}\\[2pt] Ingesta y\\Fragmentaci\'on\\[4pt]
+   {\tiny Agente Z}\\[2pt]
+   {\tiny Carga PDF}\\
+   {\tiny Filtrado metadata}\\
+   {\tiny Chunks coherentes}};
+
+\node[phase, fill=agentB!10, draw=agentB] (p2) at (3.5,0)
+  {\textbf{FASE 2}\\[2pt] Generaci\'on\\Inteligente\\[4pt]
+   {\tiny Agente B}\\[2pt]
+   {\tiny Few-shot learning}\\
+   {\tiny Multi-chunk FAISS}\\
+   {\tiny 8 t\'ecn.\ distracci\'on}};
+
+\node[phase, fill=agentC!10, draw=agentC] (p3) at (7,0)
+  {\textbf{FASE 3}\\[2pt] Validaci\'on\\de Calidad\\[4pt]
+   {\tiny Agente C}\\[2pt]
+   {\tiny Eval.\ especializada}\\
+   {\tiny M\'etricas Ragas}\\
+   {\tiny Clasificaci\'on 3-v\'ias}};
+
+\node[phase, fill=agentD!10, draw=agentD] (p4) at (10.5,0)
+  {\textbf{FASE 4}\\[2pt] Persistencia\\y Dedup\\[4pt]
+   {\tiny Agente D}\\[2pt]
+   {\tiny Embeddings OpenAI}\\
+   {\tiny Cosine similarity}\\
+   {\tiny Batch insert}};
+
+\node[phase, fill=agentE!10, draw=agentE] (p5) at (14,0)
+  {\textbf{FASE 5}\\[2pt] Exportaci\'on\\PDF\\[4pt]
+   {\tiny Agente E}\\[2pt]
+   {\tiny ReportLab}\\
+   {\tiny 3 formatos}\\
+   {\tiny Agrupado x tema}};
+
+% I/O
+\node[io] (in) at (-2.5,0) {Documentos\\legislativos};
+\node[io] (out) at (16.5,0) {Ex\'amenes\\PDF};
+
+% Stores
+\node[store, fill=agentZ!8] (s1) at (0,-2.2) {JSON cache};
+\node[store, fill=agentD!8] (s4) at (10.5,-2.2) {SQLite DB};
+
+% Flechas principales
+\draw[arr, color=pipecolor] (in) -- (p1);
+\draw[arr, color=agentZ] (p1) -- node[above, font=\tiny] {chunks} (p2);
+\draw[arr, color=agentB] (p2) -- node[above, font=\tiny] {preguntas} (p3);
+\draw[arr, color=agentC] (p3) -- node[above, font=\tiny] {validadas} (p4);
+\draw[arr, color=agentD] (p4) -- node[above, font=\tiny] {IDs} (p5);
+\draw[arr, color=pipecolor] (p5) -- (out);
+
+% Stores arrows
+\draw[darr, color=agentZ] (p1) -- (s1);
+\draw[darr, color=agentD] (p4) -- (s4);
+\draw[darr, color=agentE] (s4.east) -| (p5.south);
+
+% Retry
+\draw[arr, color=red!60, line width=0.7pt]
+  (p3.south) -- ++(0,-0.7) -| node[below, font=\tiny\itshape, pos=0.25, color=red!60]
+  {auto\_fail: retry con feedback (m\'ax 3)} (p2.south);
+
+\end{tikzpicture}
+\caption{Flujo de datos detallado del pipeline. Cada fase corresponde a un agente
+especializado. El bucle de retroalimentaci\'on entre las Fases 2 y 3 garantiza calidad
+m\'inima antes de la persistencia.}
+\label{fig:pipeline}
+\end{figure*}
+
+% ============================================================================
+\section{Puntos de Entrada}
+% ============================================================================
+
+El sistema ofrece cuatro puntos de entrada seg\'un el caso de uso (Figura~\ref{fig:entrypoints}).
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  entry/.style={
+    rectangle, rounded corners=4pt, minimum width=3.4cm, minimum height=0.8cm,
+    text width=3.2cm, align=center, font=\scriptsize\ttfamily,
+    draw, line width=0.8pt, fill=codeblue!10, draw=codeblue
+  },
+  desc/.style={font=\tiny, text width=3.2cm, align=left},
+  agents/.style={
+    rectangle, rounded corners=2pt, minimum height=0.5cm,
+    font=\tiny\bfseries, draw, line width=0.5pt, inner sep=2pt
+  }
+]
+
+% Entries
+\node[entry] (e1) at (0,0) {main.py};
+\node[entry] (e2) at (0,-2.2) {run\_rewriter.py};
+\node[entry] (e3) at (0,-4.4) {run\_bcde\_pipeline.py};
+\node[entry] (e4) at (0,-6.6) {extract\_and\_generate\_pdf.py};
+
+% Descriptions
+\node[desc, right=0.3cm of e1] (d1) {Pipeline completo. Ejecuta Z, B, C, D, E en secuencia.};
+\node[desc, right=0.3cm of e2] (d2) {Solo fragmentaci\'on. Ejecuta Agente Z y cachea en JSON.};
+\node[desc, right=0.3cm of e3] (d3) {Pipeline sin chunking. Usa chunks cacheados. Ejecuta B, C, D, E.};
+\node[desc, right=0.3cm of e4] (d4) {Solo exportaci\'on. Genera PDFs desde la base de datos.};
+
+% Agent indicators
+\node[agents, fill=agentZ!15, right=0.1cm of d1, yshift=0.15cm] {\textcolor{agentZ}{Z}};
+\node[agents, fill=agentB!15, right=0.55cm of d1, yshift=0.15cm] {\textcolor{agentB}{B}};
+\node[agents, fill=agentC!15, right=1cm of d1, yshift=0.15cm] {\textcolor{agentC}{C}};
+\node[agents, fill=agentD!15, right=1.45cm of d1, yshift=0.15cm] {\textcolor{agentD}{D}};
+\node[agents, fill=agentE!15, right=1.9cm of d1, yshift=0.15cm] {\textcolor{agentE}{E}};
+
+\node[agents, fill=agentZ!15, right=0.1cm of d2, yshift=0.15cm] {\textcolor{agentZ}{Z}};
+
+\node[agents, fill=agentB!15, right=0.1cm of d3, yshift=0.15cm] {\textcolor{agentB}{B}};
+\node[agents, fill=agentC!15, right=0.55cm of d3, yshift=0.15cm] {\textcolor{agentC}{C}};
+\node[agents, fill=agentD!15, right=1cm of d3, yshift=0.15cm] {\textcolor{agentD}{D}};
+\node[agents, fill=agentE!15, right=1.45cm of d3, yshift=0.15cm] {\textcolor{agentE}{E}};
+
+\node[agents, fill=agentE!15, right=0.1cm of d4, yshift=0.15cm] {\textcolor{agentE}{E}};
+
+\end{tikzpicture}
+\caption{Puntos de entrada del sistema y agentes que activan.}
+\label{fig:entrypoints}
+\end{figure}
+
+\subsection{main.py --- Pipeline Completo}
+
+Orquesta la ejecuci\'on secuencial de los cinco agentes. Es el punto de entrada
+principal para producci\'on.
+
+\begin{tcolorbox}[colback=bglight, colframe=bordercolor, boxrule=0.5pt, arc=2pt]
+{\small\ttfamily
+python main.py \textbackslash\\
+\hspace*{1em}--doc "Tema-18" \textbackslash\\
+\hspace*{1em}--questions 5 \textbackslash\\
+\hspace*{1em}--topic 101 \textbackslash\\
+\hspace*{1em}--academy 1 \textbackslash\\
+\hspace*{1em}--skip-agent-c ~~\# opcional
+}
+\end{tcolorbox}
+
+\textbf{Par\'ametros}:
+\begin{itemize}[nosep,leftmargin=*,font=\small\ttfamily]
+  \item[{-}{-}doc] Patr\'on de filtrado de documentos
+  \item[{-}{-}questions] N\'umero de preguntas por chunk
+  \item[{-}{-}topic] ID del tema
+  \item[{-}{-}academy] ID de la academia
+  \item[{-}{-}skip-agent-c] Omitir validaci\'on de calidad
+\end{itemize}
+
+Utiliza \texttt{questions\_done.csv} para evitar reprocesar documentos ya
+completados.
+
+\subsection{run\_rewriter.py --- Solo Agente Z}
+
+Ejecuta \'unicamente la fase de fragmentaci\'on. \'Util para preparar chunks antes de
+lanzar la generaci\'on.
+
+\begin{tcolorbox}[colback=bglight, colframe=bordercolor, boxrule=0.5pt, arc=2pt]
+{\small\ttfamily
+python run\_rewriter.py \textbackslash\\
+\hspace*{1em}--auto-topic \textbackslash\\
+\hspace*{1em}--limit 5 \textbackslash\\
+\hspace*{1em}--limit-chunks 10 \textbackslash\\
+\hspace*{1em}--force ~~\# re-procesar existentes
+}
+\end{tcolorbox}
+
+\textbf{Salida}: Archivos JSON en \texttt{input\_docs/rewritten/} que pueden
+ser consumidos por \texttt{run\_bcde\_pipeline.py}.
+
+\subsection{run\_bcde\_pipeline.py --- Pipeline sin Chunking}
+
+El punto de entrada m\'as flexible para iteraci\'on r\'apida. Consume los chunks
+cacheados por el Agente~Z y ejecuta B, C, D, E.
+
+\begin{tcolorbox}[colback=bglight, colframe=bordercolor, boxrule=0.5pt, arc=2pt]
+{\small\ttfamily
+python run\_bcde\_pipeline.py \textbackslash\\
+\hspace*{1em}--doc "Tema-18" \textbackslash\\
+\hspace*{1em}--questions-per-chunk 5 \textbackslash\\
+\hspace*{1em}--workers 4 \textbackslash\\
+\hspace*{1em}--skip-agent-c
+}
+\end{tcolorbox}
+
+\textbf{Caracter\'isticas clave}:
+\begin{itemize}[nosep,leftmargin=*]
+  \item Procesamiento paralelo con \texttt{ThreadPoolExecutor}
+  \item Cache de uso de chunks para evitar reprocesamiento
+  \item Hilo escritor basado en cola para escrituras at\'omicas a BD
+  \item Configurable: n\'umero de workers, preguntas por chunk
+\end{itemize}
+
+\subsection{extract\_and\_generate\_pdf.py --- Solo PDFs}
+
+Utilidad para generar PDFs a partir de preguntas ya existentes en la base
+de datos. No ejecuta ning\'un agente generativo.
+
+% ============================================================================
+\section{Base de Datos Local}
+% ============================================================================
+
+El sistema utiliza \textbf{SQLite} como base de datos local, con un esquema V2
+dise\~nado para ser compatible con Supabase para futuras migraciones a la nube.
+
+\subsection{Esquema Relacional}
+
+La Figura~\ref{fig:database} muestra el esquema Entity-Relationship de la base
+de datos.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  header/.style={
+    rectangle, minimum width=3.6cm, minimum height=0.45cm,
+    font=\scriptsize\bfseries, align=center, text=white
+  },
+  field/.style={font=\tiny\ttfamily, anchor=west},
+  pk/.style={font=\tiny\ttfamily\bfseries, anchor=west, text=codeblue},
+  fk/.style={font=\tiny\ttfamily\itshape, anchor=west, text=agentD}
+]
+
+% --- Table: questions ---
+\node[header, fill=dbcolor] (qh) at (0,0) {questions};
+\draw[line width=0.8pt] (-1.8,-0.23) rectangle (1.8,-4.43);
+\node[pk] at (-1.7,-0.5) {PK id INTEGER};
+\node[field] at (-1.7,-0.8) {question TEXT};
+\node[field] at (-1.7,-1.1) {tip TEXT};
+\node[field] at (-1.7,-1.4) {article TEXT};
+\node[field] at (-1.7,-1.7) {topic INTEGER};
+\node[field] at (-1.7,-2.0) {academy\_id INTEGER};
+\node[field] at (-1.7,-2.3) {faithfulness\_score REAL};
+\node[field] at (-1.7,-2.6) {relevancy\_score REAL};
+\node[field] at (-1.7,-2.9) {is\_duplicate BOOLEAN};
+\node[field] at (-1.7,-3.2) {source\_document TEXT};
+\node[field] at (-1.7,-3.5) {llm\_model TEXT};
+\node[field] at (-1.7,-3.8) {distractor\_techniques JSON};
+\node[field] at (-1.7,-4.1) {created\_at TIMESTAMP};
+
+% --- Table: question_options ---
+\node[header, fill=agentB!80!black] (oh) at (6,0) {question\_options};
+\draw[line width=0.8pt] (4.2,-0.23) rectangle (7.8,-2.33);
+\node[pk] at (4.3,-0.5) {PK id INTEGER};
+\node[fk] at (4.3,-0.8) {FK question\_id INTEGER};
+\node[field] at (4.3,-1.1) {answer TEXT};
+\node[field] at (4.3,-1.4) {is\_correct BOOLEAN};
+\node[field] at (4.3,-1.7) {option\_order INTEGER};
+\node[field] at (4.3,-2.0) {created\_at TIMESTAMP};
+
+% --- Table: batches ---
+\node[header, fill=agentD!80!black] (bh) at (6,-3.2) {batches};
+\draw[line width=0.8pt] (4.2,-3.43) rectangle (7.8,-5.83);
+\node[pk] at (4.3,-3.7) {PK id INTEGER};
+\node[field] at (4.3,-4.0) {batch\_name TEXT};
+\node[field] at (4.3,-4.3) {topic INTEGER};
+\node[field] at (4.3,-4.6) {total\_questions INTEGER};
+\node[field] at (4.3,-4.9) {avg\_faithfulness REAL};
+\node[field] at (4.3,-5.2) {source\_documents JSON};
+\node[field] at (4.3,-5.5) {status TEXT};
+
+% Relationships
+\draw[-{Stealth[length=5pt]}, line width=0.8pt, color=agentD]
+  (1.8,-0.8) -- node[above, font=\tiny] {1:N} (4.2,-0.8);
+
+\end{tikzpicture}
+\caption{Esquema Entity-Relationship de la base de datos SQLite.
+La relaci\'on 1:N entre \texttt{questions} y \texttt{question\_options}
+permite flexibilidad en el n\'umero de opciones.}
+\label{fig:database}
+\end{figure}
+
+\subsection{Tabla questions}
+
+Tabla principal con campos organizados en grupos:
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Contenido}: question, tip, article, topic
+  \item \textbf{Calidad}: faithfulness\_score, relevancy\_score
+  \item \textbf{Deduplicaci\'on}: is\_duplicate, duplicate\_of
+  \item \textbf{Trazabilidad}: source\_chunk\_id, source\_document, source\_page
+  \item \textbf{LLM}: llm\_model, by\_llm, generation\_method, question\_prompt
+  \item \textbf{Retry}: retry\_count, needs\_manual\_review
+  \item \textbf{Multimedia}: question\_image\_url, retro\_image\_url
+\end{itemize}
+
+\subsection{Tabla question\_options}
+
+Relaci\'on 1:N con \texttt{questions}. Cada opci\'on tiene:
+\texttt{answer}, \texttt{is\_correct}, \texttt{option\_order}.
+Este dise\~no permite 3, 4 o 5+ opciones por pregunta sin modificar el esquema.
+
+\subsection{Tabla batches}
+
+Metadatos de ejecuci\'on: nombre del batch, tema, estad\'isticas
+(total, \'unicas, duplicadas), puntuaciones medias de calidad,
+documentos fuente y configuraci\'on usada.
+
+\subsection{Repositorio de Acceso}
+
+La clase \texttt{QuestionRepository} (\texttt{database/repository.py}) implementa
+el patr\'on Repository con context manager para conexiones seguras:
+
+\begin{tcolorbox}[colback=bglight, colframe=bordercolor, boxrule=0.5pt, arc=2pt]
+{\small\ttfamily
+repo = QuestionRepository(db\_path)\\
+\# Insercion individual\\
+qid = repo.insert(question\_data)\\
+\# Insercion por lotes\\
+ids = repo.insert\_batch(questions)\\
+\# Consultas\\
+q = repo.get\_by\_id(qid)\\
+all\_q = repo.get\_all(topic=101)
+}
+\end{tcolorbox}
+
+% ============================================================================
+\section{Estado del Grafo (GraphState)}
+% ============================================================================
+
+El estado compartido entre agentes se define como un \texttt{TypedDict} en
+\texttt{graph/state.py} con aproximadamente 120 campos organizados en grupos:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  group/.style={
+    rectangle, rounded corners=3pt, draw, line width=0.6pt,
+    text width=3.4cm, minimum height=0.7cm, align=center,
+    font=\scriptsize, inner sep=4pt
+  },
+  arr/.style={-{Stealth[length=4pt]}, line width=0.6pt, color=pipecolor}
+]
+
+\node[group, fill=agentZ!10, draw=agentZ] (g1) at (0,0) {\textbf{Input}\\{\tiny docs, metadata}};
+\node[group, fill=agentZ!10, draw=agentZ] (g2) at (0,-1.1) {\textbf{Chunks}\\{\tiny List[Chunk]}};
+\node[group, fill=agentB!10, draw=agentB] (g3) at (0,-2.2) {\textbf{Generaci\'on}\\{\tiny Dict[chunk\_id, List[Q]]}};
+\node[group, fill=agentC!10, draw=agentC] (g4) at (0,-3.3) {\textbf{Validaci\'on}\\{\tiny validated, failed, review}};
+\node[group, fill=agentC!10, draw=agentC] (g5) at (0,-4.4) {\textbf{Retry}\\{\tiny counts, max\_retries}};
+\node[group, fill=agentD!10, draw=agentD] (g6) at (0,-5.5) {\textbf{Persistencia}\\{\tiny IDs, dedup\_stats}};
+\node[group, fill=pipecolor!10, draw=pipecolor] (g7) at (0,-6.6) {\textbf{Progreso}\\{\tiny step, completed, totals}};
+
+\foreach \i [evaluate=\i as \j using int(\i+1)] in {1,...,6} {
+  \draw[arr] (g\i) -- (g\j);
+}
+
+\end{tikzpicture}
+\caption{Grupos de campos en el \texttt{GraphState}. El estado fluye
+secuencialmente a trav\'es de los agentes.}
+\label{fig:state}
+\end{figure}
+
+% ============================================================================
+\section{Sistema de Configuraci\'on}
+% ============================================================================
+
+La configuraci\'on utiliza \textbf{Pydantic BaseSettings} con variables de entorno
+desde \texttt{.env}. La Figura~\ref{fig:config} muestra la organizaci\'on.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  cfg/.style={
+    rectangle, rounded corners=3pt, draw, line width=0.6pt,
+    minimum width=3.4cm, minimum height=0.6cm,
+    font=\scriptsize, align=center, fill=bglight
+  },
+  main/.style={
+    rectangle, rounded corners=5pt, draw=codeblue, line width=1pt,
+    minimum width=3.8cm, minimum height=0.8cm,
+    font=\small\bfseries, align=center, fill=codeblue!10
+  }
+]
+
+\node[main] (settings) at (0,0) {config/settings.py};
+
+\node[cfg] (openai) at (-2.2,-1.2) {OpenAI Config};
+\node[cfg] (agentz) at (2.2,-1.2) {Agent Z Config};
+\node[cfg] (agentb) at (-2.2,-2.2) {Agent B Config};
+\node[cfg] (agentc) at (2.2,-2.2) {Agent C Config};
+\node[cfg] (embed) at (-2.2,-3.2) {Embeddings Config};
+\node[cfg] (dedup) at (2.2,-3.2) {Dedup Config};
+
+\foreach \n in {openai,agentz,agentb,agentc,embed,dedup} {
+  \draw[-{Stealth[length=4pt]}, line width=0.5pt] (settings) -- (\n);
+}
+
+\node[font=\tiny\ttfamily, below=0.1cm of openai] {openai\_model, api\_key};
+\node[font=\tiny\ttfamily, below=0.1cm of agentz] {chunk\_size, overlap};
+\node[font=\tiny\ttfamily, below=0.1cm of agentb] {questions\_per\_chunk};
+\node[font=\tiny\ttfamily, below=0.1cm of agentc] {thresholds, max\_retries};
+\node[font=\tiny\ttfamily, below=0.1cm of embed] {provider, model};
+\node[font=\tiny\ttfamily, below=0.1cm of dedup] {similarity: 0.85};
+
+\end{tikzpicture}
+\caption{Estructura del sistema de configuraci\'on basado en Pydantic BaseSettings.}
+\label{fig:config}
+\end{figure}
+
+\subsection{Perfiles de Configuraci\'on}
+
+\begin{table}[H]
+\centering
+\caption{Perfiles de configuraci\'on recomendados}
+\label{tab:profiles}
+\scriptsize
+\begin{tabularx}{\columnwidth}{lXXX}
+\toprule
+\textbf{Par\'ametro} & \textbf{R\'apido} & \textbf{Balanceado} & \textbf{Estricto} \\
+\midrule
+faith. threshold & 0.80 & 0.85 & 0.90 \\
+relev. threshold & 0.80 & 0.85 & 0.90 \\
+questions/chunk & 2 & 5 & 3 \\
+max retries & 1 & 3 & 3 \\
+similarity dedup & 0.80 & 0.85 & 0.90 \\
+skip Agent C & S\'i & No & No \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================================
+\section{Procesamiento Multi-Chunk}
+% ============================================================================
+
+Una innovaci\'on clave del sistema es la \textbf{recuperaci\'on multi-chunk} para
+generar preguntas que requieren contexto de m\'ultiples art\'iculos o secciones.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  chunk/.style={
+    rectangle, rounded corners=3pt, draw, line width=0.6pt,
+    minimum width=1.2cm, minimum height=0.9cm,
+    font=\tiny, align=center
+  },
+  enriched/.style={
+    rectangle, rounded corners=5pt, draw=agentB, line width=1pt,
+    minimum width=3.4cm, minimum height=1.4cm,
+    font=\scriptsize, align=center, fill=agentB!5
+  }
+]
+
+% Chunks
+\node[chunk, fill=agentZ!15] (c1) at (0,0) {Chunk 1\\Art. 5};
+\node[chunk, fill=agentZ!15] (c2) at (1.4,0) {Chunk 2\\Art. 6};
+\node[chunk, fill=agentZ!30] (c3) at (2.8,0) {Chunk 3\\Art. 7\\(primario)};
+\node[chunk, fill=agentZ!15] (c4) at (4.2,0) {Chunk 4\\Art. 8};
+\node[chunk, fill=agentZ!15] (c5) at (5.6,0) {Chunk 5\\Art. 9};
+
+% FAISS
+\node[rectangle, rounded corners=3pt, draw=pipecolor, fill=pipecolor!10,
+      font=\tiny\bfseries, minimum width=2cm] (faiss) at (2.8,-1.5) {FAISS Index};
+
+% Enriched
+\node[enriched] (ec) at (2.8,-3.3) {\textbf{EnrichedContext}\\[2pt]
+  Primario: Art. 7\\Relacionados: Art. 6, 8\\Total tokens: 1847};
+
+% Arrows
+\foreach \c in {c1,c2,c3,c4,c5} {
+  \draw[-{Stealth[length=3pt]}, line width=0.4pt, color=pipecolor] (\c) -- (faiss);
+}
+\draw[-{Stealth[length=4pt]}, line width=0.8pt, color=agentB] (faiss) -- (ec);
+
+% Similarity annotations
+\draw[{Stealth[length=3pt]}-, line width=0.5pt, color=agentB!60]
+  (c2.south east) -- ++(0.2,-0.3) node[right, font=\tiny] {0.91};
+\draw[{Stealth[length=3pt]}-, line width=0.5pt, color=agentB!60]
+  (c4.south west) -- ++(-0.2,-0.3) node[left, font=\tiny] {0.88};
+
+\end{tikzpicture}
+\caption{Sistema de recuperaci\'on multi-chunk con FAISS. El chunk primario se
+enriquece con los $k$ chunks m\'as similares sem\'anticamente.}
+\label{fig:multichunk}
+\end{figure}
+
+El \texttt{ChunkRetrieverService} gestiona este proceso:
+
+\begin{enumerate}[nosep,leftmargin=*]
+  \item Filtra chunks no sustantivos ($ratio < 0.3$)
+  \item Genera embeddings con el modelo configurado
+  \item Indexa en FAISS para b\'usqueda eficiente
+  \item Para cada chunk primario, recupera m\'aximo 3 relacionados
+  \item Eval\'ua suficiencia del contexto combinado
+  \item Retorna \texttt{EnrichedContext} al Agente~B
+\end{enumerate}
+
+% ============================================================================
+\section{Stack Tecnol\'ogico}
+% ============================================================================
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  layer/.style={
+    rectangle, rounded corners=4pt, minimum width=7.2cm, minimum height=0.9cm,
+    text width=7cm, align=center, font=\scriptsize, draw, line width=0.6pt
+  }
+]
+
+\node[layer, fill=agentE!10] (l1) at (0,0)
+  {\textbf{Presentaci\'on}: ReportLab (PDF), Matplotlib};
+\node[layer, fill=agentB!10] (l2) at (0,-1.1)
+  {\textbf{Agentes}: LangGraph, LangChain, ReAct, StateGraph};
+\node[layer, fill=agentC!10] (l3) at (0,-2.2)
+  {\textbf{Calidad}: Ragas, Evaluaci\'on Especializada};
+\node[layer, fill=agentZ!10] (l4) at (0,-3.3)
+  {\textbf{LLM y Embeddings}: OpenAI GPT-5-mini, FAISS, sentence-transformers};
+\node[layer, fill=agentD!10] (l5) at (0,-4.4)
+  {\textbf{Datos}: SQLite, Pydantic V2, pypdf, pdfplumber};
+\node[layer, fill=pipecolor!10] (l6) at (0,-5.5)
+  {\textbf{Infraestructura}: Python 3.11+, python-dotenv, tenacity, tqdm};
+
+\end{tikzpicture}
+\caption{Stack tecnol\'ogico organizado por capas.}
+\label{fig:stack}
+\end{figure}
+
+% ============================================================================
+\section{Flujos de Trabajo Recomendados}
+% ============================================================================
+
+\subsection{Desarrollo / Prueba R\'apida}
+
+\begin{tcolorbox}[colback=bglight, colframe=bordercolor, boxrule=0.5pt, arc=2pt]
+{\small\ttfamily
+\# Paso 1: Fragmentar 1 documento, max 5 chunks\\
+python run\_rewriter.py --limit 1 --limit-chunks 5\\[4pt]
+\# Paso 2: Generar sin validacion\\
+python run\_bcde\_pipeline.py --questions-per-chunk 2 --skip-agent-c
+}
+\end{tcolorbox}
+
+\subsection{Producci\'on}
+
+\begin{tcolorbox}[colback=bglight, colframe=bordercolor, boxrule=0.5pt, arc=2pt]
+{\small\ttfamily
+\# Pipeline completo con validacion\\
+python main.py --questions 5 --topic 101 --academy 1
+}
+\end{tcolorbox}
+
+\subsection{Iteraci\'on sobre Documento Espec\'ifico}
+
+\begin{tcolorbox}[colback=bglight, colframe=bordercolor, boxrule=0.5pt, arc=2pt]
+{\small\ttfamily
+\# Usar chunks cacheados, 4 workers paralelos\\
+python run\_bcde\_pipeline.py --doc "Tema-18" \textbackslash\\
+\hspace*{1em}--questions-per-chunk 5 --workers 4
+}
+\end{tcolorbox}
+
+% ============================================================================
+\section{M\'etricas y Trazabilidad}
+% ============================================================================
+
+El sistema mantiene trazabilidad completa en cada pregunta generada:
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Origen}: documento fuente, p\'agina, chunk ID
+  \item \textbf{Calidad}: scores de faithfulness y relevancy
+  \item \textbf{Generaci\'on}: modelo LLM, prompt usado, m\'etodo
+  \item \textbf{Deduplicaci\'on}: flag de duplicado, ID del original
+  \item \textbf{T\'ecnicas}: array JSON de t\'ecnicas de distracci\'on usadas
+  \item \textbf{Reintentos}: contador de intentos, flag de revisi\'on manual
+\end{itemize}
+
+Esta trazabilidad permite:
+\begin{enumerate}[nosep,leftmargin=*]
+  \item Auditar la calidad de las preguntas generadas
+  \item Identificar chunks que producen preguntas de baja calidad
+  \item Optimizar prompts bas\'andose en m\'etricas hist\'oricas
+  \item Migrar a Supabase manteniendo toda la metadata
+\end{enumerate}
+
+% ============================================================================
+\section{Conclusiones}
+% ============================================================================
+
+El sistema multi-agente presentado ofrece una soluci\'on completa y extensible
+para la generaci\'on autom\'atica de preguntas tipo test. La separaci\'on en cinco
+agentes especializados permite:
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Modularidad}: Cada agente puede evolucionar independientemente
+  \item \textbf{Calidad}: El sistema dual de evaluaci\'on con retry autom\'atico
+        garantiza est\'andares m\'inimos
+  \item \textbf{Escalabilidad}: El procesamiento paralelo y la cach\'e de chunks
+        optimizan el throughput
+  \item \textbf{Trazabilidad}: Cada pregunta conserva su historial completo
+  \item \textbf{Flexibilidad}: Cuatro puntos de entrada para diferentes
+        casos de uso
+\end{itemize}
+
+El dise\~no del esquema de base de datos compatible con Supabase facilita la
+futura migraci\'on a infraestructura cloud sin p\'erdida de datos ni metadata.
+
+% ============================================================================
+\appendix
+\section{Estructura de Archivos}
+% ============================================================================
+
+\begin{tcolorbox}[colback=bglight, colframe=bordercolor, boxrule=0.5pt, arc=2pt]
+{\scriptsize\ttfamily
+multiagent\_question\_generation/\\
+\hspace*{0.5em}agents/\\
+\hspace*{1.5em}agent\_z\_rewriter.py ~~~~~~(2584 LOC)\\
+\hspace*{1.5em}agent\_b\_generator.py ~~~~~(2143 LOC)\\
+\hspace*{1.5em}agent\_c\_evaluator.py ~~~~~(1751 LOC)\\
+\hspace*{1.5em}agent\_d\_persistence.py ~~~(344 LOC)\\
+\hspace*{1.5em}agent\_e\_pdf\_generator.py ~(1159 LOC)\\
+\hspace*{0.5em}config/\\
+\hspace*{1.5em}settings.py\\
+\hspace*{1.5em}config\_models.py\\
+\hspace*{1.5em}thresholds.py\\
+\hspace*{1.5em}prompts/ ~~~~(30+ archivos)\\
+\hspace*{0.5em}database/\\
+\hspace*{1.5em}questions.db\\
+\hspace*{1.5em}init\_schema\_v2.sql\\
+\hspace*{1.5em}repository.py\\
+\hspace*{0.5em}graph/\\
+\hspace*{1.5em}state.py\\
+\hspace*{0.5em}models/\\
+\hspace*{1.5em}question.py, question\_v2.py\\
+\hspace*{1.5em}question\_option.py\\
+\hspace*{1.5em}chunk.py, quality\_metrics.py\\
+\hspace*{0.5em}services/\\
+\hspace*{1.5em}chunk\_retriever.py\\
+\hspace*{0.5em}utils/\\
+\hspace*{1.5em}llm\_factory.py, loaders.py\\
+\hspace*{1.5em}embeddings.py\\
+\hspace*{1.5em}metadata\_filter.py\\
+\hspace*{1.5em}prompt\_loader.py\\
+\hspace*{1.5em}rewrite\_pattern\_registry.py\\
+\hspace*{0.5em}main.py\\
+\hspace*{0.5em}run\_bcde\_pipeline.py\\
+\hspace*{0.5em}run\_rewriter.py\\
+\hspace*{0.5em}extract\_and\_generate\_pdf.py
+}
+\end{tcolorbox}
+
+\end{document}

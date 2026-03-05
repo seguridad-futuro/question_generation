@@ -1,0 +1,44 @@
+[
+  {
+    "chunk_id": "Tema-6-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_0a253d66",
+    "chunk_index": 0,
+    "index": 0,
+    "doc_id": "Tema-6-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025",
+    "total_chunks": 3,
+    "page": null,
+    "token_count": 16526,
+    "coherent": true,
+    "chunk_type": "partial_content",
+    "coherence_score": 0.0,
+    "law_reference": null,
+    "content_preview": "Organización de las Naciones Unidas (ONU, UN)\n\nDefinición: La Organización de las Naciones Unidas es..."
+  },
+  {
+    "chunk_id": "Tema-6-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_25e608fa",
+    "chunk_index": 1,
+    "index": 1,
+    "doc_id": "Tema-6-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025",
+    "total_chunks": 3,
+    "page": null,
+    "token_count": 481,
+    "coherent": true,
+    "chunk_type": "partial_content",
+    "coherence_score": 0.0,
+    "law_reference": "Carta de las Naciones Unidas",
+    "content_preview": "El Artículo 51 de la Carta de las Naciones Unidas tuvo como resultado, en Washington, el 4 de abril ..."
+  },
+  {
+    "chunk_id": "Tema-6-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_218ff308",
+    "chunk_index": 2,
+    "index": 2,
+    "doc_id": "Tema-6-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025",
+    "total_chunks": 3,
+    "page": null,
+    "token_count": 6867,
+    "coherent": true,
+    "chunk_type": "partial_content",
+    "coherence_score": 0.0,
+    "law_reference": "Carta de las Naciones Unidas",
+    "content_preview": "artículo 51 de la Carta de las Naciones Unidas; la fundación de la Organización del Tratado del Atlá..."
+  }
+]

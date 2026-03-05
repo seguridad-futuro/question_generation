@@ -1,0 +1,307 @@
+{
+  "document_name": "Tema-18-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+  "document_path": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-18-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+  "cached_at": "2026-01-29T21:26:56.225620",
+  "decisions": {
+    "63104dd0188eaa00f41efba327cd8cd482ba9059": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK actual no contiene artículos legales ni contenido suficiente para plantear una pregunta de calidad (solo muestra encabezados y referencias). Para poder evaluar o formular preguntas útiles es necesario incorporar el contenido del CHUNK SIGUIENTE que parece contener el Tema 18 y parte de la topografía, que podría incluir artículos o ejemplos prácticos.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "5153eb476b6b23209ece9313f7a575f2fa50ee96": {
+      "action": "keep",
+      "reasoning": "No hay artículos legales presentes en el CHUNK. El contenido es coherente y cubre conceptos de Topografía (taquimetría, ejes, polos, meridianos), lo que es suficiente para generar preguntas de calidad relacionadas con esa temática. No se requieren merges para ampliar contexto ni reescritura por ruido.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "ec9f522aa7d4d0f1ddb409bcde4e2b09f703e028": {
+      "action": "merge_next",
+      "reasoning": "El fragmento de Meridianos está incompleto y el CHUNK siguiente continúa con contenido relacionado (Paralelos, coordenadas, etc.), por lo que para una pregunta de calidad se requiere el contexto completo del tema.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "cf1c079fe76e40956148284f2db3f6e589790268": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK actual no contiene un artículo legal completo y está incompleto (empieza a mitad de una idea) y depende del CHUNK siguiente para completar conceptos de latitud/longitud. No hay artículo legal, y el contexto actual por sí solo no permite construir preguntas de calidad.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "a991311e7af4c979a4dbe68702bc3e42e40437cc": {
+      "action": "merge_next",
+      "reasoning": "El fragmento termina de forma abrupta en la definición de Meridianos: 'Meridianos: Son círculos máximos perpendiculares al Ecuador, que pasan por los Polos, y dividen la Tierra' y parece continuar en la siguiente página. Para que exista un artículo completo y coherente, se debe unir con el chunk siguiente que contiene la continuación de la explicación.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido/etiquetado de página y encabezados intermedios, necesidad de cohesión entre fragmentos para formar un artículo completo",
+      "rewrite_type": "both"
+    },
+    "5a9a7d2ab2caac3e9eeaa7a61c3cc8b2ffd0f054": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK ACTUAL empieza en mitad de una oración: \"también como Norte verdadero). En cambio el Polo Norte Magnético...\" lo que indica que se trata de una continuación del CHUNK ANTERIOR. Para asegurar contexto completo y coherence, debe combinarse con el CHUNK ANTERIOR que contiene la introducción y definición de polos, meridianos y conceptos relacionados.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "6fb47d4f96dae1a71b6f12afde0670735ecb7a69": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK actual contiene contenido educativo de topografía y geografía (puntos cardinales, latitud/longitud, acimut) con varias frases inconclusas y ruido (párrafos repetidos, fragmentos). No hay artículos legales, por lo que no aplica la regla de completar un artículo, pero hay oraciones incompletas dentro de varios apartados (p.4–p.6) que se benefician de la continuación (p.8–p.9) para completar ideas y mejorar cohesión. En conjunto, el contexto es suficiente para plantear preguntas de calidad, pero requiere fusionarse con el siguiente chunk para completar ideas y mejorar cohesión.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Hay ruido y fragmentación en el texto; se recomienda limpieza y mejor cohesión entre secciones.",
+      "rewrite_type": "cohesion"
+    },
+    "e9367407dd87a626a6c379f0c99562f97ecbc0b8": {
+      "action": "keep",
+      "reasoning": "El CHUNK actual contiene contenido educativo de topografía y orientación (definiciones, conceptos como paralelos, meridianos, latitud/longitud, acimut, rumbo, etc.) y ejercicios prácticos. No hay artículos legales en el texto, por lo que no aplica la necesidad de completar un artículo. Aunque hay ruido menor y duplicaciones de texto, el contexto es suficiente para generar preguntas de calidad sin necesidad de fusionar con chunks vecinales, y no requiere reescritura para cohesión básica.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "0814722b43e30beaa7b36e305535c4d2ec3b8716": {
+      "action": "keep",
+      "reasoning": "El CHUNK actual contiene definiciones relevantes (acimut, rumbo, declinación magnética) y varios ejercicios prácticos sobre orientación, acimut inverso y rumbos, lo que proporciona suficiente contexto para plantear preguntas de calidad sin depender de metadatos o textos claramente desconectados. No hay artículos legales en este fragmento. No se requiere reescritura, y no es necesario fusionar con chunks adyacentes para obtener contexto adicional; la información presente parece coherente y usable por sí misma.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "9bc21eaa5b7e632f6e054217258f4660401f4a69": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL no contiene artículos legales, pero sí ofrece contenido didáctico (conceptos de unidades de medida, sistema sexagesimal, radian, y ejercicios) que permiten formular preguntas de calidad sobre conversiones y sistemas angulares. No obstante, el texto está algo desorganizado y con ruido de formato, lo que podría dificultar preguntas muy precisas sin limpiarlo.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Ruido y formato disperso (cabeceras de página, marcadores ‘--- Página X ---’, referencias a vídeos) que dificultan cohesión; se recomienda limpieza para mejorar cohesión y claridad.",
+      "rewrite_type": "clean"
+    },
+    "b296cdd680db12b049be8839b4a99d2849deecab": {
+      "action": "keep",
+      "reasoning": "El CHUNK current contiene explicaciones y ejercicios sobre unidades angulares (sexagesimal, centesimal, milésimal y radian) sin incluir artículos legales. El contenido es coherente y suficientemente relevante para generar preguntas de calidad sobre conversiones entre sistemas de medida angular.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "41974a5872aec9273c88ebdd535e0cd7275cc624": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: este caso",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "4dce885158cd2d376be397b5e78b9e77e00085ac": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: este caso",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "2d96212fe7910914877c1f003bd1c72ff51e4135": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: este caso",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "905cdc92b91355352c6290ef78e6a07a0ad7bb7f": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: este caso",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "27a0335677a9a05e4655fd0ab4c96aea38c54360": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene contenido educativo coherente sobre topografía, coordenadas geográficas, rumbos, declinación magnética y escalas, suficiente para generar preguntas de calidad. No se observan artículos legales, y el texto no es basura ni metadatos, aunque presenta formato y ruido menor que podría limpiarse en revisión. No hay necesidad de merge_next/merge_prev ni de reescritura para cohesión, ya que el contexto es ya usable tal como está.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "304c180eb244e5b59aae8f5a8b6e1e6cd8f5032f": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene varias preguntas sobre escalas y geodesia, pero la última pregunta queda incompleta y sus opciones pertenecen al CHUNK SIGUIENTE (véase CHUNK SIGUIENTE). Para que el contexto sea de calidad, es necesario incorporar el siguiente chunk que contiene la continuación y las opciones correspondientes.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "b2de81882ca0ca0b516c56f77c3c93903cebbba7": {
+      "action": "keep",
+      "reasoning": "El chunk pertenece a un temario de ingreso con numerosas preguntas y explicaciones sobre escalas, coordenadas y unidades. No contiene artículos legales, y no hay secciones claramente incompletas de un artículo. Aunque hay ruido y duplicados menores, el contexto es suficiente para generar preguntas de calidad sobre el tema.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "29a1a2855479ba6598403f04057c60ed9a008166": {
+      "action": "merge_next",
+      "reasoning": "Solo contiene marcador de página",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "ace70130f1e12613eea41c9af3eee03fdac92a30": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: esta representación",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "e48e9ff8a1c32dafd07f2f38527ca4debad2f634": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: esta representación",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "9f49ef8d6fab2a6859d80b3fe92a6cd8b5d8e2f3": {
+      "action": "keep",
+      "reasoning": "El chunk contiene contenido educativo sustancial (temas de Topografía, conceptos de mapas, coordenadas, escalas) sin artículos legales. Aunque hay ruido/formato, es suficiente para generar preguntas de calidad sobre el tema. No hay metadatos claramente basura y no se observa necesidad de reescritura para cohesión básica.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "1c07b040f51f74fb60f6a072027c8e1282fecea7": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK ACTUAL parece ser continuación de la explicación del CHUNK ANTERIOR (empezando a mitad de una frase). Debe combinarse con el anterior para completar el contexto.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "c71c536a597fffb5e36754a8f84090d6ab450bd8": {
+      "action": "keep",
+      "reasoning": "El CHUNK actual no contiene artículos legales; es contenido de topografía y geografía, con conceptos y ejercicios que permiten generar preguntas de calidad sobre el tema (orientación, coordenadas, ángulos, escalar, pendientes, etc.).</br>No hay artículos incompletos para unir; el CHUNK provee suficientes conceptos y ejercicios para plantear buenas preguntas.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "6d9b5c749b4f7cbb9e8b256f4574c73004b1445d": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: esta representación",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "6c14577b2847b941de0e1e45efa5f9f849d683b1": {
+      "action": "keep",
+      "reasoning": "No se observan artículos legales; el chunk contiene temario de topografía y ejercicios variados, con suficiente contenido para formular preguntas de calidad. Aunque hay ruido y formatos repetitivos, el contexto es coherente para generar preguntas relevantes.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "eff7a1ce44baea4c0c3a9ecc451d4bf83732781f": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene definiciones y ejercicios de topografía, pero continúa en el CHUNK SIGUIENTE (glosario y términos adicionales). No hay artículos legales y el contenido parece fragmentado; para una pregunta de calidad se beneficia de ampliar el contexto con el siguiente chunk.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "Ruido/formato y cohesión entre fragmentos; requiere reescritura para mejora de cohesión y claridad.",
+      "rewrite_type": "both"
+    },
+    "6fcdd38199ac3aabe4bde1f4bff2606a08c9bd46": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene definiciones y conceptos de topografía (tipos de terreno, accidentes, elementos geográficos, coordenadas, etc.) sin artículos legales. Aunque no hay “artículos” formales, el contenido está cohesionado y suficiente para plantear preguntas de calidad sobre los conceptos descritos en el tema 18.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "302ff2aea70f3e6eae263f2885ddbb6eb8b10617": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK actual contiene instrucciones y estructura del test, pero no incluye las definiciones o términos del Tema 18 (las definiciones de terreno y accidentes ya están en el CHUNK anterior). Para formular preguntas de calidad sobre el contenido del tema, se necesita el contexto de las definiciones previas.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "040806f3c7dc07914d3541e44a6bf4fd78305eff": {
+      "action": "keep",
+      "reasoning": "El CHUNK actual no contiene artículos legales formales; es material educativo sobre Topografía con definiciones, conceptos y ejercicios. No hay artículos completos de normativa, por lo que no aplica unir con anterior o siguiente. Aun así, el chunk ofrece suficiente contenido conceptual y ejercicios para generar preguntas de calidad sobre temas de topografía, orientaciones, escalas y pendientes. No se observan ruídos relevantes que requieran limpieza, salvo la limpieza estética de formato (espacios/line breaks) que no impide el uso para preguntas.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "batch_name": "bcde_20260130_171754",
+    "topic": 1,
+    "academy": 1,
+    "generated_at": "2026-01-30T17:22:13.726391",
+    "total_questions": 1,
+    "inserted": 1,
+    "duplicates": 0
+  },
+  "questions": [
+    {
+      "question": "¿Qué propósito se establece en la Carta de las Naciones Unidas para mantener la paz y la seguridad internacionales?",
+      "answer1": "Mantener la paz y la seguridad internacionales mediante medidas colectivas eficaces",
+      "answer2": "Servir de centro para debates sin acciones concretas",
+      "answer3": "Proteger derechos humanos solo en países elegidos",
+      "answer4": "Fomentar la cooperación económica únicamente entre naciones",
+      "correct": 1,
+      "tip": "La opción correcta corresponde al objetivo principal de mantener la paz y la seguridad internacionales mediante medidas colectivas eficaces, conforme al Artículo 1 de la Carta de las Naciones Unidas. Las demás opciones describen funciones o alcances que no figuran como propósito principal en el texto.",
+      "article": "Artículo 1\nLos Propósitos de las Naciones Unidas son:\n1. Mantener la paz y la seguridad internacionales, y con tal fin: tomar medidas colectivas\neficaces para prevenir y eliminar amenazas a la paz, y para suprimir actos de agresión u\notros quebrantamientos de la paz; y lograr por medios pacíficos, y de conformidad con los\nprincipios de la justicia y del derecho internacional, el ajuste o arreglo de controversias o\nsituaciones internacionales susceptibles de conducir a quebrantamientos de la paz;\n\n--- Página 8 ---\n\n2. Fomentar entre las naciones relaciones de amistad basadas en el respeto al principio\nde la igualdad de derechos y al de la libre determinación de los pueblos, y tomar otros\nmedidas adecuadas para fortalecer la paz universal;\n3. Realizar la cooperación internacional en la solución de problemas internacionales de\ncarácter económico, social, cultural o humanitario, y en el desarrollo y estímulo del\nrespeto a los derechos humanos y a las libertades fundamentales de todos, sin hacer\ndistinción por motivos de raza, sexo, idioma o religión; y\n4. Servir de centro que armonice los esfuerzos de las naciones por alcanzar estos\npropósitos comunes.",
+      "source_chunk_id": "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_cf7f9862",
+      "source_chunk_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_cf7f9862"
+      ],
+      "source_chunk_indices": [
+        1
+      ],
+      "source_doc_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025"
+      ],
+      "context_strategy": "single",
+      "source_document": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+      "source_chunk": "Ley referida: Carta de las Naciones Unidas\n\nArtículo 1\nLos Propósitos de las Naciones Unidas son:\n1. Mantener la paz y la seguridad internacionales, y con tal fin: tomar medidas colectivas\neficaces para prevenir y eliminar amenazas a la paz, y para suprimir actos de agresión u\notros quebrantamientos de la paz; y lograr por medios pacíficos, y de conformidad con los\nprincipios de la justicia y del derecho internacional, el ajuste o arreglo de controversias o\nsituaciones internacionales susceptibles de conducir a quebrantamientos de la paz;\n\n--- Página 8 ---\n\n3\n2. Fomentar entre las naciones relaciones de amistad basadas en el respeto al principio\nde la igualdad de derechos y al de la libre determinación de los pueblos, y tomar otros\nmedidas adecuadas para fortalecer la paz universal;\n3. Realizar la cooperación internacional en la solución de problemas internacionales de\ncarácter económico, social, cultural o humanitario, y en el desarrollo y estímulo del\nrespeto a los derechos humanos y a las libertades fundamentales de todos, sin hacer\ndistinción por motivos de raza, sexo, idioma o religión; y\n4. Servir de centro que armonice los esfuerzos de las naciones por alcanzar estos\npropósitos comunes.",
+      "generation_method": "single_context",
+      "generation_time": 0.12,
+      "faithfulness_score": 0.7,
+      "relevancy_score": 0.7,
+      "needs_manual_review": true
+    }
+  ]
+}

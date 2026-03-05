@@ -1,0 +1,30 @@
+[
+  {
+    "chunk_id": "Tema-18-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_6fe2d187",
+    "chunk_index": 0,
+    "index": 0,
+    "doc_id": "Tema-18-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025",
+    "total_chunks": 2,
+    "page": null,
+    "token_count": 1940,
+    "coherent": true,
+    "chunk_type": "partial_content",
+    "coherence_score": 0.0,
+    "law_reference": null,
+    "content_preview": "TEMA 18.- GUARDIA CIVIL\n\nTopografía y coordenadas: la Topografía se ocupa de conocer el terreno y su..."
+  },
+  {
+    "chunk_id": "Tema-18-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_9c56cdba",
+    "chunk_index": 1,
+    "index": 1,
+    "doc_id": "Tema-18-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025",
+    "total_chunks": 2,
+    "page": null,
+    "token_count": 839,
+    "coherent": true,
+    "chunk_type": "partial_content",
+    "coherence_score": 0.0,
+    "law_reference": null,
+    "content_preview": "Clases del terreno:\n\nTerreno llano: aquel con pendientes suaves, sin cambios bruscos de una a otra. ..."
+  }
+]

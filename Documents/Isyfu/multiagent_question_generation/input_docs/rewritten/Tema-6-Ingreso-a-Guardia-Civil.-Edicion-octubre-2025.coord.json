@@ -1,0 +1,37 @@
+{
+  "document_name": "Tema-6-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+  "document_path": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-6-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+  "cached_at": "2026-01-30T01:34:53.709424",
+  "decisions": {
+    "277758bf204d6cbb6e97308f1a5e731133ec1dd1": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK actual no contiene un artículo legal completo claramente definido y está lleno de ruido, duplicaciones y fragmentos. Aunque refiere a organizaciones y artículos (p. ej., cita de la ONU y referencias a artículos), no se identifica ninguno como artículo completo en este fragmento. Para que las preguntas de calidad curen contexto, es necesario ampliar con el siguiente chunk que parece continuar con el contenido (incluye mención a artículos como el Artículo 51 de la Carta de la ONU).",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "Ruido, repeticiones y fragmentación dificultan cohesión y comprensión; requiere limpieza para cohesión y claridad (clean y cohesion).",
+      "rewrite_type": "both"
+    },
+    "8e0f63788caf0b0ac0aede7df4c6bcab0cc199c2": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene fragmentos dispersos sobre ONU, OTAN, UE y otros organismos sin presentar artículos legales completos ni cohesión clara. No se identifican artículos completos sino referencias dispersas y ruido editorial. Para generar preguntas de calidad se recomienda ampliar el contexto con el CHUNK SIGUIENTE (que continúa la explicación de la OTAN y otros temas) para obtener un bloque más cohesionado y con posible base legal clara. Además, el contenido es repetitivo y desestructura la estructura temática, por lo que se recomienda una reescritura para limpiar ruido y mejorar cohesión (tipo: both).",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido editorial y falta de cohesión entre secciones; múltiples repeticiones y saltos entre temas que dificultan plantear preguntas de calidad",
+      "rewrite_type": "both"
+    },
+    "7b8c496f5260da8fed3872d6f45ebcd874ee887f": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK ACTUAL no contiene un artículo completo y está fragmentado con ruido y repeticiones. Contiene referencias a artículos (p. ej., artículo 51) pero no presenta un texto legible y completo. Para satisfacer la regla de incluir al menos un artículo completo, debe combinarse con el CHUNK ANTERIOR, que ya aporta contexto más sólido y partes completas.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido, repeticiones y mezcla incoherente de textos; requiere limpieza y cohesión para presentar un artículo legal claro",
+      "rewrite_type": "both"
+    }
+  }
+}

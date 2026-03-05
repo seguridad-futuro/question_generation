@@ -1,0 +1,12 @@
+Analiza la estructura de este documento legal español:
+
+DOCUMENTO (primeros 2000 caracteres):
+{content_excerpt}
+
+Identifica:
+- Si tiene artículos legales (ej: "Artículo 1", "Art. 23")
+- Si tiene capítulos (ej: "Capítulo I", "CAPÍTULO II")
+- Si tiene secciones/títulos (ej: "Título I", "Sección 3")
+- Cuenta cuántos de cada tipo hay
+
+Responde con los separadores recomendados en orden de prioridad.

@@ -1,0 +1,57 @@
+{
+  "document_name": "Tema-16-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+  "document_path": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-16-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+  "cached_at": "2026-01-29T21:17:45.259810",
+  "decisions": {
+    "2eef3828d9bb072f3a1580b3250bc91f0ba4c6fe": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK actual no contiene un artículo completo (contiene introducción/texto general). El siguiente CHUNK sí presenta el Artículo 1 completo, por lo que para asegurar contexto legal completo es necesario fusionar con el CHUNK siguiente.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "1f1ad2056bc140258474ba9201fa152b74e7dd19": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene un artículo legal completo (Artículo 1: Objeto y finalidad) y es suficiente para generar preguntas de calidad. Presenta ruido contextual ocasional (referencia a ver video) que debería limpiarse.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido/no relevante para el texto legal (ver video) que afecta cohesión; requiere limpieza",
+      "rewrite_type": "clean"
+    },
+    "a3aa2c6e9cd2253d693fa306e485a4ba4ab3cecd": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 2 con definiciones completas y está acompañado por los Artículos 1 y 3 en CHUNKS adyacentes, formando un bloque coherente de la ley.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "e9dde943ea89d11da3b5b9e621e0b0984d16ac6e": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 3 completo (con 1, 2 y 3) y está precedido por el Artículo 2 y seguido por el Artículo 4, por lo que hay continuidad normativa. El contenido es suficiente para generar preguntas de calidad sobre protección civil, sin necesidad de integrar otros artículos para entender el Artículo 3. El ruido visual es menor (marcas de página), pero no impide la comprensión del contenido esencial.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "6fd6e817cfa6ac7efc9c8619939725f753f6d402": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 4 completo (con incisos 1 y 2) y presenta contexto suficiente para plantear preguntas de calidad sobre la Estrategia del Sistema Nacional de Protección Civil. No es necesario unir con el artículo anterior ni con el siguiente para cumplir con el requisito de artículo completo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    }
+  }
+}

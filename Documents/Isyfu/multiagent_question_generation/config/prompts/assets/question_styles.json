@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Estilos de pregunta para generación variada. Se selecciona uno aleatoriamente por pregunta.",
+    "total_styles": 8
+  },
+  "styles": [
+    {
+      "id": 1,
+      "name": "correcta_directa",
+      "type": "positive",
+      "template": "Señale la opción CORRECTA",
+      "instruction": "Genera una pregunta donde UNA opción sea correcta y las otras 3 sean falsas.",
+      "correct_option_is": "verdadera",
+      "example": "Señale la opción CORRECTA sobre los órganos de las Naciones Unidas."
+    },
+    {
+      "id": 2,
+      "name": "incorrecta_proposicion",
+      "type": "negative",
+      "template": "Señale la proposición INCORRECTA",
+      "instruction": "Genera una pregunta donde UNA opción sea FALSA (la correcta a marcar) y las otras 3 sean verdaderas según el texto.",
+      "correct_option_is": "falsa",
+      "example": "Señale la proposición INCORRECTA sobre el derecho a la igualdad."
+    },
+    {
+      "id": 3,
+      "name": "cual_no_es",
+      "type": "negative",
+      "template": "De los siguientes, ¿cuál NO es {concepto}?",
+      "instruction": "Genera una pregunta donde UNA opción NO pertenece al grupo y las otras 3 SÍ pertenecen.",
+      "correct_option_is": "la que no pertenece",
+      "example": "De los siguientes, ¿cuál NO es uno de los Consejos de las Naciones Unidas?"
+    },
+    {
+      "id": 4,
+      "name": "cual_de_los_siguientes",
+      "type": "positive",
+      "template": "¿Cuál de los siguientes {concepto}?",
+      "instruction": "Genera una pregunta donde UNA opción cumple la condición y las otras 3 no la cumplen.",
+      "correct_option_is": "verdadera",
+      "example": "¿Cuál de los siguientes es un órgano principal de la ONU?"
+    },
+    {
+      "id": 5,
+      "name": "encabezado_correcta",
+      "type": "positive",
+      "template": "{Tema del artículo}. Señale la opción CORRECTA",
+      "instruction": "Genera una pregunta con un ENCABEZADO temático seguido de 'Señale la opción CORRECTA'. El encabezado debe ser breve (2-4 palabras).",
+      "correct_option_is": "verdadera",
+      "example": "Motivación de las sentencias. Señale la opción CORRECTA."
+    },
+    {
+      "id": 6,
+      "name": "encabezado_incorrecta",
+      "type": "negative",
+      "template": "{Tema del artículo}. Señale la proposición INCORRECTA",
+      "instruction": "Genera una pregunta con un ENCABEZADO temático seguido de 'Señale la proposición INCORRECTA'. El encabezado debe ser breve (2-4 palabras).",
+      "correct_option_is": "falsa",
+      "example": "Privilegios e inmunidades. Señale la proposición INCORRECTA."
+    },
+    {
+      "id": 7,
+      "name": "segun_articulo",
+      "type": "positive",
+      "template": "Según el Artículo {N}, ¿{pregunta directa}?",
+      "instruction": "Genera una pregunta que EMPIECE con 'Según el Artículo X' seguido de una pregunta directa (¿quién?, ¿qué?, ¿cuándo?, ¿cómo?).",
+      "correct_option_is": "verdadera",
+      "example": "Según el Artículo 33, ¿qué pueden someter las Altas Partes Contratantes al Tribunal?"
+    },
+    {
+      "id": 8,
+      "name": "pregunta_directa",
+      "type": "positive",
+      "template": "¿{Qué/Quién/Cuándo/Cómo} {acción/concepto}?",
+      "instruction": "Genera una pregunta directa simple sin fórmulas como 'Señale'. Debe empezar con un pronombre interrogativo.",
+      "correct_option_is": "verdadera",
+      "example": "¿Quién tiene derecho a presentar demandas individuales ante el Tribunal?"
+    }
+  ],
+  "distribution_weights": {
+    "comment": "Pesos para controlar frecuencia de cada estilo (suma = 100)",
+    "1_correcta_directa": 15,
+    "2_incorrecta_proposicion": 15,
+    "3_cual_no_es": 15,
+    "4_cual_de_los_siguientes": 10,
+    "5_encabezado_correcta": 15,
+    "6_encabezado_incorrecta": 10,
+    "7_segun_articulo": 10,
+    "8_pregunta_directa": 10
+  },
+  "forbidden_phrases": [
+    "respecto a las",
+    "respecto al",
+    "descritas en el",
+    "descrito en el",
+    "según el texto del",
+    "de acuerdo con lo establecido en",
+    "en relación con lo dispuesto"
+  ],
+  "option_rules": {
+    "max_words": 20,
+    "ideal_words": "8-15",
+    "style": "telegráfico, sin artículos innecesarios al inicio",
+    "balance": "todas las opciones deben tener longitud similar (±3 palabras)"
+  }
+}

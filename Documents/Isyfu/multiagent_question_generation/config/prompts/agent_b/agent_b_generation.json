@@ -1,0 +1,170 @@
+{
+  "generation_instructions": {
+    "structure": {
+      "question_format": "Pregunta clara y directa que evalúe comprensión precisa del contenido",
+      "question_types": [
+        "Señale la opción CORRECTA",
+        "Señale la opción INCORRECTA",
+        "Señale la proposición INCORRECTA",
+        "¿Cuál NO es...?",
+        "¿Cuál de los siguientes...?",
+        "De las siguientes, ¿cuál...?"
+      ],
+      "num_options": 4,
+      "options_style": "Deben ser plausibles, técnicamente precisas en su redacción, y usar terminología del documento fuente. NO incluyas letras (A, B, C, D) ni numeración en el texto de las opciones.",
+      "feedback_required": "Explicación detallada que justifique la respuesta correcta, cite artículos específicos, y explique por qué las otras opciones son incorrectas"
+    },
+    "content_guidelines": {
+      "focus_areas": [
+        "Artículos específicos de leyes y reglamentos",
+        "Competencias de órganos y autoridades",
+        "Plazos, períodos y duraciones legales",
+        "Requisitos, condiciones y excepciones",
+        "Definiciones técnicas y términos legales",
+        "Procedimientos y trámites administrativos",
+        "Derechos, obligaciones y garantías",
+        "Composición y funciones de organismos"
+      ],
+      "precision_level": "Máxima precisión técnica. Las preguntas deben basarse en el texto literal del documento fuente",
+      "difficulty": "Dificultad variable (Fácil/Media/Difícil) según criterios seleccionados aleatoriamente en cada generación"
+    },
+    "distractor_techniques": {
+      "description": "Las opciones incorrectas deben ser plausibles y confundibles. Aplica estas técnicas para crear distractores efectivos:",
+      "techniques": [
+        {
+          "name": "Cambio de requisitos conjuntivos/disyuntivos",
+          "description": "Cambiar la obligación de cumplir DOS requisitos por solo UNO, o viceversa",
+          "example": "Correcto: 'A y B' → Distractor: 'A o B'"
+        },
+        {
+          "name": "Cambio de actor institucional",
+          "description": "Sustituir el órgano competente por otro muy similar del mismo marco jurídico",
+          "example": "Correcto: 'La Asamblea General promoverá...' → Distractor: 'El Consejo de Seguridad promoverá...'"
+        },
+        {
+          "name": "Cambio de verbo rector",
+          "description": "Sustituir el verbo jurídico principal por otro cercano pero incorrecto",
+          "example": "Correcto: 'promoverá' → Distractor: 'garantizará' (o 'protegerá')"
+        },
+        {
+          "name": "Juego con cómputo del tiempo",
+          "description": "Modificar plazos, períodos, duraciones o formas de contar el tiempo",
+          "example": "Correcto: 'plazo de 6 meses prorrogables' → Distractores: '3 meses prorrogables', '6 meses no prorrogables', '1 año'"
+        },
+        {
+          "name": "Eliminación de excepciones legales",
+          "description": "Usar términos totales o absolutos cuando existen excepciones, o eliminar salvaguardas",
+          "example": "Correcto: '...salvo lo dispuesto en el Capítulo VII' → Distractor: (se elimina la salvedad)"
+        },
+        {
+          "name": "Atribución incorrecta de funciones",
+          "description": "Atribuir funciones, competencias o responsabilidades a una entidad similar pero incorrecta",
+          "example": "Correcto: 'Ministro del Interior' → Distractores: 'Secretario de Estado de Seguridad', 'Delegado del Gobierno'"
+        },
+        {
+          "name": "Confusión de nivel normativo o consenso",
+          "description": "Cambiar el tipo de norma requerida o el nivel de consenso/mayoría necesario",
+          "example": "Correcto: 'Ley Orgánica' → Distractores: 'Ley Ordinaria', 'Real Decreto', 'Real Decreto-Ley'"
+        },
+        {
+          "name": "Limitación falsa del ámbito de aplicación",
+          "description": "Restringir indebidamente la aplicación de una norma o extenderla incorrectamente",
+          "example": "Correcto: 'aplicable a todos los Estados miembros' → Distractor: 'aplicable solo a Estados con más de 5 millones de habitantes'"
+        },
+        {
+          "name": "Alteración de números y cifras",
+          "description": "Cambiar números de artículos, edades, cantidades o invertir cifras para confundir visualmente",
+          "example": "Correcto: 'Artículo 45.1' → Distractores: 'Artículo 54.1', 'Artículo 44.1', 'Artículo 45.2'"
+        },
+        {
+          "name": "Mantenimiento del contexto con cambio final",
+          "description": "Mantener el 90% del texto legal literal pero cambiar la palabra o frase final crítica",
+          "example": "Correcto: '...será castigado con pena de prisión de 1 a 3 años' → Distractor: '...será castigado con pena de prisión de 1 a 5 años'"
+        }
+      ],
+      "application_rules": [
+        "No todas las opciones incorrectas deben usar estas técnicas - varía para naturalidad",
+        "Cada pregunta debe usar al menos 1-2 técnicas diferentes entre sus distractores",
+        "Los distractores deben ser técnicamente coherentes aunque incorrectos",
+        "Evita distractores obviamente absurdos - deben requerir conocimiento preciso para descartarlos",
+        "Prioriza distractores que cambien UNA sola variable del texto (actor, verbo, condición o excepción)"
+      ]
+    }
+  },
+  "few_shot_examples": [
+    {
+      "example_number": 1,
+      "context": "La Carta de las Naciones Unidas establece sus órganos principales, entre ellos varios consejos (Consejo de Seguridad, Consejo Económico y Social, Consejo de Administración Fiduciaria) y su órgano judicial principal es la Corte Internacional de Justicia.",
+      "question": "De los siguientes, ¿cuál NO es uno de los Consejos que se establecen como órganos principales de las Naciones Unidas?",
+      "options": [
+        "El Consejo de Administración Fiduciaria",
+        "El Consejo Económico y Social",
+        "El Consejo Internacional de Justicia",
+        "El Consejo de Seguridad"
+      ],
+      "correct_answer": 3,
+      "techniques_used": [
+        "atribución_incorrecta_de_funciones"
+      ],
+      "feedback": "La respuesta correcta es: El Consejo Internacional de Justicia, ya que el órgano judicial principal de la ONU se denomina oficialmente Corte Internacional de Justicia. Las opciones sobre el Consejo de Administración Fiduciaria, el Consejo Económico y Social y el Consejo de Seguridad se descartan porque sí son consejos definidos como órganos principales en la Carta."
+    },
+    {
+      "example_number": 2,
+      "context": "El Artículo 25 de la Declaración Universal de Derechos Humanos reconoce el derecho a seguros en caso de desempleo u otros casos de pérdida de medios de subsistencia por circunstancias independientes de la voluntad.",
+      "question": "Señale la proposición INCORRECTA.",
+      "options": [
+        "Toda persona tiene derecho a un recurso efectivo ante los tribunales nacionales competentes",
+        "Toda persona tiene derecho a los seguros en caso de desempleo u otros casos de pérdida de sus medios de subsistencia por cualquier circunstancia",
+        "Toda persona tiene el derecho de acceso, en condiciones de igualdad, a las funciones públicas de su país",
+        "Toda persona tiene deberes respecto a la comunidad"
+      ],
+      "correct_answer": 2,
+      "techniques_used": [
+        "eliminación_de_excepciones"
+      ],
+      "feedback": "La respuesta correcta es: Toda persona tiene derecho a los seguros en caso de desempleo u otros casos de pérdida de sus medios de subsistencia por cualquier circunstancia, puesto que es la proposición incorrecta. El Artículo 25 de la Declaración Universal especifica que este derecho se activa solo por circunstancias independientes de la voluntad del individuo. Las demás opciones son afirmaciones correctas según el texto de la Declaración."
+    },
+    {
+      "example_number": 3,
+      "context": "El Artículo 45.1 del Convenio para la Protección de los Derechos Humanos exige que las sentencias y las resoluciones de admisibilidad o inadmisibilidad sean motivadas.",
+      "question": "Motivación de las sentencias y de las resoluciones. Señale la opción CORRECTA.",
+      "options": [
+        "Las sentencias, así como las resoluciones por las que las demandas se declaren admisibles o no admisibles, serán motivadas",
+        "Las resoluciones por las que las demandas se declaren no admisibles, no es preciso que sean motivadas",
+        "Las sentencias, así como las resoluciones por las que las demandas se declaren no admisibles, no es necesario motivarlas",
+        "Las resoluciones, por las que las demandas se declaren admisibles, no es necesario motivarlas"
+      ],
+      "correct_answer": 1,
+      "techniques_used": [
+        "eliminación_de_excepciones"
+      ],
+      "feedback": "La respuesta correcta es: Las sentencias, así como las resoluciones por las que las demandas se declaren admisibles o no admisibles, serán motivadas, ya que el Artículo 45.1 del Convenio exige motivación para ambos tipos de resoluciones. Las demás opciones son incorrectas porque sugieren que el Tribunal Europeo de Derechos Humanos puede omitir la fundamentación en ciertos casos."
+    }
+  ],
+  "validation_checklist": [
+    "¿La pregunta evalúa comprensión precisa del contenido fuente?",
+    "¿La respuesta correcta es indiscutiblemente correcta según el texto?",
+    "¿Los tres distractores son plausibles pero claramente incorrectos?",
+    "¿Alguna opción se descarta por puro sentido común? Si sí, reescribir",
+    "¿El enunciado mantiene foco único y las opciones son paralelas (mismo eje)?",
+    "¿Se han combinado 2-3 datos relacionados del mismo eje sin mezclar temas?",
+    "¿Si el texto contiene plazos/fechas/cómputos, se priorizó ese elemento?",
+    "¿Se han aplicado al menos 2-3 técnicas de distracción?",
+    "¿El feedback cita artículos o secciones específicas?",
+    "¿El feedback explica por qué cada opción es correcta/incorrecta?",
+    "¿La redacción es técnica, precisa y apropiada para oposiciones?",
+    "¿Las 4 opciones tienen longitud y formato similar?",
+    "¿La opción correcta no es previsible por longitud o literalidad?",
+    "¿La terminología es precisa y no ambigua?",
+    "¿Se citan solo normas/artículos presentes en el fragmento y se explica el vínculo si se menciona la CE?",
+    "¿La pregunta evita ambigüedades o múltiples interpretaciones?",
+    "¿La dificultad es apropiada para nivel oposición (no trivial, no imposible)?"
+  ],
+  "metadata": {
+    "version": "2.1",
+    "created_date": "2026-02-02",
+    "description": "Prompt avanzado para generación de preguntas tipo test basado en análisis de 105 ejemplos reales de exámenes de Guardia Civil",
+    "techniques_source": "8 técnicas de distracción identificadas en exámenes oficiales",
+    "few_shot_count": 3
+  }
+}

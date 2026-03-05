@@ -1,0 +1,24 @@
+Determina la opcion correcta usando SOLO el tip/feedback.
+
+PREGUNTA: {question}
+
+OPCIONES:
+1) {option1}
+2) {option2}
+3) {option3}
+4) {option4}
+
+TIP/FEEDBACK:
+{tip}
+
+INSTRUCCIONES:
+- Usa EXCLUSIVAMENTE el tip para decidir.
+- Si el tip no permite identificar una unica opcion, responde selected_option=0.
+- Responde SOLO con JSON valido.
+
+FORMATO:
+{
+  "selected_option": 1-4 or 0,
+  "confidence": 0.0-1.0,
+  "reason": "breve explicacion"
+}

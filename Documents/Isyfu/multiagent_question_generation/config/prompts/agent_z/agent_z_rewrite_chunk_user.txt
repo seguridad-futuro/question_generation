@@ -1,0 +1,12 @@
+Limpia y reescribe el siguiente texto legal.
+
+Reglas estrictas:
+- Mantén literalmente el contenido legal y la redacción de artículos cuando existan.
+- Elimina metadatos (cabeceras/pies, números de página, emails, URLs, info editorial).
+- Elimina texto promocional o de guía de estudio (marcas, títulos repetidos, instrucciones).
+- Generaliza: cualquier línea repetitiva de academia/temario no sustantiva debe ser eliminada.
+- Une fragmentos partidos para que el texto sea continuo y coherente.
+- No inventes ni omitas contenido legal sustantivo.
+
+TEXTO:
+{chunk_text}

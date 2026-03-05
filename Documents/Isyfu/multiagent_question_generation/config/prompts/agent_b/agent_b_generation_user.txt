@@ -1,0 +1,113 @@
+A continuación se te proporciona un fragmento de un documento fuente. Tu tarea es generar UNA pregunta tipo test de alta calidad para oposiciones de la Guardia Civil.
+
+**DOCUMENTO FUENTE:**
+{chunk_content}
+
+**METADATA DEL DOCUMENTO:**
+- Documento: {source_document}
+- Tema: {topic}
+- Página: {page_number}
+
+**DIFICULTAD SELECCIONADA (aleatoria): {difficulty_label}**
+Criterios obligatorios:
+{difficulty_criteria}
+
+**FEEDBACK DEL AGENTE C (si existe):**
+{review_feedback}
+
+Aplica estos criterios y correcciones estrictamente en esta generación.
+
+**INSTRUCCIONES DE GENERACIÓN:**
+
+1. **Analiza el contenido** para identificar datos clave: artículos legales, competencias, plazos/fechas/vigencias, definiciones, requisitos, excepciones, procedimientos y reglas de cómputo temporal.
+
+2. **Selecciona un aspecto específico** del texto que permita evaluar comprensión precisa (no superficial).
+   - Debe ser UN solo eje (un hecho, definición, requisito, plazo, órgano o regla concreta).
+   - Puedes exigir 2-3 datos relacionados del mismo eje (p. ej., órgano + plazo del mismo procedimiento).
+   - Si hay plazos/fechas/cómputos, prioriza ese eje para la pregunta.
+   - No mezcles temas no relacionados en el enunciado (ej.: "naturaleza, firma y órganos").
+
+3. **Formula la pregunta** usando uno de estos formatos:
+   - "Señale la opción CORRECTA"
+   - "Señale la proposición INCORRECTA"
+   - "¿Cuál NO es...?"
+   - Pregunta directa ("¿Quién...", "¿Cuándo...", "¿Qué...", etc.)
+
+4. **Genera {num_options} opciones de respuesta (texto limpio, sin prefijos A), B), etc.):**
+   - Una opción correcta basada en el texto fuente (PARAFRASEA, no copies literalmente)
+   - Tres opciones incorrectas (distractores) que sean plausibles y técnicamente coherentes
+   - Debe haber exactamente {num_correct_options} opción(es) correcta(s)
+   - Todas las opciones deben competir en el MISMO eje (mismo tipo de dato).
+   - Si las opciones hablan de temas distintos, reescribe la pregunta u opciones.
+   - En cada distractor, cambia **UNA sola variable** del texto y mantiene el resto prácticamente literal:
+     • **Actor**: Asamblea General ↔ Consejo de Seguridad (u órganos equivalentes del propio texto)
+     • **Verbo rector**: promover ↔ garantizar ↔ proteger ↔ velar ↔ asegurar
+     • **Condición**: cambia "y" ↔ "o"
+     • **Excepción**: elimina la salvedad ("salvo lo dispuesto en el Capítulo VII", u otra similar)
+   - Evita cambios múltiples en la misma opción; deben sonar jurídicamente correctas
+   - Evita que la opción correcta sea la única con detalle temporal/numérico; reparte el nivel de detalle en todas
+   - Si hay términos técnicos fácilmente confundibles y el texto no los distingue, elige otro eje
+
+   **⚠️ RESTRICCIONES CRÍTICAS DE LONGITUD:**
+   - Cada opción debe tener MÁXIMO 35 palabras (idealmente 15-25)
+   - TODAS las opciones deben tener longitud SIMILAR (±5 palabras entre ellas)
+   - NUNCA copies un artículo completo como opción - SINTETIZA el contenido clave
+   - Si el artículo es largo, extrae SOLO el dato específico que responde a la pregunta
+
+   - Aplica al menos 2-3 de las siguientes técnicas de distracción:
+     • Cambiar requisitos conjuntivos (Y) por disyuntivos (O) o viceversa
+     • Modificar plazos, períodos o formas de cómputo temporal
+     • Eliminar excepciones o salvedades ("salvo lo dispuesto en el Capítulo VII")
+     • Atribuir funciones a entidades u órganos similares pero incorrectos (Asamblea General vs Consejo de Seguridad)
+     • Confundir el nivel normativo (Ley Orgánica vs Ordinaria vs Real Decreto)
+     • Limitar o extender falsamente el ámbito de aplicación
+     • Alterar números, cifras, edades o artículos (ej: invertir dígitos)
+     • Mantener el 90% del texto pero cambiar la palabra/frase final crítica
+
+5. **Redacta el feedback** que debe:
+   - Comenzar identificando la respuesta correcta ("La respuesta correcta es: [texto literal]...")
+   - Citar el artículo o sección específica del documento fuente (solo si aparece en el fragmento)
+   - Explicar por qué la opción correcta lo es
+   - Explicar brevemente por qué las otras opciones son incorrectas
+   - Si se menciona la Constitución para respaldar una ley ordinaria, explica el vínculo; si no hay vínculo explícito, no la cites
+   - Usar lenguaje técnico y preciso
+   - NO menciones letras de opción (A/B/C/D). Si necesitas referirte a una opción, cita literalmente su texto
+   - Longitud objetivo: entre {tip_min_words} y {tip_max_words} palabras (4-6 frases)
+
+6. **Formato de salida JSON:**
+```json
+{
+  "question": "[texto de la pregunta]",
+  "answer1": "[opción 1 sin prefijo A)]",
+  "answer2": "[opción 2 sin prefijo B)]",
+  "answer3": "[opción 3 sin prefijo C)]",
+  "answer4": "[opción 4 sin prefijo D)]",
+  "correct": [número de 1 a 4],
+  "tip": "[explicación detallada del feedback]",
+  "reasoning_summary": "[resumen breve del razonamiento en 1-2 frases, sin pasos internos]",
+  "article": "[SOLO si hay un artículo específico citado: incluir la REFERENCIA CORTA + contenido breve. Ej: 'Art. 138.1 CP: El que matare a otro será castigado con prisión de 10 a 15 años'. Si NO hay artículo específico (textos generales, exposiciones de motivos, etc.), dejar VACÍO: '']"
+}
+```
+
+**REQUISITOS DE CALIDAD:**
+- La pregunta debe requerir conocimiento preciso del texto, no intuición general
+- Ninguna opcion debe poder descartarse por puro sentido comun sin leer la norma
+- Los distractores deben ser plausibles para alguien con conocimiento superficial
+- La respuesta correcta debe ser indiscutiblemente correcta según el texto fuente
+- Si el fragmento incluye plazos/fechas/cómputos, la pregunta debe aprovecharlos
+- Foco único: enunciado y opciones en un solo eje, sin mezclar temas
+- El feedback debe ser educativo, citar referencias específicas y explicar el descarte de distractores
+- No cites normas o artículos que no aparezcan en el fragmento
+- Evita ambigüedad terminológica; si hay riesgo, reescribe
+- El campo article solo debe usarse cuando hay un ARTÍCULO ESPECÍFICO citado (ej: "Art. 14 CE", "Art. 138.1 CP"). Si el contexto es texto general sin artículo específico, dejar article vacío ("")
+- Mantén estilo formal y técnico apropiado para oposiciones
+
+**⚠️ REGLAS ESPECIALES PARA PREGUNTAS NEGATIVAS (INCORRECTA, EXCEPTO, NO):**
+Si usas formatos como "Señale la proposición INCORRECTA" o "¿Cuál NO es...?":
+- La opción "correcta" (la que se debe marcar) debe ser CLARAMENTE FALSA según el texto
+- Las otras 3 opciones deben ser VERDADERAS según el texto
+- VERIFICA dos veces: la opción marcada como correcta debe contradecir el texto fuente
+- En el tip, explica POR QUÉ la opción marcada es falsa y las demás son verdaderas
+- Ejemplo: Si el texto dice "El plazo es de 10 días", la opción INCORRECTA podría ser "El plazo es de 15 días"
+
+**GENERA LA PREGUNTA:**

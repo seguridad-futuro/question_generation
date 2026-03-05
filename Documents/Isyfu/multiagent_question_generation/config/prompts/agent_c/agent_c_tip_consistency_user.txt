@@ -1,0 +1,32 @@
+Analiza este tip de una pregunta de oposición para detectar CONTRADICCIONES LÓGICAS:
+
+PREGUNTA: {question}
+
+OPCIONES:
+A) {option1}
+B) {option2}
+C) {option3}
+D) {option4}
+
+OPCIÓN MARCADA COMO CORRECTA (TEXTO): {correct_answer}
+
+TIP/EXPLICACIÓN:
+{tip}
+
+TAREA:
+Detecta si el tip tiene contradicciones lógicas, especialmente:
+
+1. ¿Dice "La respuesta correcta es ..." pero luego afirma lo contrario?
+2. ¿El texto mencionado como correcto coincide con la opción marcada como correcta?
+3. ¿El razonamiento del tip es coherente de principio a fin?
+
+Responde SOLO con:
+
+CONSISTENTE: [SÍ/NO]
+CONTRADICCIONES:
+- [lista cada contradicción encontrada, o escribe "Ninguna" si no hay]
+EXPLICACIÓN: [1-2 líneas sobre por qué es o no consistente]
+
+Ejemplo de contradicción:
+"La respuesta correcta es: [texto] [...] Por lo tanto, ese texto es incorrecto"
+Esto es contradictorio porque dice que es correcto pero luego dice que es incorrecto.

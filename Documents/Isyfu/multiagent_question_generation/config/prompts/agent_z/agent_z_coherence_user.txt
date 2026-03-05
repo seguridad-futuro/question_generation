@@ -1,0 +1,11 @@
+Analiza la coherencia de este texto legal:
+
+TEXTO:
+{chunk_text}
+
+Evalúa:
+1. ¿Es suficiente para generar preguntas de calidad?
+2. ¿Qué tipo de chunk es? (artículo completo, sección completa, parcial, metadata, basura)
+3. ¿Empieza limpiamente? (no cortado a mitad de frase)
+4. ¿Termina limpiamente? (no cortado a mitad de frase)
+5. ¿Qué acción recomiendas? (keep, merge_next, merge_prev, discard)

@@ -1,0 +1,11 @@
+DIFICULTAD SELECCIONADA: {difficulty_label}
+Criterios:
+{difficulty_criteria}
+
+FEEDBACK DEL AGENTE C (si existe):
+{review_feedback}
+
+Aplica estos criterios y correcciones estrictamente en esta generación.
+
+TEXTO:
+{content}

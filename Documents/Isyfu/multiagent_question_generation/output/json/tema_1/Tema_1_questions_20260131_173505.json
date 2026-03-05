@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "batch_name": "bcde_20260131_173247",
+    "topic": 1,
+    "academy": 1,
+    "generated_at": "2026-01-31T17:35:05.960889",
+    "total_questions": 4,
+    "inserted": 4,
+    "duplicates": 0
+  },
+  "questions": [
+    {
+      "question": "Naturaleza y firma de la ONU en Carta de las Naciones Unidas. Señale la opción CORRECTA",
+      "answer1": "Carta de las Naciones Unidas es una declaración política que reorganiza la Sociedad de Naciones, firmada en Ginebra en 1945",
+      "answer2": "Carta de las Naciones Unidas es un tratado internacional que funda la ONU, firmado en San Francisco en 1945",
+      "answer3": "Carta de las Naciones Unidas es un acuerdo regional europeo, suscrito en Nueva York por 51 Estados en 1948",
+      "answer4": "Carta de las Naciones Unidas es una resolución de la Asamblea General, aprobada por unanimidad de todos los Estados miembros",
+      "correct": 2,
+      "tip": "La respuesta correcta es: \"Carta de las Naciones Unidas es un tratado internacional que funda la ONU, firmado en San Francisco en 1945\", porque el texto indica expresamente que la Carta \"no es otra cosa que un tratado internacional\" que instaura la actual Organización de las Naciones Unidas y que fue firmada en San Francisco en 1945. Es falsa la afirmación que la califica como declaración política y la vincula a la Sociedad de Naciones o a Ginebra. También es incorrecto presentarla como acuerdo regional europeo suscrito en Nueva York en 1948, pues se firmó inicialmente por 50 de 51 Estados en San Francisco. Finalmente, no es una simple resolución de la Asamblea General, sino el tratado constitutivo de la Organización.",
+      "article": "",
+      "source_chunk_id": "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_5c9794e3",
+      "source_chunk_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_5c9794e3"
+      ],
+      "source_chunk_indices": [
+        0
+      ],
+      "source_doc_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025"
+      ],
+      "context_strategy": "single",
+      "source_document": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+      "source_chunk": "--- Página 1 ---\n\n \n \n \n \n \n \nTemario de Ingreso al Cuerpo de la \nGuardia Civil.  \n \nAspirantes.puede\n \n     \n       \n \n \n \n                \n          \nTEMA 1.- GUARDIA CIVIL \n\n\n--- Página 2 ---\n\n\n\n--- Página 3 ---\n\n \n \n \n \n \n \n \n \n \n \n                                                                                              \n  \n…por Anabel, Jorge, Cristina, Beli, Carmen, \nJuan, Pablo y Miguel. Por el tiempo que os he \nrobado. \n \n \n \n \n \n \n \n \n \n\n--- Página 4 ---\n\n                                                                                                                             \n \nTema 1. Ingreso al Cuerpo de la Guardia Civil \nCarta de las Naciones Unidas\nDeclaración Universal de Derechos Humanos\nConvenio para la Protección de los DDHH y las libertades Fundamentales\n                                                                                                                             \nIngreso al Cuerpo de la Guardia Civil                       \n \n \n \n \nPacto Internacional de Derechos Civiles y Políticos\nPacto Internacional de Derechos Económicos, sociales y culturales\nCarta Social Europea(revisada)\nConvención contra la Tortura y Protocolo \nCarta de los Derechos Fundamentales de la Unión Europea\nEstatuto de Roma de la Corte Penal Intencional \n                                                                                                                                                          \n                    Aspirantes.es \ninfo@aspirantes.es \n \n \nConvención contra la Tortura y Protocolo Facultativo\nCarta de los Derechos Fundamentales de la Unión Europea\nEstatuto de Roma de la Corte Penal Intencional \n\n--- Página 5 ---\n\n                                                                                                                             \n \nTema 1. Ingreso al Cuerpo de la Guardia Civil \nCARTA DE LAS NACIONE\nVeamos a continuación la referida Carta \nNaciones Unidas no es otra cosa que un tratado internacional que instauró y por lo tanto, fundó, la actual \nOrganización de las Naciones Unidas \nla que fue la Conferencia de distintos estados y fue suscrito inicialmente por 50 de los 51 estados miembros \nque formaban en aquellos tiempos lo que se denominaba como la “Conferencia de las naciones unidas”. \nDicha conferencia fue por lo tanto el germen de la actual \nNuestro objetivo en este punto del tema será principalmente profundizar en el estudio los órganos \nprincipales de la ONU dentro de su contexto, es decir, la Carta de las Naciones Unidas o también conocida \ncomo Carta de San Francisco (en refere\notros órganos que no estudiaremos, denominados en la misma Carta como subsidiarios. Lo que si debemos \nconocer es que estos órganos subsidiarios, que dependen de los órganos principales que \n(Asamblea General, Consejo de Seguridad, \nGeneral, por poner un ejemplo, tiene distintos comités, comisiones, juntas, consejos, grupos, grupos de \ntrabajo, etc. Estos órganos subsidiarios se pueden dedicar a distintos cuestiones. \nexistencia del Comité de inversiones o la junta ejecutiva del programa mundial de alimentos, ambos \npertenecientes y dependientes de la Asamblea General)\nNo obstante, no es sobre estos órganos subsidiarios, sobre los que vamos a centrar el estudio, si\nlos órganos principales de la organización. Para ello debemos comprender por un lado y estudiar por otro el \nsiguiente contenido de la Carta de las Naciones Unidas\n                                                                                                                             \nIngreso al Cuerpo de la Guardia Civil                       \nCARTA DE LAS NACIONES UNIDAS. ÓRGANOS.\nVeamos a continuación la referida Carta (siguiente documento). Como podemos ver\nNaciones Unidas no es otra cosa que un tratado internacional que instauró y por lo tanto, fundó, la actual \nOrganización de las Naciones Unidas (ONU, UN). El documento fue firmado en San Francisco en 1945 en \nla Conferencia de distintos estados y fue suscrito inicialmente por 50 de los 51 estados miembros \nque formaban en aquellos tiempos lo que se denominaba como la “Conferencia de las naciones unidas”. \nDicha conferencia fue por lo tanto el germen de la actual Organización. \nNuestro objetivo en este punto del tema será principalmente profundizar en el estudio los órganos \nprincipales de la ONU dentro de su contexto, es decir, la Carta de las Naciones Unidas o también conocida \n(en referencia al lugar donde se firmó), conscientes a la vez de que existen \notros órganos que no estudiaremos, denominados en la misma Carta como subsidiarios. Lo que si debemos \nconocer es que estos órganos subsidiarios, que dependen de los órganos principales que \n(Asamblea General, Consejo de Seguridad, etc.) tienen distintas denominaciones. Así, la Asamblea \nGeneral, por poner un ejemplo, tiene distintos comités, comisiones, juntas, consejos, grupos, grupos de \ntrabajo, etc. Estos órganos subsidiarios se pueden dedicar a distintos cuestiones. (\nexistencia del Comité de inversiones o la junta ejecutiva del programa mundial de alimentos, ambos \nndientes de la Asamblea General) \nNo obstante, no es sobre estos órganos subsidiarios, sobre los que vamos a centrar el estudio, si\nlos órganos principales de la organización. Para ello debemos comprender por un lado y estudiar por otro el \nsiguiente contenido de la Carta de las Naciones Unidas. \nVER VÍDEO TEMA 1. PARTE 1ª, 2ª\n \n \n \n                                                                                                                                                          \n                    Aspirantes.es \ninfo@aspirantes.es \nS UNIDAS. ÓRGANOS. \npodemos ver, la referida Carta de las \nNaciones Unidas no es otra cosa que un tratado internacional que instauró y por lo tanto, fundó, la actual \n. El documento fue firmado en San Francisco en 1945 en \nla Conferencia de distintos estados y fue suscrito inicialmente por 50 de los 51 estados miembros \nque formaban en aquellos tiempos lo que se denominaba como la “Conferencia de las naciones unidas”. \nNuestro objetivo en este punto del tema será principalmente profundizar en el estudio los órganos \nprincipales de la ONU dentro de su contexto, es decir, la Carta de las Naciones Unidas o también conocida \n, conscientes a la vez de que existen \notros órganos que no estudiaremos, denominados en la misma Carta como subsidiarios. Lo que si debemos \nconocer es que estos órganos subsidiarios, que dependen de los órganos principales que vamos a estudiar \ntienen distintas denominaciones. Así, la Asamblea \nGeneral, por poner un ejemplo, tiene distintos comités, comisiones, juntas, consejos, grupos, grupos de \n(Valga como ejemplo, la \nexistencia del Comité de inversiones o la junta ejecutiva del programa mundial de alimentos, ambos \nNo obstante, no es sobre estos órganos subsidiarios, sobre los que vamos a centrar el estudio, sino sobre \nlos órganos principales de la organización. Para ello debemos comprender por un lado y estudiar por otro el \n \n2ª y 2BIS      \n\n\n--- Página 6 ---\n\n1\nCARTA DE LAS NACIONES UNIDAS\nfirmada en San Francisco, Estados Unidos el 26 de junio 1945\nentrada en vigor: 24 de octubre de 1945, de conformidad con el artículo 110\nTabla de contenidos\n• Nota Introductoria\n• Capítulo I: Propósitos y Principios (Artículos 1-2)\n• Capítulo II: Miembros (Artículos 3-6)\n• Capítulo III: Órganos (Artículos 7-8)\n• Capítulo IV: La Asamblea General (Artículos 9-22)\n• Capítulo V: La Consejo de Seguridad (Artículos 23-32)\n• Capítulo VI: Arreglo Pacífico de Controversias (Artículos 33-38)\n• Capítulo VII: Acción en Caso de Amenazas a la Paz, Quebrantamientos de la Paz\no Actos de Agresión (Artículos 39-51)\n• Capítulo VIII: Acuerdos Regionales (Artículos 52-54)\n• Capítulo IX: Cooperación Internacional Económica y Social (Artículos 55-60)\n• Capítulo X: El Consejo Económico y Social (Artículos 61-72)\n• Capítulo XI: Declaración Relativa a Territorios no Autónomos (Artículos 73-74)\n• Capítulo XII: Régimen Internacional de Administración Fiduciaria (Artículos 75-85)\n• Capítulo XIII: El Consejo de Administración Fiduciaria (Artículos 86-91)\n• Capítulo XIV: La Corte Internacional de Justicia (Artículos 92-96)\n• Capítulo XV: La Secretaría (Artículos 97-101)\n• Capítulo XVI: Disposiciones Varias (Artículos 102-105)\n• Capítulo XVII: Acuerdos Transitorios Sobre Seguridad (Artículos 106-107)\n• Capítulo XVIII: Reformas (Artículos 108-109)\n• Capítulo XIX: Ratificación y Firma (Artículos 110-111)\n\n--- Página 7 ---\n\n2\nCARTA DE LAS NACIONES UNIDAS\nNosotros los pueblos\nde las Naciones Unidas\nresueltos\na preservar a las generaciones venideras del flagelo de la guerra que dos veces durante\nnuestra vida ha infligido a la Humanidad sufrimientos indecibles,\na reafirmar la fe en los derechos fundamentales del hombre, en 1a dignidad y el valor de\nla persona humana, en la igualdad de derechos de hombres y mujeres y de las naciones\ngrandes y pequeñas,\na crear condiciones bajo las cuales puedan mantenerse la justicia y el respeto a las\nobligaciones emanadas de los tratados y de otras fuentes del derecho internacional,\na promover el progreso social y a elevar el nivel de vida dentro de un concepto más\namplio de la libertad,\ny con tales finalidades\na practicar la tolerancia y a convivir en paz como buenos vecinos,\na unir nuestras fuerzas para el mantenimiento de la paz y la seguridad internacionales, a\nasegurar, mediante la aceptación de principios y la adopción de métodos, que no se\nusará; la fuerza armada sino en servicio del interés común, y\na emplear un mecanismo internacional para pr omover el progreso económico y social de\ntodas los pueblos,\nhemos decidido aunar\nnuestros esfuerzos para\nrealizar estos designios\nPor lo tanto, nuestros respectivos Gobiernos, por medio de representantes reunidos en la\nciudad de San Francisco que han exhibido sus plenos poderes, encontrados en buena y\ndebida forma, han convenido en la presente Carta de las Naciones Unidas, y por este acto\nestablecen una organización internacional que se denominará las Naciones Unidas.\nCAPITULO I\nPROPOSITOS Y PRINCIPIOS",
+      "generation_method": "single_context",
+      "generation_time": 12.611351624997042,
+      "faithfulness_score": 1.0,
+      "relevancy_score": 1.0,
+      "needs_manual_review": false,
+      "review_time": 25.68872787500004,
+      "manual_review_reason": null,
+      "manual_review_details": null,
+      "review_comment": "Opción 2 correcta: la Carta es un tratado fundante firmado en San Francisco en 1945.",
+      "review_details": null,
+      "difficulty": "fácil",
+      "difficulty_reason": "Conocimiento básico sobre la naturaleza jurídica de la ONU y la firma de la Carta por los Estados fundadores."
+    },
+    {
+      "question": "Conforme a la Carta de las Naciones Unidas, sobre los Propósitos de la Organización, señale la proposición INCORRECTA.",
+      "answer1": "Fomentar relaciones de amistad basadas en igualdad de derechos y libre determinación de los pueblos, reforzando así la paz universal.",
+      "answer2": "Mantener la paz y la seguridad internacionales mediante medidas colectivas eficaces y arreglo pacífico de controversias internacionales.",
+      "answer3": "Limitar la cooperación internacional exclusivamente a problemas económicos entre Estados miembros, excluyendo ámbitos culturales, sociales y humanitarios.",
+      "answer4": "Servir de centro que armonice los esfuerzos de las naciones para alcanzar los propósitos comunes establecidos en la Organización.",
+      "correct": 3,
+      "tip": "La respuesta correcta es: \"Limitar la cooperación internacional exclusivamente a problemas económicos entre Estados miembros, excluyendo ámbitos culturales, sociales y humanitarios\", porque contradice el Art. 1 de la Carta de las Naciones Unidas. Dicho precepto establece una cooperación internacional amplia, que abarca problemas económicos, sociales, culturales y humanitarios, así como el respeto a los derechos humanos y libertades fundamentales de todos. \"Mantener la paz y la seguridad internacionales mediante medidas colectivas eficaces y arreglo pacífico de controversias internacionales\" refleja fielmente el propósito del apartado 1. \"Fomentar relaciones de amistad basadas en igualdad de derechos y libre determinación de los pueblos\" recoge el contenido del apartado 2. \"Servir de centro que armonice los esfuerzos de las naciones\" reproduce el propósito previsto en el apartado 4.",
+      "article": "Artículo 1\nLos Propósitos de las Naciones Unidas son:\n1. Mantener la paz y la seguridad internacionales, y con tal fin: tomar medidas colectivas\neficaces para prevenir y eliminar amenazas a la paz, y para suprimir actos de agresión u\notros quebrantamientos de la paz; y lograr por medios pacíficos, y de conformidad con los\nprincipios de la justicia y del derecho internacional, el ajuste o arreglo de controversias o\nsituaciones internacionales susceptibles de conducir a quebrantamientos de la paz;\n\n--- Página 8 ---\n\n2. Fomentar entre las naciones relaciones de amistad basadas en el respeto al principio\nde la igualdad de derechos y al de la libre determinación de los pueblos, y tomar otros\nmedidas adecuadas para fortalecer la paz universal;\n3. Realizar la cooperación internacional en la solución de problemas internacionales de\ncarácter económico, social, cultural o humanitario, y en el desarrollo y estímulo del\nrespeto a los derechos humanos y a las libertades fundamentales de todos, sin hacer\ndistinción por motivos de raza, sexo, idioma o religión; y\n4. Servir de centro que armonice los esfuerzos de las naciones por alcanzar estos\npropósitos comunes.",
+      "source_chunk_id": "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_cf7f9862",
+      "source_chunk_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_cf7f9862"
+      ],
+      "source_chunk_indices": [
+        1
+      ],
+      "source_doc_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025"
+      ],
+      "context_strategy": "single",
+      "source_document": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+      "source_chunk": "Ley referida: Carta de las Naciones Unidas\n\nArtículo 1\nLos Propósitos de las Naciones Unidas son:\n1. Mantener la paz y la seguridad internacionales, y con tal fin: tomar medidas colectivas\neficaces para prevenir y eliminar amenazas a la paz, y para suprimir actos de agresión u\notros quebrantamientos de la paz; y lograr por medios pacíficos, y de conformidad con los\nprincipios de la justicia y del derecho internacional, el ajuste o arreglo de controversias o\nsituaciones internacionales susceptibles de conducir a quebrantamientos de la paz;\n\n--- Página 8 ---\n\n3\n2. Fomentar entre las naciones relaciones de amistad basadas en el respeto al principio\nde la igualdad de derechos y al de la libre determinación de los pueblos, y tomar otros\nmedidas adecuadas para fortalecer la paz universal;\n3. Realizar la cooperación internacional en la solución de problemas internacionales de\ncarácter económico, social, cultural o humanitario, y en el desarrollo y estímulo del\nrespeto a los derechos humanos y a las libertades fundamentales de todos, sin hacer\ndistinción por motivos de raza, sexo, idioma o religión; y\n4. Servir de centro que armonice los esfuerzos de las naciones por alcanzar estos\npropósitos comunes.",
+      "generation_method": "single_context",
+      "generation_time": 8.812771458004136,
+      "faithfulness_score": 0.85,
+      "relevancy_score": 0.85,
+      "needs_manual_review": false,
+      "review_time": 14.867858500001603,
+      "manual_review_reason": null,
+      "manual_review_details": null,
+      "review_comment": "La opción 3 contradice el Art. 1, al limitar la cooperación a lo económico.",
+      "review_details": null,
+      "difficulty": "medio",
+      "difficulty_reason": "Requiere conocer y distinguir los propósitos recogidos en el Art. 1 de la Carta de la ONU, no es totalmente obvio sin estudio."
+    },
+    {
+      "question": "De los siguientes, ¿cuál NO es uno de los Principios que rigen la actuación de la Organización y sus Miembros según el Artículo 2 de la Carta de las Naciones Unidas?",
+      "answer1": "El principio de que los Miembros arreglarán sus controversias internacionales por medios pacíficos, salvaguardando paz, seguridad y justicia",
+      "answer2": "El principio de que los Miembros cumplirán de buena fe las obligaciones asumidas conforme a la Carta",
+      "answer3": "El principio de que la Organización se basa en la igualdad soberana de todos sus Miembros",
+      "answer4": "El principio de intervención de las Naciones Unidas en los asuntos internos cuando lo considere conveniente para promover la democracia",
+      "correct": 4,
+      "tip": "La respuesta correcta es: \"El principio de intervención de las Naciones Unidas en los asuntos internos cuando lo considere conveniente para promover la democracia\", porque el Artículo 2 de la Carta de las Naciones Unidas establece justamente lo contrario: un principio de no intervención en los asuntos que son esencialmente de la jurisdicción interna de los Estados, salvo las medidas coercitivas del Capítulo VII. Las opciones \"El principio de que la Organización se basa en la igualdad soberana de todos sus Miembros\", \"El principio de que los Miembros cumplirán de buena fe las obligaciones asumidas conforme a la Carta\" y \"El principio de que los Miembros arreglarán sus controversias internacionales por medios pacíficos, salvaguardando paz, seguridad y justicia\" reproducen fielmente tres de los principios enumerados en los apartados 1, 2 y 3 del Artículo 2.",
+      "article": "Artículo 2\nPara la realización de los Propósitos consignados en el Artículo 1, la Organización y sus\nMiembros procederán de acuerdo con los siguientes Principios:\n1. La Organización esta basada en el principio de la igualdad soberana de todos sus\nMiembros.\n2. Los Miembros de la Organización, a fin de asegurarse los derechos y beneficios\ninherentes a su condición de tales, cumplirán de buena fe las obligaciones contraídas por\nellos de conformidad con esta Carta.\n3. Los Miembros de la Organización arreglarán sus controversias internacionales por\nmedios pacíficos de tal manera que no se pongan en peligro ni la paz y la seguridad\ninternacionales ni la justicia.\n4. Los Miembros de la Organización, en sus relaciones internacionales, se abstendrán de\nrecurrir a la amenaza o al uso de la fuerza contra la integridad territorial o la\nindependencia política de cualquier Estado, o en cualquier otra forma incompatible con los\nPropósitos de las Naciones Unidas.\n5. Los Miembros de la Organización prestaron a ésta toda clase de ayuda en cualquier\nacción que ejerza de conformidad con esta Carta, y se abstendrán de dar ayuda a Estado\nalguno contra el cual la Organización estuviere ejerciendo acción preventiva o coercitiva.\n6. La Organización hará que los Estados que no son Miembros de las Naciones Unidas se\nconduzcan de acuerdo con estos Principios en la medida que sea necesaria para\nmantener la paz y la seguridad internacionales.\n7. Ninguna disposición de esta Carta autorizará a las Naciones Unidas a intervenir en los\nasuntos que son esencialmente de la jurisdicción interna de los Estados, ni obligará; a los\nMiembros a someter dichos asuntos a procedimientos de arreglo conforme a la presente\nCarta; pero este principio no se opone a la aplicación de las medidas coercitivas\nprescritas en el Capítulo VII.\n\n--- Página 9 ---\n\nCAPITULO II\nMIEMBROS",
+      "source_chunk_id": "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_c2f6edf0",
+      "source_chunk_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_c2f6edf0"
+      ],
+      "source_chunk_indices": [
+        2
+      ],
+      "source_doc_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025"
+      ],
+      "context_strategy": "single",
+      "source_document": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+      "source_chunk": "Ley referida: Carta de las Naciones Unidas\n\nArtículo 2\nPara la realización de los Propósitos consignados en el Artículo 1, la Organización y sus\nMiembros procederán de acuerdo con los siguientes Principios:\n1. La Organización esta basada en el principio de la igualdad soberana de todos sus\nMiembros.\n2. Los Miembros de la Organización, a fin de asegurarse los derechos y beneficios\ninherentes a su condición de tales, cumplirán de buena fe las obligaciones contraídas por\nellos de conformidad con esta Carta.\n3. Los Miembros de la Organización arreglarán sus controversias internacionales por\nmedios pacíficos de tal manera que no se pongan en peligro ni la paz y la seguridad\ninternacionales ni la justicia.\n4. Los Miembros de la Organización, en sus relaciones internacionales, se abstendrán de\nrecurrir a la amenaza o al uso de la fuerza contra la integridad territorial o la\nindependencia política de cualquier Estado, o en cualquier otra forma incompatible con los\nPropósitos de las Naciones Unidas.\n5. Los Miembros de la Organización prestaron a ésta toda clase de ayuda en cualquier\nacción que ejerza de conformidad con esta Carta, y se abstendrán de dar ayuda a Estado\nalguno contra el cual la Organización estuviere ejerciendo acción preventiva o coercitiva.\n6. La Organización hará que los Estados que no son Miembros de las Naciones Unidas se\nconduzcan de acuerdo con estos Principios en la medida que sea necesaria para\nmantener la paz y la seguridad internacionales.\n7. Ninguna disposición de esta Carta autorizará a las Naciones Unidas a intervenir en los\nasuntos que son esencialmente de la jurisdicción interna de los Estados, ni obligará; a los\nMiembros a someter dichos asuntos a procedimientos de arreglo conforme a la presente\nCarta; pero este principio no se opone a la aplicación de las medidas coercitivas\nprescritas en el Capítulo VII.\n\n--- Página 9 ---\n\n4\nCAPITULO II\nMIEMBROS",
+      "generation_method": "single_context",
+      "generation_time": 14.935883625003044,
+      "faithfulness_score": 0.85,
+      "relevancy_score": 0.85,
+      "needs_manual_review": false,
+      "review_time": 17.355203958999482,
+      "manual_review_reason": null,
+      "manual_review_details": null,
+      "review_comment": "Opción 4 contradice el Artículo 2: no intervención en asuntos internos.",
+      "review_details": null,
+      "difficulty": "medio",
+      "difficulty_reason": "requiere estudiar y memorizar los principios del Art. 2 de la Carta de la ONU"
+    },
+    {
+      "question": "Según el Artículo 3 de la Carta de las Naciones Unidas, ¿quiénes son Miembros originarios de las Naciones Unidas?",
+      "answer1": "Los Estados que participaron en la Conferencia de San Francisco o firmaron la Declaración de 1942 y suscriben y ratifican la Carta",
+      "answer2": "Los Estados que firmaron la Declaración de 1942, aunque no hayan participado en la Conferencia ni ratificado la Carta",
+      "answer3": "Solo los Estados que participaron en la Conferencia de San Francisco, sin necesidad de suscribir ni ratificar la Carta",
+      "answer4": "Todos los Estados que ingresen en la Organización tras recomendación del Consejo de Seguridad y decisión de la Asamblea General",
+      "correct": 1,
+      "tip": "La respuesta correcta es: \"Los Estados que participaron en la Conferencia de San Francisco o firmaron la Declaración de 1942 y suscriben y ratifican la Carta\", porque el Artículo 3 de la Carta de las Naciones Unidas exige dos elementos: participar en la Conferencia de San Francisco o haber firmado la Declaración de 1 de enero de 1942, y además suscribir y ratificar la Carta. La opción \"Solo los Estados que participaron en la Conferencia de San Francisco, sin necesidad de suscribir ni ratificar la Carta\" es incorrecta porque omite la obligación de suscripción y ratificación. La opción \"Los Estados que firmaron la Declaración de 1942, aunque no hayan participado en la Conferencia ni ratificado la Carta\" ignora igualmente este requisito. La opción \"Todos los Estados que ingresen en la Organización tras recomendación del Consejo de Seguridad y decisión de la Asamblea General\" describe el procedimiento de admisión de nuevos miembros, no la condición de miembros originarios.",
+      "article": "Artículo 3\nSon Miembros originarios de las Naciones Unidas los Estados que habiendo participado\nen la Conferencia de las Naciones Unidas sobre Organización Internacional celebrada en\nSan Francisco, o que habiendo firmado previamente la Declaración de las Naciones\nUnidas de 1 de enero de 1942, suscriban esta Carta y la ratifiquen de conformidad con el",
+      "source_chunk_id": "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_332e38bf",
+      "source_chunk_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025_coherent_332e38bf"
+      ],
+      "source_chunk_indices": [
+        3
+      ],
+      "source_doc_ids": [
+        "Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025"
+      ],
+      "context_strategy": "single",
+      "source_document": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-1-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+      "source_chunk": "Ley referida: Carta de las Naciones Unidas\n\nArtículo 3\nSon Miembros originarios de las Naciones Unidas los Estados que habiendo participado\nen la Conferencia de las Naciones Unidas sobre Organización Internacional celebrada en\nSan Francisco, o que habiendo firmado previamente la Declaración de las Naciones\nUnidas de 1 de enero de 1942, suscriban esta Carta y la ratifiquen de conformidad con el",
+      "generation_method": "single_context",
+      "generation_time": 9.717559042001085,
+      "faithfulness_score": 1.0,
+      "relevancy_score": 1.0,
+      "needs_manual_review": false,
+      "review_time": 15.196619416994508,
+      "manual_review_reason": null,
+      "manual_review_details": null,
+      "review_comment": "Art. 3 correcto: opción 1 es la respuesta válida.",
+      "review_details": null,
+      "difficulty": "fácil",
+      "difficulty_reason": "Es la definición literal del Art. 3: los Estados que participaron en la Conferencia de San Francisco o firmaron la Declaración de 1-1-1942 y suscribieron la Carta."
+    }
+  ]
+}

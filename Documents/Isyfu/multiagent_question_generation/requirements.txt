@@ -1,0 +1,36 @@
+langchain-text-splitters
+langchain-core
+# LangGraph ecosystem
+langgraph>=0.3.0
+langchain>=0.3.0
+langchain-openai>=0.3.0
+langchain-community>=0.3.0
+
+# Document processing
+unstructured[pdf]>=0.16.0
+pypdf>=4.0.0
+reportlab>=4.0.0
+pdfplumber>=0.10.0
+pymupdf>=1.23.0
+
+# Prompt engineering & validation (Fase 2+)
+dspy>=3.1.0
+guardrails-ai>=0.7.0
+
+# Quality evaluation
+ragas>=0.3.0
+sentence-transformers>=2.3.1
+scikit-learn>=1.5.0
+
+# Vector search (Multi-chunk system)
+faiss-cpu>=1.8.0
+
+# Core
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+tenacity>=8.0.0
+tqdm>=4.66.0
+
+# OpenAI
+openai>=1.99.0

@@ -1,0 +1,22 @@
+Analiza esta opción de una pregunta de oposición:
+
+PREGUNTA: {question}
+
+OPCIÓN {letter}) {distractor_text}
+
+CONTEXTO DEL DOCUMENTO:
+{context_excerpt}
+
+TAREA:
+Esta opción está marcada como INCORRECTA, pero necesito que verifiques si según el contexto es REALMENTE incorrecta.
+
+Responde SOLO con:
+- "CORRECTA" si la opción es verdadera según el contexto
+- "INCORRECTA" si la opción es falsa según el contexto
+- "AMBIGUA" si no está clara o podría ser ambas
+
+Luego explica en 1-2 líneas por qué.
+
+Formato:
+VEREDICTO: [CORRECTA/INCORRECTA/AMBIGUA]
+RAZÓN: [explicación breve]

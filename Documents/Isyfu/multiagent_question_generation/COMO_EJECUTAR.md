@@ -24,7 +24,7 @@ Procesa PDFs desde `input_docs/`, los divide en chunks, genera preguntas, las va
 
 | Parámetro | Tipo | Default | Descripción |
 |-----------|------|---------|-------------|
-| `--doc`, `-d` | string | N/A | Documento específico a procesar (nombre o path). Si no es absoluto, busca en `input_docs/` |
+| `--doc`, `-d` | string | N/A | Documento a procesar (**match parcial**, ej: `Tema-18` encuentra `Tema-18-Ingreso...pdf`) |
 | `--questions`, `-q` | int | 5 | Número de preguntas a generar por documento |
 | `--topic`, `-t` | int | 1 | ID del topic para metadata |
 | `--academy`, `-a` | int | 1 | ID de la academia para metadata |
@@ -44,10 +44,13 @@ python main.py
 python main.py --questions 10 --topic 101 --academy 1
 ```
 
-**Procesar un archivo específico**:
+**Procesar un tema específico (match parcial)**:
 ```bash
+# Esto encontrará cualquier archivo que contenga "Tema-18" en el nombre
+python main.py --doc Tema-18
+
+# También funciona con path exacto
 python main.py --doc tema1.pdf
-# o con path absoluto
 python main.py --doc /ruta/completa/tema1.pdf
 ```
 
@@ -162,24 +165,35 @@ Requiere que antes hayas ejecutado `run_rewriter.py` para generar chunks cachead
 |-----------|------|---------|-------------|
 | `--topic` | int | 1 | ID del topic |
 | `--academy` | int | 1 | ID de la academia |
-| `--doc` | string | N/A | Procesar solo este documento (stem/nombre sin extensión) |
+| `--doc` | string | N/A | Filtrar por nombre (**match parcial**, ej: `Tema-18`) |
 | `--questions-per-chunk` | int | (de settings) | Preguntas a generar por chunk |
 | `--skip-agent-c` | flag | False | Salta validación (B→D→E) |
 | `--force` | flag | False | Ignora caché de chunks y procesa todos |
 | `--reset-cache` | flag | False | Elimina caché de uso (permite reprocesar) |
 | `--limit-chunks` | int | 0 | Limita chunks a procesar (0 = sin límite) |
 | `--workers` | int | (de settings) | Número de agentes paralelos para procesamiento |
+| `--list` | flag | False | Lista archivos JSON disponibles y sale |
 
 ### Ejemplos
+
+**Listar archivos JSON disponibles**:
+```bash
+python run_bcde_pipeline.py --list
+```
 
 **Usar chunks cacheados (más rápido)**:
 ```bash
 python run_bcde_pipeline.py --questions-per-chunk 5
 ```
 
-**Procesar solo un documento**:
+**Procesar solo un tema (match parcial)**:
 ```bash
-python run_bcde_pipeline.py --doc constitucion --questions-per-chunk 10
+# Esto encontrará "Tema-18-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.json"
+python run_bcde_pipeline.py --doc Tema-18 --questions-per-chunk 10
+
+# También funciona con cualquier parte del nombre
+python run_bcde_pipeline.py --doc Ingreso --questions-per-chunk 5
+python run_bcde_pipeline.py --doc octubre-2025 --questions-per-chunk 5
 ```
 
 **Con paralelización (4 workers)**:
@@ -592,7 +606,9 @@ python run_bcde_pipeline.py --workers $(nproc) --questions-per-chunk 10
 | Chunks → preguntas (rápido) | `python run_bcde_pipeline.py` |
 | Procesar PDFs solamente | `python run_rewriter.py` |
 | Listar pendientes | `python main.py --list` |
+| Listar JSONs disponibles | `python run_bcde_pipeline.py --list` |
 | Reprocesar todo | `python main.py --reset` |
 | Sin validación (rápido) | `python main.py --skip-agent-c` |
 | Con paralelización | `python run_bcde_pipeline.py --workers 4` |
-| Documento específico | `python main.py --doc archivo.pdf` |
+| Solo un tema (match parcial) | `python run_bcde_pipeline.py --doc Tema-18` |
+| Documento específico | `python main.py --doc Tema-18` |

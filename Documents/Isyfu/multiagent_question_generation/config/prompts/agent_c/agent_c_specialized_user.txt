@@ -1,0 +1,139 @@
+Eres un evaluador experto en preguntas de oposiciones de Guardia Civil. Debes validar si la siguiente pregunta cumple con los estándares de calidad requeridos.
+
+**PREGUNTA A EVALUAR:**
+
+Pregunta: {question}
+Opción 1: {option1}
+Opción 2: {option2}
+Opción 3: {option3}
+Opción 4: {option4}
+Respuesta correcta: {correct_option}
+Feedback/Tip: {tip}
+Artículo citado: {article}
+
+**CONTEXTO DEL DOCUMENTO FUENTE:**
+{context}
+
+**METADATA:**
+- Documento: {source_document}
+- Tema: {topic}
+- Técnicas de distracción aplicadas: {distractor_techniques}
+- Opciones esperadas: {num_options}
+- Correctas esperadas: {num_correct_options}
+
+---
+
+**EVALÚA LA PREGUNTA SEGÚN ESTOS CRITERIOS:**
+
+1. **REFERENCIAS LEGALES (CRÍTICO):**
+   - ¿La pregunta cita explícitamente leyes, artículos o normativas específicas?
+   - ¿Menciona el número de artículo exacto?
+   - Ejemplos correctos: "Artículo 54 de la Constitución", "Ley Orgánica 2/1986"
+   - Ejemplos incorrectos: "según la ley", "la normativa dice"
+
+2. **PRECISIÓN TÉCNICA (CRÍTICO):**
+   - ¿Usa terminología legal exacta del documento fuente?
+   - ¿Evita parafrasear o simplificar términos técnicos?
+   - ¿Las citas son literales o modificadas?
+
+3. **FOCO ÚNICO Y PARALELISMO (ALTO):**
+   - ¿El enunciado evalúa un único aspecto del texto?
+   - ¿Todas las opciones compiten en el mismo eje (mismo tipo de dato)?
+   - Si el enunciado mezcla temas ("naturaleza, firma y órganos") o las opciones tratan temas distintos → CRÍTICO
+
+4. **DISTRACTORES PLAUSIBLES (ALTO):**
+   - Si hay más opciones correctas de las esperadas ({num_correct_options}), debe considerarse FALLO
+   - ¿Las opciones incorrectas usan técnicas de confusión válidas?
+   - ¿Alguna opcion se descarta por puro sentido comun sin leer la norma? Si SI, es CRITICO
+   - Técnicas válidas: cambio Y/O, modificación plazos, eliminación excepciones, atribución incorrecta, confusión nivel normativo, alteración números
+   - ¿Los distractores son técnicamente coherentes pero incorrectos?
+
+5. **FEEDBACK ESTRUCTURADO (ALTO):**
+   - El tip NO debe mencionar letras (A/B/C/D)
+   - ¿Comienza con "La respuesta correcta es: [texto literal]..."?
+   - ¿Usa conectores formales (ya que, puesto que, debido a que, pues)?
+   - ¿Cita el artículo/ley específica en el feedback?
+   - ¿Explica por qué la correcta ES correcta?
+   - ¿Explica por qué las incorrectas SON incorrectas?
+
+6. **FORMATO OFICIAL (MEDIO):**
+   - ¿Usa formato estándar de oposiciones?
+   - Formatos válidos: "Señale la opción CORRECTA/INCORRECTA", "¿Cuál NO es...?", pregunta directa con contexto legal
+
+7. **FAITHFULNESS AL CONTEXTO:**
+   - ¿La respuesta correcta está EXPLÍCITAMENTE en el contexto?
+   - ¿No inventa información?
+   - ¿Es fiel al texto legal?
+
+8. **RELEVANCY:**
+   - ¿La pregunta es relevante para el documento fuente?
+   - ¿La respuesta correcta responde directamente la pregunta?
+
+---
+
+**FORMATO DE SALIDA JSON:**
+
+```json
+{
+  "classification": "auto_pass" | "manual_review" | "auto_fail",
+  "faithfulness_estimated": 0.0-1.0,
+  "relevancy_estimated": 0.0-1.0,
+  "validation_details": {
+    "referencias_legales": {
+      "score": "EXCELENTE" | "BIEN" | "INSUFICIENTE" | "CRÍTICO",
+      "reasoning": "..."
+    },
+    "precision_tecnica": {
+      "score": "EXCELENTE" | "BIEN" | "INSUFICIENTE" | "CRÍTICO",
+      "reasoning": "..."
+    },
+    "foco_paralelismo": {
+      "score": "EXCELENTE" | "BIEN" | "INSUFICIENTE" | "CRÍTICO",
+      "reasoning": "..."
+    },
+    "distractores": {
+      "score": "EXCELENTE" | "BIEN" | "INSUFICIENTE" | "CRÍTICO",
+      "reasoning": "..."
+    },
+    "feedback_estructura": {
+      "score": "EXCELENTE" | "BIEN" | "INSUFICIENTE" | "CRÍTICO",
+      "reasoning": "..."
+    },
+    "formato_oficial": {
+      "score": "CORRECTO" | "ADMISIBLE" | "INCORRECTO",
+      "reasoning": "..."
+    }
+  },
+  "overall_decision": "APROBADA" | "REVISIÓN MANUAL" | "RECHAZADA",
+  "action": "approve" | "mark_for_manual_review" | "reject_and_retry",
+  "improvement_feedback": "Feedback específico si requiere mejoras (vacío si aprobada)",
+  "confidence": 0.0-1.0
+}
+```
+
+**CRITERIOS DE DECISIÓN:**
+
+- **AUTO_PASS (APROBADA):**
+  - Referencias legales: EXCELENTE o BIEN
+  - Precisión técnica: EXCELENTE o BIEN
+  - Foco y paralelismo: EXCELENTE o BIEN
+  - Distractores: EXCELENTE o BIEN
+  - Feedback: EXCELENTE o BIEN
+  - Faithfulness estimado: ≥ 0.85
+  - Relevancy estimado: ≥ 0.85
+
+- **AUTO_FAIL (RECHAZADA):**
+  - Cualquier criterio CRÍTICO en referencias legales o precisión técnica
+  - Foco/paralelismo CRÍTICO (mezcla de temas u opciones no paralelas)
+  - Faithfulness estimado: < 0.60
+  - Relevancy estimado: < 0.60
+  - Feedback genérico sin estructura apropiada
+  - No cita artículos/leyes en la pregunta
+
+- **MANUAL_REVIEW (REVISIÓN MANUAL):**
+  - Scores intermedios (0.60 - 0.85)
+  - Algunos criterios BIEN pero no EXCELENTE
+  - Dudas sobre precisión técnica
+  - Distractores aceptables pero no óptimos
+
+**EVALÚA LA PREGUNTA Y PROPORCIONA TU ANÁLISIS:**

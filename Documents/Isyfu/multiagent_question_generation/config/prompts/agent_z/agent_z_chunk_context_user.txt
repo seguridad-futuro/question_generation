@@ -1,0 +1,19 @@
+Evalúa si el CHUNK ACTUAL tiene contexto suficiente para preguntas de calidad.
+
+Reglas:
+- Si contiene artículos legales, debe incluir al menos un artículo completo.
+- Si el artículo está incompleto, indica si unir con el anterior o el siguiente.
+- Si no hay artículos, confirma si el contexto es suficiente para una buena pregunta.
+- Si el contexto NO es suficiente, indica merge_next o merge_prev para ampliar el contexto.
+- Solo descarta si es claramente basura o metadatos.
+- Marca si necesita reescritura SOLO si hace falta limpiar ruido o mejorar cohesión.
+- Si necesitas reescritura, indica el tipo: clean, cohesion o both.
+
+CHUNK ACTUAL:
+{current_chunk}
+
+CHUNK ANTERIOR (si existe):
+{prev_chunk}
+
+CHUNK SIGUIENTE (si existe):
+{next_chunk}

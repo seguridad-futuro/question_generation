@@ -1,0 +1,24 @@
+Pregunta:
+{question}
+
+Opciones:
+1) {option1}
+2) {option2}
+3) {option3}
+4) {option4}
+
+Correcta: {correct_option}
+Texto correcta: {correct_option_text}
+Tip: {tip}
+Articulo: {article}
+
+METADATA:
+- question_length_chars: {question_length}
+- tip_word_count: {tip_words}
+- option_word_counts: {option_word_counts}
+- num_options: {num_options}
+
+Contexto (puede estar truncado):
+{context}
+
+Responde SOLO con JSON.

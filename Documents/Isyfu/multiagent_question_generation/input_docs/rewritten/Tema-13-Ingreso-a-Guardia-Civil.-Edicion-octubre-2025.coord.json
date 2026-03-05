@@ -1,0 +1,1167 @@
+{
+  "document_name": "Tema-13-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+  "document_path": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-13-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
+  "cached_at": "2026-01-29T20:55:31.224198",
+  "decisions": {
+    "0ec289e16f0ed952dda5da578e67c2180a3eb3bb": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL no contiene un artículo completo ni texto de artículo específico. Se refiere a la Ley Orgánica y a conceptos generales, pero el artículo 1 (texto legal concreto) se encuentra en el CHUNK SIGUIENTE. Para asegurar contexto de pregunta de calidad, es necesario incorporar ese artículo completo desde el siguiente chunk.",
+      "has_article": false,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "86dd8437edb672e34282bad2310bfbcd6d852fc4": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 1 con sus apartados, por lo que es un fragmento de texto legal completo y suficiente para generar preguntas de calidad sin necesidad de unir otros fragmentos.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "6dfbeb367a504949fda9c30b2621d223db2641a0": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 2 completo con sus tres apartados, y está contextualizado entre Artículos 1 y 3, por lo que hay continuidad y suficientes referencias para formar preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "bfd21c9172a9d26fff70c433c7e438c3db03a30a": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 3 completo (Fines) con subapartados a)–i), por lo que hay al menos un artículo completo y el contexto es suficiente para plantear preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "ab7e9312d68f37db89b1506fd3b68520a3d418d7": {
+      "action": "keep",
+      "reasoning": "EL CHUNK ACTUAL contiene el Artículo 4 con sus apartados 1–3, presentando un artículo completo. Aunque podría beneficiarse de Artículo 3 para mayor contexto, el contenido vigente ya permite formular preguntas de calidad sobre principios rectores, actuación de las Fuerzas y Cuerpos de Seguridad y justificación de la intervención.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "17fac3a04a478773411516fc51ffd019f91af1c5": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 5 completo (apartados 1–4). No hay indicios de basura o metadatos críticos que invaliden el contexto. Aunque podría beneficiarse de incluir el Artículo 6 para ampliar la cooperación interadministrativa, el contexto actual ya cubre una unidad legal completa para generar preguntas de calidad sobre autoridades y órganos competentes en seguridad ciudadana.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "9f136dff904f9bc649a0d8a6d1eedff206e164a3": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 6 completo; además sitúa cooperación interadministrativa y remite a leyes relevantes, lo que permite plantear preguntas de calidad sin necesidad de fusiones inmediatas.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "2aed9c065d6de3860bf07f08ef8fd9747c9bce25": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL comienza con el inicio del Artículo 7 pero está incompleto y depende de contexto adicional para completarlo. El CHUNK SIGUIENTE parece contener la continuación normativa relevante (continuación de artículos relacionados), por lo que fusionarlo con el siguiente permitiría obtener un artículo completo o un contexto más claro.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "0c903148ce1fa265e3f9707e3a3a20c79acac958": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK_actual contiene referencias a artículos 5 y 3 de forma fragmentaria y no presenta un artículo completo por sí mismo. Para asegurar un contexto adecuado para preguntas de calidad, debe integrarse con el contenido anterior que contiene las definiciones y artículos previos y/o con el siguiente que aporta artículos 7 y 8.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "Fragmentación y ruido entre fragmentos de artículos, falta de cohesión entre secciones",
+      "rewrite_type": "both"
+    },
+    "c245418d31924d2d01723fcac8b7794e407c81ca": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 8 completo (y texto razonablemente cohesionado sobre la acreditación de identidad). Aunque hay ruido de formato (marcas de página y metadatos), se mantiene un artículo completo y contexto suficiente para generar preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "19c75b2480846a2007beb1467490e89e441f7626": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 9 con dos apartados incompletos: el apartado 2 termina abruptamente con 'del' y no está completo; el texto de continuación correspondiente parece estar en el CHUNK SIGUIENTE (que parece referido al Artículo 8, no al 9). Por coherencia, para que el Artículo 9 esté completo debe fusionarse con el CHUNK ANTERIOR (que contiene parte del Artículo 8) para entender a qué se refiere el 'apartado 2' y completar la redacción. En su estado actual, el contexto no es suficiente para una pregunta de calidad y el artículo 9 no está completo.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "El texto contiene ruido y fragmentos inconclusos que dificultan la cohesión y lectura; requiere limpieza y mejora de cohesión para ser autocontenible.",
+      "rewrite_type": "both"
+    },
+    "8740602c7bcdd131d2182d9644700899b056fa92": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK actual parece ser la continuación de un Artículo 8, pero sólo muestra una parte final (…De su sustracción o extravío…). No contiene un artículo completo ni suficiente contexto por sí solo. Para evaluar preguntas de calidad, se debe disponer de al menos un artículo completo. Como la parte anterior no está disponible en los CHUNKs proporcionados y podría haber más contenido relevante del Artículo 8 antes de este fragmento, se propone fusionar con el CHUNK anterior para intentar reconstruir el Artículo 8 en su totalidad o, de no existir, al menos ampliar el contexto.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "41a7e23c3058ee8647b9a543805a4f67e78bb455": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene un artículo completo (Artículo 10) con tres apartados claros y suficientes para generar preguntas de calidad. No se detecta incompletitud en el artículo presente. El CHUNK ANTERIOR y SIGUIENTE proporcionan contexto adicional pero no son necesarios para confirmar la suficiencia del CHUNK ACTUAL. No es necesario fusionar para ampliar el contexto ya que hay un artículo completo y autocontenible.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "0a58a45451d53086168be28989967f6a17d88d6e": {
+      "action": "keep",
+      "reasoning": "El CHUNK contiene el Artículo 11 completo (pasaporte de ciudadanos españoles) y no muestra fragmentos incompletos relevantes dentro del artículo. Además, está precedido por el Artículo 10 y seguido por el Artículo 12, lo que facilita preguntas con contexto básico sobre competencias y obligaciones del pasaporte sin necesidad de fusionar otros chunks.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "157a1d32d62abb152ac78069511d75eb664efa74": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 12 completo (con apartados 1, 2 y 3). Hay artículos legalmente relevantes en el chunk y no hay ruido evidente que impida entender el texto. El CHUNK ANTERIOR y SIGUIENTE existente proporcionan contexto adicional de artículos relacionados, pero no es necesario para considerar este chunk como suficiente para preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "9db9e0722588a662dd6dad236d9575dbac11830b": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 13 (Acreditación de la identidad de ciudadanos extranjeros) completo, por lo que hay contexto legal suficiente para generar preguntas de calidad. Aunque se observan elementos no pertenecientes al cuerpo del artículo (títulos de página y textos de guía), no afecta la presencia de un artículo completo. No es necesario fusionarlo con el artículo anterior o siguiente para completar el contexto.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Ruido/elementos no pertinentes (cabeceras, pie de página y texto auxiliar) que dificultan la cohesión del fragmento; conviene limpieza para mejorar cohesión y claridad.",
+      "rewrite_type": "clean"
+    },
+    "3aa692f3db1acbc4c83ccbbe37002876d015468c": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 14 incompleto (solo presenta el título y una parte de su contenido). Para generar preguntas de calidad es preferible tener el artículo completo o al menos mayor contexto, que podría incluir el desarrollo completo de Artículo 14 y/o su relación con artículos adyacentes. El CHUNK SIGUIENTE contiene Artículo 15 y podría ayudar a completar el marco normativo si se fusiona; sin embargo, no debe descartarse que el texto de Artículo 14 continúe en un propio chunk, por lo que la unión con el siguiente facilita cobertura de contenido relacionado.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "dd4b36d895588d07222e8db334d6da8e76e564e2": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 15 completo y está situado entre el Artículo 14 (anterio) y el Artículo 16 (siguiente), proporcionando contexto legal adecuado para formular preguntas de calidad. No se identifica ruido relevante ni fragmentación que requiera unión con otros trozos.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "821294c0194f8a6202516c58a1c739ef5a071be4": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 16 completo (Identificación de personas) con sus apartados 1 a 5, por lo que ya proporciona suficiente contexto legal para formular preguntas de calidad. No es necesario merges con artículos anterior o siguiente, ya que el artículo está completo y autónomo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "002684ebc7862523435448bde47b01b78c38f09d": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 17, pero parece incompleto (falta cierre de la disposición y referencias a controles posteriores). Para obtener un contexto completo de las reglas de identificación y controles en vías públicas, es necesario integrar el Artículo 18 (siguiente) que continúa con las comprobaciones y ocupaciones de objetos, asegurando una comprensión coherente de las medidas de seguridad y control.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "e23f10da74b6f35d1713f0d9cb8e89f3c0189842": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 18 completo, con sus apartados 1 y 2, y está ubicado dentro de un bloque de texto coherente. Además, hay CHUNKs anterior y siguiente que lo contextualizan (Artículos 17 y 19), pero no es necesario fusionarlo para entender el artículo 18 en sí.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "0b6aadb65f6fe8dc2c448ea2ab694df53fc880b4": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: esta sección",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "065c8857d3ec5eca7a81452a5951a77eac5b94b2": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 20 completo sobre registros corporales externos, con sus apartados 1-4, y referencia principios legales relevantes. No es necesario unir con CHUNK ANTERIOR ni CHUNK SIGUIENTE para entender el artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "88dc334d4957d4d4a7cfcd3f42dcef9123b7534d": {
+      "action": "merge_next",
+      "reasoning": "El Artículo 21 queda incompleto en el CHUNK ACTUAL (‘durante el tiempo’ queda pendiente de completar). El CHUNK SIGUIENTE contiene el Artículo 22 y no continúa directamente el texto de Artículo 21; para obtener el texto completo de Artículo 21, es necesario incorporar contenido adicional que probablemente se encuentra en un CHUNK posterior. Por lo tanto, para asegurar un contexto completo y correcto, debe fusionarse con el siguiente CHUNK que aporte la continuación de Artículo 21 (o ampliar con el material que complete el artículo).",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "25c2fec81891a96e03f3b14a6d5a854904ba9995": {
+      "action": "merge_next",
+      "reasoning": "En CHUNK ACTUAL aparece el Artículo 22 (incompleto) y se anticipa que el CHUNK SIGUIENTE contiene el Artículo 23, que completaría el marco normativo y contextualizaría mejor las referencias a reuniones y manifestaciones. Además, hay indicios de ruido menor (texto como 'VER VÍDEO TEMA 13. PARTE 5ª') que podría beneficiarse de limpieza, pero la necesidad principal es ampliar con el artículo siguiente para asegurar al menos un artículo completo en el contexto inmediato.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "2427cbbf40e142e396480a6de5018c13707b8dc1": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 23 completo (tiene apartados 1, 2 y 3) y está en continuidad con el Artículo 22 anterior y el Artículo 24 siguiente, lo que facilita la generación de preguntas de calidad sobre seguridad ciudadana y medidas frente a reuniones y manifestaciones. No se observan fragmentos incompletos ni ruido invasivo que impidan la comprensión básica del contenido inmediato.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "3b52313a18695121e01c12c15bc1b0e94474b2af": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK ACTUAL contiene el inicio de l artículo 24 pero parece incompleto (termina a mitad de una oración y no presenta el cierre de artículo). Para una evaluación de contexto y preguntas de calidad, es útil incluir el texto del artículo anterior (Artículo 23) para entender la continuidad de las disposiciones sobre reuniones y seguridad, y así decidir si debe haber continuidad entre 23 y 24. Además, no se observa cierre de la idea de las potestades de policía administrativa de seguridad en este fragmento.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "1b97a2e9e7cb271ca60e680ccb66fffb007ddc77": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene al menos el Artículo 23 (completo) y el Artículo 24, con su marco de colaboración y regulaciones relevantes. Aunque hay ruido de formato y cabeceras (p. ej., '--- Página 18 ---', referencias a temas y aspirantes), el contenido legal es claro y suficiente para formular preguntas de calidad. No requiere fusionar con chunk anterior o siguiente, ya que ya incluye artículos completos y la estructura normativa relevante está presente.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido/segmentación y metadatos que dificultan la cohesión (cabeceras, marcadores de página e inserciones de contexto no legal).",
+      "rewrite_type": "clean"
+    },
+    "35a1440b4ab6e5ea1c522bd1b96b2cc96b812e6a": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 25 con dos apartados completos, que define obligaciones de registro documental. Hay continuidad con el CHUNK ANTERIOR (tema de seguridad ciudadana) y el CHUNK SIGUIENTE aporta el Artículo 26, pero no es necesario para confirmar que hay un artículo completo y contexto suficiente para preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "a2db84aa823bdd524e77ef6511f8c7e087ef35e5": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 26 completo y autónomo, con alcance suficiente para generar preguntas de calidad relacionadas con medidas de seguridad en establecimientos e instalaciones, sin parecer incompleto o basura/metadatos.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "8fdcf02174e9ebc9204c2fe59d4ee86d42ca8c43": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 27 completo (numerado 1 a 4) sobre espectáculos y actividades recreativas. No hay indicios de que falten apartados dentro del artículo, por lo que puede generar preguntas de calidad sin necesidad de reescritura ni de fusionarlo con otros chunks para completar el contexto.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "ec081405db5875b3df71da8376529816e4006786": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 28 completo (con sus apartados 1 y 2) y tiene contexto legal útil para formular preguntas de calidad sobre ese artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "4dd9dafc3ae6d5d5b0ed00c33472444303ac6fa9": {
+      "action": "keep",
+      "reasoning": "El CHUNK contiene el Artículo 29 completo (secciones 1 y 2 con sus apartados). No se observan fragmentos incompletos del artículo relevante y hay contexto suficiente para generar preguntas de calidad. Aunque incluye encabezados de página y información adicional, no es basura ni metadatos puramente, y no requieren reescritura.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "58342f637a768d312e824418d1704ea37598a78e": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 30 completo (Sujetos responsables) y no parece incompleto ni basura; el artículo 29 aparece en el CHUNK ANTERIOR y el 31 en el CHUNK SIGUIENTE, pero el 30 está autocontenido y completo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "4003276fd78a9d697ae97659d8b0bb3242105353": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 31 completo (tres apartados). No requiere unir con anterior ni siguiente para ser considerado contexto suficiente para generar preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "15367f721373d2e92d263148187f5081a25131fd": {
+      "action": "keep",
+      "reasoning": "El chunk contiene el artículo 32 con sus apartados completos y, aunque sigue con material adicional y ruido metodológico (nota de página, enlace y tema), no es basura ni metadatos irrelevantes para el contexto jurídico. El artículo 32 está completo dentro de este chunk, y se proporcionan además referencias a artículos cercanos para contexto (artículo 31 anterior y artículo 34 siguiente).",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "ece1a96db4b21ce277fede729ef1c9a0f76a4e9a": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 34, que es un artículo completo que establece la clasificación de infracciones (muy graves, graves y leves). No se identifica ruido significativo ni metadatos que hagan el chunk basura. El contexto es suficiente para generar preguntas de calidad sobre este artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "0dcfa6f1bfe9bfc1aa16119f13a59b6061f92598": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 35 completo (infracciones muy graves) y está contextualizado entre el Artículo 34 y el Artículo 36, permitiendo una comprensión continua. Hay presencia de artículos legales completos y contexto suficiente para plantear preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "967a74ec7a5d0377f2b85f2bf28f72bfc4b766bc": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 36: Infracciones graves, con todos los incisos (1-23) y las notas sobre su interpretación constitucional. Esto representa al menos un artículo completo y con su contexto legal, suficiente para generar preguntas de calidad. Aunque hay ruido mínimo de formato (marcas de página), no es basura ni metadatos irrelevantes que impidan la comprensión.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "9c2f0ab921ee0604285bdd1b2bf5ecad505ba3e3": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 37 (Infracciones leves) con su numeración completa (1–17) y, aunque incluye ruido editorial (cabeceras de página, marcas como '*', indicación de vídeo), el artículo está íntegro y ofrece contexto suficiente para formular preguntas de calidad. No hay indicios claros de claridad basura o metadatos aislados que obliguen a descartarlo. El siguiente CHUNK contiene el Artículo 38, por lo que no es necesario fusionar con el anterior para contexto básico, pero podría ampliarse si se busca continuidad temática.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Hay ruido editorial y elementos de formato que pueden dificultar la lectura y la cohesión de preguntas, por lo que una limpieza ligera mejoraría la calidad de preguntas.",
+      "rewrite_type": "cohesion"
+    },
+    "df77d767b56af8723dd48f65b3de7bfc8ddb4073": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 38 con texto completo y sus apartados, que cumplen la regla de incluir al menos un artículo completo. Hay referencias transversales a otros artículos (p. ej., artículo 45) que no se encuentran en este chunk, lo que podría limitar preguntas que dependan de esos apartados específicos de otros textos. En general, el contexto es suficiente para generar preguntas de calidad sobre la prescripción de infracciones, pero para preguntas que involucren la interacción con artículos citados en el propio texto (como el 45), podría ser necesario otro chunk que lo complemente.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "f450d63d7257f4218bf914c5d02c2f3eb7b30f2f": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: este apartado",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "80dbe1f9a67d08e0dcaf7afd13438ffb9de83d18": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 39 completo (con sus apartados 1 y 2, incluyendo incisos a-d) y no parece depender de otros artículos para su comprensión básica. No hay código, metadatos o ruido excesivo que impida generar preguntas de calidad; el artículo está completo y se puede cuestionar de manera autónoma. El CHUNK SIGUIENTE/ANTERIOR no son necesarios para ampliar el contexto inmediato de este artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "d12453a07dd37b1072364c17b7c3196d5af4e980": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 40 completo (títulos y secciones 1-2) sobre la prescripción de sanciones, lo que garantiza contexto legal suficiente para generar preguntas de calidad sin necesidad de fusionar con otros chunks.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "df899f1bd431e82b0ea576fa57a1690d4ea88db7": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 41 completo (título y texto), por lo que hay un artículo completo y suficiente para generar preguntas de calidad. No hay ruido significativo que requiera reescritura.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "905f2ce7b4893dba8887dfbc141adb3ff04c86a3": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 42 completo (reparación del daño e indemnización) con sus apartados 1 a 3, y está en contexto junto al Artículo 41 anterior y el Artículo 43 siguiente, lo que facilita la generación de preguntas de calidad sin necesidad de fusionar contenido adicional.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "44d51eb8d5b45f0f0cbe73361b3dd8d5d2754510": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 43, pero termina con la cabecera Sección 3.ª Procedimiento sancionador sin desarrollar su contenido, lo que indica que falta el texto de esa sección. Para que haya un artículo completo y contexto suficiente para plantear preguntas de calidad, es necesario obtener la continuación (probablemente de la Sección 3.ª) que podría estar en el siguiente CHUNK. Además, el CHUNK actual no presenta un artículo completo desarrollado.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "7ef3aaf845cf5f199218867bc1e9ddc9049d6e61": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene un artículo legal (Artículo 44) y, aunque de forma parcial, parece presentar una unidad completa de ese artículo.Existe contexto legal suficiente para formular preguntas básicas sobre el régimen jurídico en materia de potestad sancionadora. Se observa un error tipográfico en una palabra (Adminstrativo) que puede afectar la claridad y cobertura de preguntas.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido/errores tipográficos en 'Administrativo'",
+      "rewrite_type": "clean"
+    },
+    "7ebc02463f6cd257056f95a49ca72dd2349006be": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 54 completo (con apartados 1–3), y hay presencia de artículos en CHUNK ANTERIOR y CHUNK SIGUIENTE que pueden enriquecer el contexto si se desea. No hay ruido que impida la lectura esencial y no es necesario fusionar con otros chunks para entender el artículo principal.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "e52f86191f50b2ea52d6f1f1eeed2d07bedb182a": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 45 con sus apartados 1–4, que forma un artículo completo y autónomo. No se requieren acciones de fusión para completar contexto.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "bc13cc8bcfd3983d8b4c24dcd755e492695a2e26": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 48 completo (con 3 apartados) sobre actuaciones previas dentro de un procedimiento sancionador, por lo que ofrece contexto suficiente para generar preguntas de calidad. Se mencionan conceptos y fundamentos que pueden ser usados para cuestionar procedimientos y continuidad con respecto a artículos anteriores o posteriores.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "3a979b9fe442e702d3e8eb531807c44453477c63": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene un artículo legal completo (Artículo 50) con su título y apartados; no requiere reescritura ni fusión para claridad básica. Aunque existen artículos adyacentes (48 y 51), el chunk actual ya aporta un artículo completo y suficiente para plantear preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "db183f058e7a4d7f84e047417c3efb9dcd2ffc88": {
+      "action": "merge_next",
+      "reasoning": "El Artículo 51 está incompleto (termina abruptamente) y no constituye un artículo completo por sí solo. Para garantizar contexto y posibilitar preguntas de calidad, es adecuado fusionarlo con el siguiente artículo (52) que aporta valor probatorio y continuidad temática dentro de la misma sección de sanciones.Además, existen metadatos de página y cabeceras que no afectan al contenido legal básico, por lo que no requieren descartarse.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "96421b8f01358d85ab182daff50e6b20240b2fd7": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene un artículo completo (Artículo 52) con una noción legal clara y terminada. Además, el CHUNK anterior (Artículo 51) y el CHUNK siguiente (Artículo 53) están relacionados temáticamente y ayudan a contextualizar el marco de la sanción y su ejecución, lo que facilita la formulación de preguntas de calidad sobre el tema. No hay ruido evidente ni metadatos problemáticos significativos en el texto proporcionado.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "50c287bb2e9e768045259c56bdb390e5b5ab491f": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 53 completo (numeral 1 a 5) y expone claramente la ejecución de la sanción, plazos y disposiciones relativas, por lo que es suficiente para generar preguntas de calidad sin necesidad de incorporar otros bloques. No se observan ruido significativo ni datos irrelevantes que obliguen a reescritura.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "cf3304d20b1385b67ec917e747584379e9dffd19": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL corresponde al Artículo 46 y presenta un artículo completo con dos apartados. No hay evidencia de ruido significativo que obligue a reescritura. Aunque el CHUNK ANTERIOR y CHUNK SIGUIENTE contienen otros artículos, el CHUNK ACTUAL por sí solo ya ofrece contenido suficiente para plantear preguntas de calidad sobre la accesibilidad de datos por autoridades, dentro del marco legal. ",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "72cc5161d9ab57a9cc00b727e8cfe9ef19a4b469": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene artículos legales completos (Artículo 47 y Artículo 49) con sus apartados respectivos, además de referencias a las normas relevantes (p. ej., Artículo 49). No se identifica basura ni metadatos relevantes que hayan de descartarse. El contexto es suficiente para generar preguntas de calidad sobre las medidas provisionales y su régimen, y no hay necesidad de fusionar con chunks adyacentes para obtener información esencial.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "54180f401a211350d91c451e9ed1189200261554": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 49 completo con sus apartados 1-6, que es un marco legal suficiente para plantear preguntas de calidad. Aunque hay ruido de formato (cabeceras y notas de página), no impide extraer el contenido legal esencial. No es necesario fusionar con chunks anteriores o siguientes para obtener contexto mínimo, y ya existe un artículo completo dentro del chunk.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "8791d6eb9f2569bcba53fbbd987815f142cbc5d2": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene fragmentos de un artículo (Artículo 149) y referencias organizativas, pero no presenta un artículo completo ni un contexto suficientemente cohesionado para formular preguntas de calidad. Se requiere ampliar con contenido adicional (el siguiente chunk) para completar el marco legal y facilitar preguntas sustantivas.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "6b2f3e5e8fdac31e68f322e52bd7aa3efd4bd31d": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene al menos un artículo completo (Artículo 1). Hay una mención de un video y elementos no esenciales, pero no impiden el uso para generar preguntas de calidad. El contexto de la norma está presente dentro del CHUNK, y existen referencias estructurales a artículos (conjunto y parametrización de seguridad privada).",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "6d1672c49d88c64bfaa824c2a1e63fb2f89391c7": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL corresponde al Artículo 2 (Definiciones) y parece completo. Contiene todas las definiciones enumeradas, y hay artículos anterior y siguiente para contexto adicional, pero no es necesario fusionarlo para garantizar una pregunta de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "622e76251a02e0d07f5cb96815c17b54f937c187": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene al menos un artículo completo (Artículo 3: Ámbito de aplicación) con sus apartados 1–3, por lo que ofrece contexto suficiente para generar preguntas de calidad. No hay necesidad de fusionar a menos que se desee ampliar con el siguiente artículo (Artículo 4) para preguntas que cubran fines o alcance adicional.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "697739f6e654c782dfddbfb7d3bdb7bf95f0c731": {
+      "action": "keep",
+      "reasoning": "Artículo 4 está completo (a, b, c) y el contexto circundante incluye Artículo 3 y Artículo 5 para continuidad temática, por lo que es suficiente para generar preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "9cdd64c60ae26032ad68f62a43c3c9b0681185d4": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 5 completo con sus apartados 1, 2 y 3. Aunque hay ruido de formato (anotaciones de página y encabezados), no impide entender el texto legal para generar preguntas de calidad. No es necesario fusionar con otros chunks para obtener un artículo completo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "aaa51f021ddf6afe72da7e134f2b407dc9a66a32": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 6 completo (con subapartados) y está rodeado por el Artículo 5 anterior y el Artículo 7 siguiente, lo que facilita preguntas de calidad sin necesidad de fusionar con otros chunks.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "963c89ac1a0ee0662cf8a3bd376290858e19a3f3": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 7 completo con sus apartados. No hay artículo incompleto que obligue a fusionar con anterior o siguiente; el CHUNK ANTERIOR contiene Artículo 6 y el CHUNK SIGUIENTE contiene Artículo 8, pero el actual ya es autónomo y completo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "930d9806da38366aa8dbed8ab8af9ba04926d474": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 8 con sus apartados (1-6), que es un artículo completo; existen contexto anterior y siguiente (Art. 7 y Art. 9) pero no es necesario para sostener la evaluación de este chunk en sí. Hay ruido aislado (referencia a un video) que podría limpiarse para una mejor cohesión.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido/elementos fuera de contexto (ver vídeo) que pueden dificultar la lectura y cohesión del artículo",
+      "rewrite_type": "clean"
+    },
+    "c252ac000adb6ddac3de589c97da5a58a04093c4": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 9 completo con sus apartados 1-3, que son suficientes para generar preguntas de calidad sobre contratación y comunicación de servicios de seguridad privada. No se detectan fragmentos incompletos ni ruido significativo; se mantiene coherente con el CHUNK anterior (Art. 8) y el siguiente (Art. 10) para continuidad temática.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "d7db436cf8e0b83dea5468b5180da6c9543e6485": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 10 completo (con sus apartados 1-3) y se sitúa entre el Artículo 9 y el Artículo 11, proporcionando contexto suficiente para generar preguntas de calidad sobre prohibiciones y competencia en seguridad privada.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "6b9cddd426c1a90a72e1f0f18554dfe100e9bd94": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 11 completo (incluye sus secciones 1 a 7) y corresponde a un artículo legal completo. Aunque hay ruido menor de formato de página, no afecta la comprensión del artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "1ca7d295e018a017bcddade0ff28f8d15f9e0fb6": {
+      "action": "keep",
+      "reasoning": "El CHUNK contiene el Artículo 12 completo (apartados 1 y 2 con sus letras a–k) y presenta suficiente contexto para formular preguntas de calidad sobre competencias de la Administración General del Estado en seguridad privada.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "bbbcfcbd4491afeafa2664fb7cabec14278368ed": {
+      "action": "merge_next",
+      "reasoning": "Artículo 13 está presentado de forma incompleta (solo incisos a–f). Falta la continuación del artículo o su resto. No hay suficiente contexto en este CHUNK para cubrir todos los apartados de Artículo 13; se sugiere ampliar con el siguiente chunk para intentar completar el artículo o, si no existe, buscar otros chunks que contengan la continuación.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "139ef37d5ee7ddd305ff5a754d2dc77cd4667688": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 14 completo con sus apartados 1–3, sin ruido y sin fragmentación. Hay artículos adyacentes (Art. 13 y Art. 15) en chunks vecinos, pero el chunk actual ya es autónomo y suficiente para preguntas de calidad sobre ese artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "5577c46b0030fd3465995e8b655d27ca096ced3a": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 15 completo con sus tres apartados y corresponde a un artículo legal claro. No se identifica ruido significativo ni metadatos que invaliden el contexto. El contexto es suficiente para formular preguntas de calidad sobre ese artículo, y no requiere reescritura.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "983d775d04b5900a46c53d193c899827ff6176df": {
+      "action": "keep",
+      "reasoning": "El CHUNK contiene el Artículo 16 con las secciones 1 a 3 sobre coordinación y participación, que es un artículo completo dentro del marco del Título II. Además, el contexto incluye notas introductorias y la transición hacia los artículos 15 y 17, lo que facilita plantear preguntas de calidad sin necesidad de fusionar con otros chunks.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "4bc5bd7c374d075c3dde60dafc1057c1554abaec": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 17 completo con tres apartados y referencias a otros artículos; no hay ruido evidente y el contexto es adecuado para formular preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "45b9a6aeafd681823be7dd13fba92d98b1abac76": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene un artículo completo (Artículo 18) y está bien estructurado. No es necesario fusionar con anteriores o siguientes para cumplir con el requisito de contexto mínimo, ni se detectan ruidos que requieran limpieza.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "e53331fdbc5c699bfed613dbbcdf1d32fdd81d5f": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 19 completo (con sus apartados 1 a 8) y no depende de la continuación obligatoria para completar su sentido. No hay ruido evidente que requiera limpieza, y el contexto es suficiente para formular preguntas de calidad sobre los requisitos generales de las empresas de seguridad privada.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "643b7dc85380da1e8db7f6a14f6bd4ff0ab049f7": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 20 completo (con apartados 1 y 2). Además, hay presencia de encabezados que no perturban la comprensión del artículo. El CHUNK ANTERIOR y SIGUIENTE están referenciados y no contradicen el texto, por lo que el contexto es suficiente para generar preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido de formato/metadatos (marcas de página como --- Página 56 ---) que no aportan contenido legal; se recomienda limpiar para mejorar cohesión.",
+      "rewrite_type": "clean"
+    },
+    "e6d8c509d9b09efe55e526276a52860b1384db42": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 21 completo (Obligaciones generales) con sus apartados 1 y 2, por lo que no es necesario fusionarlo con otros chunks para tener contexto completo. No hay ruido evidente ni metadatos incrustados que justifiquen reescritura.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "7858ed5e380c4cbf59eaff6e839edfe3a6a21ba8": {
+      "action": "keep",
+      "reasoning": "Artículo 22 está completo (secciones 1-3) y no requiere ampliación para generar preguntas relevantes; el CHUNK contiene las disposiciones necesarias de ese artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "253d60fb15fcb90486053fca0337acbe85978fba": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 23 completo (1-4) y está seguido de la continuidad temática de CAPÍTULO II; no necesita unir con anterior o siguiente para entenderse. No hay ruido evidente ni metadatos que deban descartarse.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "31d6f230f2279411e07bf443ede5acc73895b5dc": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 24 completo (con apartados 1-5) y es suficiente para plantear preguntas de calidad sobre apertura de despachos de detectives privados y obligaciones relacionadas. No es necesario fusionar con artículos adyacentes para este objetivo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "5128016451c6d260f358c9c6d1bce70278ddecd5": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 25 (Obligaciones generales) con sus apartados completos, por lo que hay al menos un artículo completo y suficiente para generar preguntas de calidad. Aunque hay contenido no relacionado al margen (material de estudio/escaneos), no es basura evidente y no es necesario fusionar con el artículo anterior o siguiente para obtener contexto legal relevante.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "51e0cd934f8bbcc6c2621f28782cfdaeeaf3fb09": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 26 completo (1–5) sobre Profesiones de seguridad privada, por lo que ya ofrece contexto y contenido suficiente para formular preguntas de calidad. No hay indicios de basura o metadatos relevantes que ameriten descarte.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "555c418a86f39e969673ce4b622690f67daf1a19": {
+      "action": "keep",
+      "reasoning": "El CHUNK actual contiene el Artículo 27 completo (5 apartados) sobre la habilitación profesional y funciones, por lo que hay contexto suficiente para generar preguntas de calidad. No es necesario fusionar con el artículo anterior o siguiente para completar el contexto.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "ae358db86b04c5fa2baa92904bd00ce613ad11e3": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 28 completo con sus apartados, y referencia artículos vecinos (27 y 29) pero el propio texto de 28 está autocompleto. Hay ruido de metadatos (encabezados de página) que podría limpiarse para mejorar la cohesión.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido de metadatos/encabezados de página presentes que dificultan la lectura, requiere limpieza para mejorar cohesión",
+      "rewrite_type": "clean"
+    },
+    "283947cb2e5ee8b12e8ca4c86db9f0a9e0d234c1": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 29 pero está incompleto (termina a mitad de una oración). Para completar el artículo, debe fusionarse con el CHUNK SIGUIENTE que continúa la numeración y el contenido. Además, hay ruido/artefactos de formato (páginas y separadores) que deben limpiarse para mejorar cohesión y claridad.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido y ruido de formato que dificultan la lectura; cohesión incompleta debido al corte en la oración",
+      "rewrite_type": "both"
+    },
+    "652475be7ece70a05d85ca8ed346be6b1ea8fe7f": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK actual contiene partes de Artículo 28 (incluye apartados 2–7) y el encabezado indica 28.1.i), lo que sugiere que falta el inciso i) de 28.1 y, en general, no presenta un artículo completo de 28. Para obtener un contexto de calidad, se debe consultar el siguiente chunk (Artículo 30) para completar la continuidad de la norma y/o verificar si el CHUNK anterior aporta la continuidad de 28.1). También hay ruido y metadatos que deben limpiarse para una mejor cohesión.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido y metadatos (ver vídeo, direcciones de correo, marcadores de página) que dificultan la lectura y cohesión",
+      "rewrite_type": "both"
+    },
+    "ea5c2381a73421ed2180644ff1a354a80baa8287": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 30 completo (principios de actuación) y está bien estructurado; se cumplen las reglas de contexto para generar preguntas de calidad sin necesidad de fusionar con chunk anterior o siguiente.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "95270d842ec08683fae2a76e64272160a3787062": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene solo una parte de un artículo (Artículo 31) y no presenta el artículo completo. Para asegurar contexto suficiente para generar preguntas de calidad, es necesario ampliar el bloque con el artículo siguiente (Artículo 32) o adyacentes que completen la información.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "eb6bab4434bbec0996b53203cd3f9df4c2b5bb22": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 32 completo (con sus apartados 1-3), por lo que hay un artículo completo y suficiente para generar preguntas de calidad. No hay indicios de que falten secciones importantes ni de basura/metadatos, y tampoco se requieren fusiones con artículos vecinos para aportar contexto esencial.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "47e906f1f1ba00a229b84cf4f77460481eb19b14": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 33 completo (1-3) con sus referencias internas y no presenta ruido significativo ni metadatos irrelevantes. Incluye una continuación clara de la segunda oración dentro del propio chunk y referencia al artículo 32 para el marco aplicable. Además, hay presencia de un artículo relacionado (Art. 34) en el CHUNK SIGUIENTE, lo que permitiría ampliar contexto si se desea. En resumen, hay contexto suficiente para generar preguntas de calidad sobre el Artículo 33 y su relación con 32.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "cf645f9d316f555cf98a50a8f3f473e3920d44c2": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 34 completo con sus incisos, por lo que aporta un contexto legal válido y completo. No requiere fusiones para ser tratado de forma independiente.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "aaf9c8ef00dee15bbecdbf0d7d15251c0d629073": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 35, pero la oración queda incompleta al finalizar 'del' y depende de la continuidad del párrafo anterior (CHUNK ANTERIOR) para completar la referencia a los párrafos a), b), c), d) y e) del artículo anterior. Por claridad y cohesión, debe fusionarse con el CHUNK ANTERIOR para formar una unidad completa.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "73a19ca43148d81e063d3b13633e03eb42d95140": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK ACTUAL parece ser una continuación o fragmento de un artículo (artículo 35) y no contiene un artículo completo por sí solo. Para obtener contexto suficiente y completo, debe combinarse con el CHUNK ANTERIOR que sí contiene el artículo 35 completo (con sus apartados 1 y 2) y/o el CHUNK SIGUIENTE para incluir el artículo 36.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "6cc9ce8cf2da806364087be96c799cb1f465da76": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: este apartado",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "65b2b44793ec9d1f9d95354903ae9494ca333a5f": {
+      "action": "keep",
+      "reasoning": "El CHUNK CONTIENE el Artículo 37 con sus apartados 1-4, que parece completo. Además, el CHUNK ANTERIOR incluye el Artículo 36 y el CHUNK SIGUIENTE incluye el Artículo 38, lo que provee contexto normativo contiguo útil para preguntas de calidad sobre el marco de seguridad privada. Hay ruido menor (cabeceras como 'Página 72', referencias de tema) que puede limpiarse.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "ruido/metadatos y encabezados que dificultan lectura continua.",
+      "rewrite_type": "clean"
+    },
+    "25761fccad7f8717071e10b24e78778a7f72aa67": {
+      "action": "merge_prev",
+      "reasoning": "Referencia anafórica detectada: esta figura",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "a29af71325fffec8e0f2c76744affcf423b6950c": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 39 (Forma de prestación) completo (con sus apartados 1-5). Además hay referencias a los Artículos 38 y 40 en CHUNKS adyacentes, lo que facilita ampliar contexto si se pregunta por la prestación de servicios o usos de armas, pero no es necesario para evaluar preguntas de calidad, ya que ya hay un artículo completo en este CHUNK.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "f7e771873c354d82ffe086190af4a7a1627425f4": {
+      "action": "keep",
+      "reasoning": "El CHUNK contiene el Artículo 40 completo (4 apartados) y está ubicado dentro de una secuencia normativa; hay continuidad con los artículos anterior y siguiente, pero el CHUNK en sí ya es autónomo y completo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "a417114350d6c6d11e4315840db03a3bffa67153": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 41 completo (con apartados 1, 2 y 3) sobre servicios de vigilancia y protección, por lo que cumple con la regla de incluir al menos un artículo completo. No hay indicios de que el artículo esté incompleto dentro del fragmento proporcionado. No es necesario fusionar con el anterior o el siguiente para obtener contexto suficiente, ya que el artículo está completo y autónomo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "f0d16494d47f6d9defa39eec38c570ba0755829b": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 42 completo (con sus apartados 1-6) y está precedido por el Artículo 41 y seguido por el Artículo 43, por lo que existe continuidad normativa. El contenido es suficientemente denso y específico para generar preguntas de calidad sobre videovigilancia, protección de datos y uso de grabaciones.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "8687b326fbcc2501fbc99d2fa17895720299e583": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 43 completo (con tres apartados) y se mantiene coherente con el contexto anterior (42) y siguiente (44) sin depender de completar o fusionar otros fragmentos para entender el artículo actual.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "a76c9a227c291b9c17241a139b7f5f8e7276d6a5": {
+      "action": "merge_next",
+      "reasoning": "El artículo 44 está incompleto en este CHUNK (termina en 'dichos objetos o sustancias.' sin completar la idea de la segunda cláusula). Se requiere el fragmento siguiente para completar el texto de dicho artículo y poder formular preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": ""
+    },
+    "4017634d454a2bdf05168c6397ee54b0287089eb": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 45 completo y está relacionado con el contexto de la legislación de seguridad, complementado por el artículo inmediato anterior y el siguiente, que permiten un marco contextual adecuado para preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "317b76a6f98fd9020dd9a892f973a68eca97ca2d": {
+      "action": "keep",
+      "reasoning": "El CHUNK contiene el Artículo 46 completo (con sus apartados 1 y 2) y está contextualizado por Artículo 45 anterior y Artículo 47 siguiente, lo que facilita generar preguntas de calidad sobre servicios de seguridad y alarmas. Aunque incluye texto de página/encabezado adicional, no impide identificar el artículo completo ni su cohesión básica.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "2d7b3876cd6081fa65bf9d78f0b4c7c14aacc4d9": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 47 completo con sus incisos y es autónomo para generar preguntas de calidad. No hay necesidad de fusionar con anterior ni siguiente para este criterio.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "4f99835463346deaf29ae6c84f2575a12eda64eb": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 48 completo con sus apartados 1-6, por lo que hay contexto suficiente para generar preguntas de calidad sin necesidad de fusionar con anterior o siguiente.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "53e0a09b272108c109af87709af496b485beb0c9": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 49 completo (con sus apartados 1–5) y no muestra indicios de que falten partes críticas del artículo. No se identifican elementos claramente basura o metadatos que justifiquen descartarlo. El contexto es claro y suficiente para plantear preguntas de calidad. No hay ruido que necesite limpieza significativa.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "5252aec420436ebd552b49fa27ad2d4e51ac435d": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 50 con sus apartados 1 y 2 y no parece depender de información externa para su comprensión. No hay ruido evidente ni fragmentación que afecte la generación de preguntas de calidad. Se mantiene coherente dentro del marco legal presentado.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "03ec69e05bc8c1712e7e77fb2c081bdca5659891": {
+      "action": "keep",
+      "reasoning": "El CHUNK contiene el Artículo 51 completo con sus apartados 1–8 y no muestra lagunas que impedirían formular preguntas de calidad sobre medidas de seguridad privada.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "8cb26691a45064f35c1fa6f66f1f3e2db29f40e9": {
+      "action": "merge_next",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 52 con sus apartados 1 y 2, pero no cierra el artículo (faltan posibles apartados 3-5). Además, el texto continúa con indicaciones de navegación editorial y la mención de 'Procedamos a continuación', lo que sugiere que el artículo podría ir unido o ampliado con el siguiente artículo para completar el contexto legal. Para preguntas de calidad, se requiere al menos un artículo completo o la continuidad clara entre artículos. El CHUNK SIGUIENTE (Artículo 53) está disponible y debe integrarse para obtener un contexto completo.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "6e448df4978024a5d948a42351f25929be9cdd60": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 53 completo (con sus apartados 1-5). Por lo tanto, hay un artículo legal completo dentro del chunk y se mantiene contexto adecuado para generar preguntas de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "4b5c047e5a4f819e7768fee10865dcd4b6d730e2": {
+      "action": "keep",
+      "reasoning": "El CHUNK ACTUAL contiene un artículo completo (Artículo 54) con su numeración y contenido, por lo que ya ofrece contexto suficiente para generar preguntas de calidad sin necesidad de fusionarlo de inmediato con otros chunks.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "4e6daf3652231c2faae7efa73e3afc0fc1bcbb49": {
+      "action": "merge_prev",
+      "reasoning": "El CHUNK ACTUAL contiene el Artículo 55 con sus apartados, pero para un análisis de preguntas de calidad conviene disponer del ARTÍCULO 54 anterior para entender la secuencia normativa y el contexto de las actuaciones de inspección.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    }
+  }
+}
