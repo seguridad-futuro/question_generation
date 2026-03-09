@@ -157,7 +157,18 @@ class QuestionData(BaseModel):
     )
     article: Optional[str] = Field(
         default=None,
-        description="Referencia legal limpia y resumida del artículo relevante. Formato: 'Artículo X [Ley/Código]: [SOLO el texto específico relevante para la pregunta, máximo 2-3 líneas]'. Ejemplo: 'Artículo 138 CP: El que matare a otro será castigado, como reo de homicidio, con la pena de prisión de diez a quince años.' NO copies el chunk completo, solo extrae la parte legal específica."
+        description=(
+            "Referencia legal profesional y bien redactada. REGLAS ESTRICTAS:\n"
+            "1. Formato: 'Artículo X de la [Ley/Código completo]: [texto legal relevante]'\n"
+            "2. Cita SOLO los apartados específicos que fundamentan la respuesta correcta\n"
+            "3. El texto legal debe ser LITERAL pero limpio (sin marcadores de página, sin errores de OCR)\n"
+            "4. NO copies párrafos enteros - extrae solo las líneas clave (máximo 3-4 líneas)\n"
+            "5. Si el artículo es largo, cita el apartado concreto: 'Artículo 14.1 CE: ...'\n"
+            "6. SIEMPRE especifica la norma completa (CE, CP, LECrim, LOPD, etc.)\n"
+            "7. NUNCA incluyas referencias a libros, editoriales, páginas o URLs\n"
+            "Ejemplo: 'Artículo 138.1 del Código Penal: El que matare a otro será castigado, "
+            "como reo de homicidio, con la pena de prisión de diez a quince años.'"
+        )
     )
     generation_method: str = Field(default="single_context", description="Método de generación")
     generation_time: Optional[float] = Field(default=None, description="Tiempo de generación en segundos")
@@ -616,6 +627,35 @@ def _extract_full_article_from_context(
     end = matches[selected_index + 1].start() if selected_index + 1 < len(matches) else len(context)
     article_text = context[start:end].strip()
     return article_text if article_text else None
+
+
+def _clean_article_text(text: str) -> str:
+    """Remove common OCR/book artifacts from extracted article text."""
+    if not text:
+        return text
+    # Remove page markers
+    text = re.sub(r"---\s*Página\s*\d+\s*---", "", text)
+    text = re.sub(r"---\s*Pág\.?\s*\d+\s*---", "", text)
+    # Remove chapter headers
+    text = re.sub(r"\n\s*(?:CAPITULO|Capítulo)\s+[IVXLC]+\s*\n.*?\n", "\n", text)
+    # Remove editorial/book references
+    text = re.sub(r"Aspirantes\.es.*", "", text)
+    text = re.sub(r"info@\S+", "", text)
+    # Fix common OCR errors
+    text = re.sub(r"\bE1\b", "El", text)
+    text = re.sub(r"(?<!\d)l\.\s+", "1. ", text)
+    # Clean up whitespace
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    text = text.strip()
+    # Truncate if too long
+    if len(text) > 600:
+        # Try to cut at a sentence boundary
+        cut = text[:600].rfind(".")
+        if cut > 300:
+            text = text[:cut + 1] + " (...)"
+        else:
+            text = text[:600] + " (...)"
+    return text
 
 
 def _get_chunk_index(chunk: Chunk) -> Optional[int]:
@@ -1360,15 +1400,14 @@ DEBES usar EXACTAMENTE este formato de pregunta:
         # 🎲 BARAJAR OPCIONES para evitar sesgo
         response = shuffle_question_answers(response)
 
-        target_article_id = _extract_article_id(response.article or "")
-        if not target_article_id:
+        # Only extract article from context if LLM didn't provide one
+        if not response.article or len(response.article.strip()) < 20:
             target_article_id = _extract_article_id(response.tip or "")
-        if not target_article_id:
-            target_article_id = _extract_article_id(response.question or "")
-
-        article_text = _extract_full_article_from_context(combined_context, target_article_id)
-        if article_text:
-            response.article = article_text
+            if not target_article_id:
+                target_article_id = _extract_article_id(response.question or "")
+            article_text = _extract_full_article_from_context(combined_context, target_article_id)
+            if article_text:
+                response.article = _clean_article_text(article_text)
 
         context_chunk_ids = list(state.get("context_chunk_ids") or [state["original_chunk"].chunk_id])
         context_chunk_indices = list(state.get("context_chunk_indices") or [])

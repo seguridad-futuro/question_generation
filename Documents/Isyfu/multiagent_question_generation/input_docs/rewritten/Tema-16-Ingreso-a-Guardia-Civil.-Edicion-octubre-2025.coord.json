@@ -1,7 +1,7 @@
 {
   "document_name": "Tema-16-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
   "document_path": "/Users/pablofernandezlucas/Documents/Isyfu/multiagent_question_generation/input_docs/Tema-16-Ingreso-a-Guardia-Civil.-Edicion-octubre-2025.pdf",
-  "cached_at": "2026-01-29T21:17:45.259810",
+  "cached_at": "2026-03-06T19:01:34.387760",
   "decisions": {
     "2eef3828d9bb072f3a1580b3250bc91f0ba4c6fe": {
       "action": "merge_next",
@@ -52,6 +52,456 @@
       "needs_rewrite": false,
       "rewrite_reason": "",
       "rewrite_type": "none"
+    },
+    "f83cc9cb7c5483e95c39dc08327367b6130a8122": {
+      "action": "merge_next",
+      "reasoning": "Contiene el Artículo 5 pero está incompleto — la frase del apartado 2 termina en 'de conformidad con lo establecido en el' y falta el resto del artículo. Para formular preguntas de calidad se necesita el artículo completo.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "101d9c4b72f8b4cebd2d4ae3ecb2750ae248880b": {
+      "action": "merge_prev",
+      "reasoning": "El chunk contiene apartados (3 y 4) de un artículo pero no incluye el artículo completo ni su encabezado completo; conecta directamente con el CHUNK ANTERIOR que contiene los apartados 1 y 2. Para tener contexto suficiente y una pregunta de calidad es necesario unir con el anterior.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "Contiene una referencia suelta a 'artículo 139.1 de la Constitución' y apartados numerados que requieren integración con el texto previo para restaurar la cohesión y eliminar ruido.",
+      "rewrite_type": "both"
+    },
+    "3a5955a445f4e17587ad22825e3c73a5691f5dfe": {
+      "action": "keep",
+      "reasoning": "Contiene un artículo legal completo (Artículo 6, con sus apartados 1 y 2), suficiente para formular preguntas de calidad sobre el derecho a la información en protección civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "378ce6df7a32f5c902ac92995598a87a819556f6": {
+      "action": "keep",
+      "reasoning": "Contiene un artículo legal completo (Artículo 7 con sus dos apartados) y ofrece contexto suficiente para formular preguntas de calidad sobre derecho a la participación en protección civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "ec9af6490a2ffd3a8eebb21759031319204f51d6": {
+      "action": "keep",
+      "reasoning": "El chunk contiene al menos un artículo legal completo (Artículo 7 bis con sus apartados 1-8) y proporciona contexto suficiente para formular preguntas de calidad sobre el deber de colaboración en protección civil. No es necesario unir con anterior ni siguiente.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Contiene ruido de maquetación (cabeceras/ pie de página, marca de página y datos del sitio) que conviene limpiar para mayor claridad.",
+      "rewrite_type": "clean"
+    },
+    "b8e886149421270e3acecb8720b9c423540f3a3e": {
+      "action": "keep",
+      "reasoning": "El chunk contiene un artículo legal completo (Artículo 7 ter, con sus apartados 1-3) y aporta contexto suficiente para formular preguntas de calidad sobre deber de cautela, autoprotección y obligaciones de titulares y Administraciones.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "88d7a5ebf33a30cca35ab9b592baf24c0deae681": {
+      "action": "merge_next",
+      "reasoning": "Contiene el inicio del 'Artículo 7 quáter' pero está incompleto (solo la primera línea). Para tener al menos un artículo completo y contexto suficiente para preguntas de calidad es necesario unir con el chunk siguiente que parece continuar el contenido sobre voluntariado. Además hay elementos de ruido (cabecera/pie de página, marca editorial) y la continuidad del texto está cortada, por lo que conviene limpiar y mejorar cohesión.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar cabeceras/pies de página y unir fragmentos para reconstruir el artículo completo; mejorar cohesión entre frases cortadas.",
+      "rewrite_type": "both"
+    },
+    "dd3c39a8a788a51aac0bb42ee1b5687fd5c0d384": {
+      "action": "keep",
+      "reasoning": "Contiene al menos un artículo completo (Artículo 7 bis con sus apartados) y además párrafos explicativos sobre alcance y medidas (prevención, red nacional, fondo), por lo que ofrece contexto suficiente para generar preguntas de calidad sobre voluntariado, prevención y estructuras del sistema de protección civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "a13c163062002dd8b4d7107cbb3b0074e7ca3863": {
+      "action": "keep",
+      "reasoning": "Contiene al menos un artículo legal completo (Artículo 8) que define la anticipación; suficiente para formular preguntas sobre su contenido y alcance.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar ruido y metadatos (cabeceras, pie de página, referencia a vídeo) para mayor claridad y cohesión del texto legal.",
+      "rewrite_type": "clean"
+    },
+    "4a468d4aec667025975a4f1a8b827c3300d67f07": {
+      "action": "keep",
+      "reasoning": "El chunk contiene un artículo legal completo (Artículo 9) con sus apartados, por lo que ofrece contexto suficiente para formular preguntas de calidad sobre la Red Nacional de Información sobre Protección Civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Contiene ruido de maquetación (cabeceras/pie de página, referencias de tema y correo) y saltos de línea que conviene limpiar para mejorar la legibilidad y extracción automática de información.",
+      "rewrite_type": "clean"
+    },
+    "435c7655cda1f1645182e8ba92911e0afd98aca1": {
+      "action": "keep",
+      "reasoning": "El chunk contiene al menos un artículo legal completo (Artículo 10) y ofrece suficiente información temática (política de prevención, estudios técnicos, planes, formación, difusión y responsabilidades) para formular preguntas de calidad sobre prevención en protección civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "909594f24516286d5994cd4907ebcb0c85148fca": {
+      "action": "keep",
+      "reasoning": "El chunk contiene un artículo legal completo (Artículo 11) con sus apartados 1 (a-e) y 2, por lo que aporta contexto suficiente para formular preguntas de calidad sobre su contenido. Hay ruido de maquetación (cabecera/pie de página y marcador de página) que conviene limpiar.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar elementos de maquetación y metadatos (--- Página 12 ---, cabecera 'Tema 16...', correo y numeración de página) para mejorar la legibilidad.",
+      "rewrite_type": "clean"
+    },
+    "e4db4bd63642d611756af549a591252efeb0acd2": {
+      "action": "keep",
+      "reasoning": "El chunk contiene al menos un artículo legal completo (Artículo 12) y un encabezado de capítulo; por tanto aporta contexto suficiente para formular preguntas de calidad sobre la Red de Alerta Nacional y su gestión.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "0f519d311566b0cbebb997b0b52a7d9e22bdd0a2": {
+      "action": "keep",
+      "reasoning": "El chunk contiene al menos un artículo legal completo (Artículo 13) y proporciona contenido claro sobre la Norma Básica de Protección Civil, suficiente para formular preguntas de calidad sobre su objeto y alcance.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "b7f0ebe4249d1b920646ca2455b6e8e5e9670a33": {
+      "action": "keep",
+      "reasoning": "Contiene al menos un artículo legal completo (Artículo 14), por lo que cumple la regla para mantener el chunk y puede usarse para generar preguntas de calidad sobre ese artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar marcas de página y pies de página (ruido tipográfico) para mejorar claridad y cohesión del texto legal.",
+      "rewrite_type": "clean"
+    },
+    "b4f7d55828461fd8aabf6beb1095ecd1f61b80ab": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 15 completo (apartados 1-4) que define tipos de planes; suficiente para formular preguntas de calidad sobre ese artículo y su alcance.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "72c8afe4a8e1861127f1b04a072b39d35ef89c7e": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 16 completo que define 'respuesta inmediata a las emergencias de protección civil'. Es suficiente para formular preguntas de calidad sobre su definición y alcance.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "64480031067e46c20a50817a96ddb7185c9c4523": {
+      "action": "keep",
+      "reasoning": "El chunk contiene el Artículo 17 completo con sus apartados, por lo que ofrece contexto legal claro y suficiente para formular preguntas de calidad sobre ese artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "c16aa531e8a85df2386d93c37559351b3697bec9": {
+      "action": "keep",
+      "reasoning": "El chunk contiene el Artículo 18 completo (incluye su título, apartados 1 con incisos a-f y el apartado 2). Aunque hay ruido de página y pie de página (marcador de página y datos de una web), el contenido legal está presente y suficiente para formular preguntas de calidad sobre las funciones y encuadre del Centro Nacional de Seguimiento y Coordinación de Emergencias de Protección Civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar marcadores de página y datos de pie de página para mejorar la legibilidad y coherencia del texto legal.",
+      "rewrite_type": "clean"
+    },
+    "56cbb130373a1442a4e53b191a2f7c05220f3b1a": {
+      "action": "keep",
+      "reasoning": "El chunk contiene al menos un artículo legal completo (Artículo 19) y el encabezado del siguiente capítulo, por lo que ofrece contexto suficiente para formular preguntas de calidad sobre la disponibilidad de recursos del Estado y la intervención en emergencias.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "c267045be5e121fdca177eb702c82b774e418876": {
+      "action": "keep",
+      "reasoning": "El chunk contiene el Artículo 20 completo (apartados 1-3) que define la fase de recuperación y establece alcance y carácter de las medidas; por tanto aporta contexto suficiente para formular preguntas de calidad sobre recuperación. No es basura. Hay ruido de maquetación (número de página, encabezado/publicidad) que conviene limpiar.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar elementos de maquetación y publicidad (\"--- Página 16 ---\", encabezado 'Tema 16...' y correo) y normalizar saltos de línea para mejorar legibilidad.",
+      "rewrite_type": "clean"
+    },
+    "0bc140a6693b7c71de2a4ad68a463a84f81f7bae": {
+      "action": "keep",
+      "reasoning": "El chunk contiene un artículo legal (Artículo 21) completo con sus cuatro apartados, suficiente para formular preguntas de calidad sobre daños materiales, valoración, compatibilidad de ayudas e intercambio de información entre Administraciones y aseguradoras.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "54633596959b456de9373c07e562e704b35437e3": {
+      "action": "keep",
+      "reasoning": "El chunk contiene el Artículo 22 con su texto (frase completa) aunque breve; por tanto hay al menos un artículo completo y puede generar preguntas sobre las ayudas por daños personales y su referencia a la disposición adicional cuarta. Se detecta ruido de encabezado/pie de página (número de página, nombre del sitio, correo) que conviene limpiar.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar encabezados/pies de página y otros elementos de formato y ruido para mejorar legibilidad",
+      "rewrite_type": "clean"
+    },
+    "e09ef61be08814588fc40d9f081176a62faec629": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 23 completo (dos apartados) y el artículo siguiente comienza en el chunk siguiente. El texto ofrece suficiente contexto para formular preguntas de calidad sobre la declaración de zona afectada gravemente por una emergencia de protección civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "4eb989b5e29af0deed7449bba4dc1b3d8f373f45": {
+      "action": "merge_next",
+      "reasoning": "El chunk contiene el Artículo 24 pero está truncado al final ('Si el que tuviera derecho a la'), por lo que no incluye al menos un artículo completo; es necesario unir con el siguiente chunk para completar el artículo y asegurar contexto suficiente.",
+      "has_article": true,
+      "is_complete_article": false,
+      "is_sufficient_context": false,
+      "needs_rewrite": true,
+      "rewrite_reason": "Contiene marcas de página y encabezados/footers (p. ej. '--- Página 18 ---', 'Tema 16... Aspirantes.es') que deben limpiarse; además, tras unir con el siguiente chunk convendrá cohesionarlo para eliminar saltos y asegurar continuidad.",
+      "rewrite_type": "both"
+    },
+    "1f853f78200525f8ddee03ded6cdac3e0f061b2b": {
+      "action": "keep",
+      "reasoning": "Contiene al menos un artículo completo (Artículo 25) y el encabezado del siguiente capítulo; suficiente contexto para formular preguntas sobre seguimiento y coordinación tras la declaración de zona afectada.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "cb7245b5c01312af8b4c295b01f44b1f9e4d1054": {
+      "action": "keep",
+      "reasoning": "El chunk contiene un artículo legal completo (Artículo 26) con sus tres apartados que permiten formular preguntas de calidad sobre evaluación e inspección del Sistema Nacional de Protección Civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "67a9c08dc0415c8b72c48d1ed10be83ef70ead57": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 27 completo y un encabezado de capítulo; ofrece contexto claro sobre la memoria anual del Sistema Nacional de Protección Civil y la transición al capítulo sobre emergencias de interés nacional.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "52c5384512ce830706c6f30f50c161883bb35278": {
+      "action": "keep",
+      "reasoning": "Contiene al menos un artículo completo (Artículo 28) con sus tres apartados, por lo que hay suficiente contexto para formular preguntas de calidad sobre la definición y criterios de emergencias de interés nacional.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "2e0e3ce23a66b2ef0de3c70ec9c182ca3a355216": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 29 en su integridad dentro del contexto proporcionado (el artículo anterior y el siguiente confirman continuidad normativa). Aunque hay ruido de página (marcador de página y encabezado/pie), el contenido legal necesario está presente y suficiente para formular preguntas de calidad sobre la declaración de interés nacional.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar ruido de página/encabezado/pie y unir frases partidas por formato para mejorar lectura y cohesión.",
+      "rewrite_type": "clean"
+    },
+    "fe544dd9eeae3cbeff57e4f9b61e360ebbafe3c7": {
+      "action": "keep",
+      "reasoning": "El chunk contiene al menos un artículo legal completo (Artículo 30) y el inicio del Título III con su exposición de motivos, por lo que aporta suficiente contexto para formular preguntas de calidad sobre la declaración de emergencia de interés nacional, competencias del Ministerio del Interior y la formación de recursos humanos del Sistema Nacional de Protección Civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "f842ddd3d45e0e222c4e45ca91c708835f275593": {
+      "action": "keep",
+      "reasoning": "El chunk contiene un artículo legal completo (Artículo 31 con sus dos apartados) y proporciona suficiente contexto para formular preguntas de calidad sobre la formación de recursos humanos en el Sistema Nacional de Protección Civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "6979099990085d3b8175cd248cb50a720fb678a0": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 32 completo (con párrafos y apartados) y contexto inmediato sobre la organización y funciones; suficiente para formular preguntas legales de calidad.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar cabeceras/pie de página y notas de estudio ('--- Página 21 ---', 'Tema 16...', 'VER VÍDEO...') para mejorar la claridad y cohesión del texto.",
+      "rewrite_type": "clean"
+    },
+    "2b8465c68b70d17da836fa711de31d99e07e3f33": {
+      "action": "keep",
+      "reasoning": "Contiene un artículo legal completo (Artículo 33) que enumera claramente las competencias del Gobierno en protección civil; ofrece contexto suficiente para formular preguntas de calidad sobre ese artículo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "dbf62ce2fdb532f579bd4887bca4b115a44f4fa9": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 34 completo con su título y todos los apartados numerados (1, 2 con a–k), por lo que aporta un artículo legal íntegro adecuado para formular preguntas.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar cabeceras, pie de página y marcas de página (p. ej. \"-- Página 22 --\", \"Tema 16. Ingreso... Aspirantes.es info@aspirantes.es 20\") para limpiar ruido y facilitar lectura.",
+      "rewrite_type": "clean"
+    },
+    "6c22b56a2a0d75c9309e17390f920cdbc0c43ffc": {
+      "action": "keep",
+      "reasoning": "Contiene al menos un artículo legal (Artículo 35) completo y claro sobre competencias de otros Departamentos y entidades estatales en protección civil; suficiente para formular preguntas de calidad sobre su contenido y alcance.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "728982b2592343a50b0f767890f4a93154116ee3": {
+      "action": "keep",
+      "reasoning": "Contiene un artículo legal completo (Artículo 36) con enunciado claro sobre competencias de los Delegados del Gobierno, suficiente para formular preguntas específicas sobre atribuciones y coordinación en protección civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "de1cc32808103abd3ea6646859368114ddd94702": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 37 completo (párrafos 1-4) que describe la misión y régimen de intervención de la Unidad Militar de Emergencias; suficiente para formular preguntas jurídicas de calidad sobre competencias y procedimiento.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar cabeceras/footers y marcas de página y ajustar saltos de línea para mayor claridad y lectura continua.",
+      "rewrite_type": "clean"
+    },
+    "9071809b3cac819f4288c39e400824bc3a3b11de": {
+      "action": "keep",
+      "reasoning": "El chunk contiene al menos un artículo legal completo (Artículo 38) y texto adicional explicativo sobre el Título V y la organización exterior, por lo que permite formular preguntas específicas y de calidad sobre la participación de las Fuerzas y Cuerpos de Seguridad y la orientación del Título V.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Contiene ruido de maquetación (cabeceras/paginación y pies de página: '--- Página 24 ---', 'Tema 16...', datos de contacto) y saltos de línea que afectan la cohesión del texto.",
+      "rewrite_type": "both"
+    },
+    "229874778ce41afe4ecd714ddc54ab4e9f4d38e6": {
+      "action": "keep",
+      "reasoning": "El chunk contiene el Artículo 39 completo (apartados 1 a 4), por lo que cumple la regla de incluir al menos un artículo completo y aporta contexto suficiente para formular preguntas de calidad sobre el Consejo Nacional de Protección Civil.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Contiene ruido de maquetación (encabezados, pie de página, saltos de línea y datos de la fuente) que dificulta la lectura fluida del artículo.",
+      "rewrite_type": "clean"
+    },
+    "004a747603ffde8a673ca9ddaca1393e9220182f": {
+      "action": "keep",
+      "reasoning": "Contiene un artículo completo (Artículo 40) legible y con suficiente contexto para formular preguntas sobre órganos territoriales de participación y coordinación en protección civil y la posible participación de la Administración General del Estado.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "0c15b5e5f15a03cc7d8fa706523c4a3a32ab48ad": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 41 completo (dos apartados) relativo a la contribución al Mecanismo de Protección Civil de la UE; suficiente para formular preguntas específicas sobre competencias, coordinación y obligaciones del Ministerio del Interior.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "f442c88d237e47c465a2ad7df733f773ebcc96b8": {
+      "action": "keep",
+      "reasoning": "El chunk contiene el Artículo 42 completo, por lo que cumple la regla de incluir al menos un artículo legal completo. Además aporta texto adicional (instrucciones de estudio, fichas, encabezados y fragmentos de otra ley) que no impide formular preguntas de calidad sobre el Artículo 42, aunque introduce ruido.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar encabezados, números de página y texto de material didáctico no relacionado para centrar el contenido en el artículo legal y mejorar la cohesión del texto.",
+      "rewrite_type": "both"
+    },
+    "e5f9d11bb8a3dc85c80e12861ad38418b19d8724": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 1 completo (Objeto) que define el alcance de la ley; suficiente para formular preguntas de calidad sobre su contenido y alcance.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": false,
+      "rewrite_reason": "",
+      "rewrite_type": "none"
+    },
+    "45a42694db0aa168e7a6e48c4fceb2fde51c07e9": {
+      "action": "keep",
+      "reasoning": "Contiene el Artículo 2 completo con todos sus incisos (principios), por lo que es un artículo legal íntegro y suficiente para formular preguntas de calidad. Aunque incluye encabezados, pie de página y una nota ('VER VÍDEO...') que son ruido, el contenido legal está completo.",
+      "has_article": true,
+      "is_complete_article": true,
+      "is_sufficient_context": true,
+      "needs_rewrite": true,
+      "rewrite_reason": "Eliminar encabezados/pies de página y notas promocionales para mejorar limpieza y presentación del artículo sin alterar el texto legal.",
+      "rewrite_type": "clean"
     }
   }
 }

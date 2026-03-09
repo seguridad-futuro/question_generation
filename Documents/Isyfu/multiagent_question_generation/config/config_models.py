@@ -108,8 +108,6 @@ class AgentBConfig(BaseModel):
     b_enable_multi_chunk: bool = Field(default=True, description="Enable multi-chunk for Agent B")
     # Global toggle for multi-chunk (shared)
     enable_multi_chunk: bool = Field(default=True, description="Global multi-chunk toggle")
-    # Parallel B agents (run_bcde_pipeline workers)
-    b_parallel_agents: int = Field(default=1, description="Parallel Agent B workers")
     # Max expansions per chunk
     b_max_expansions: int = Field(default=2, description="Max expansions per chunk")
 

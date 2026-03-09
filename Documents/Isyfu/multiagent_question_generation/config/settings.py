@@ -86,7 +86,6 @@ class Settings(BaseSettings):
     b_enable_sequential_expansion: bool = True
     b_enable_semantic_expansion: bool = True
     b_enable_multi_chunk: bool = True
-    b_parallel_agents: int = 1
     b_max_expansions: int = 2
 
     # Deduplication
@@ -135,6 +134,7 @@ class Settings(BaseSettings):
         env_file = ".env"
         env_file_encoding = "utf-8"
         case_sensitive = False
+        extra = "ignore"
 
     @cached_property
     def config(self) -> ConfigBundle:
@@ -190,7 +190,6 @@ class Settings(BaseSettings):
                 b_enable_semantic_expansion=self.b_enable_semantic_expansion,
                 b_enable_multi_chunk=self.b_enable_multi_chunk,
                 enable_multi_chunk=self.enable_multi_chunk,
-                b_parallel_agents=self.b_parallel_agents,
                 b_max_expansions=self.b_max_expansions,
             ),
             agent_c=AgentCConfig(

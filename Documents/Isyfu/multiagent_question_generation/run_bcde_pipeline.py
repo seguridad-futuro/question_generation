@@ -9,7 +9,6 @@ from queue import Queue, Empty
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from config.settings import get_settings
 from models.chunk import Chunk
@@ -127,23 +126,6 @@ def _question_data_to_dict(
     }
 
 
-def _partition_chunks(
-    pending: List[Tuple[Chunk, int]],
-    workers: int
-) -> List[List[Tuple[Chunk, int]]]:
-    if workers <= 1 or len(pending) <= 1:
-        return [pending]
-    workers = min(workers, len(pending))
-    chunk_size = (len(pending) + workers - 1) // workers
-    partitions = []
-    for i in range(workers):
-        start = i * chunk_size
-        if start >= len(pending):
-            break
-        partitions.append(pending[start:start + chunk_size])
-    return partitions
-
-
 def _process_chunk_group(
     worker_id: int,
     group: List[Tuple[Chunk, int]],
@@ -176,101 +158,144 @@ def _process_chunk_group(
                 print(f"      ❌ [W{worker_id}] Error generando: {exc}")
                 continue
 
-        for q in questions:
-            if not q or q.error:
-                print(f"      ❌ [W{worker_id}] Error generando pregunta")
-                continue
+            for q in questions:
+                if not q or q.error:
+                    print(f"      ❌ [W{worker_id}] Error generando pregunta")
+                    continue
 
-            context_text = _build_context_text(q, chunks_by_id, chunk)
-            evaluation = None
-            needs_manual_review = False
-            final_q = q
-            final_context_text = context_text
-            c_elapsed = 0.0
-            b_retry_elapsed = 0.0
-            manual_review_reason = None
-            manual_review_details = None
-            review_comment = None
-            review_details = None
+                context_text = _build_context_text(q, chunks_by_id, chunk)
+                evaluation = None
+                needs_manual_review = False
+                final_q = q
+                final_context_text = context_text
+                c_elapsed = 0.0
+                b_retry_elapsed = 0.0
+                manual_review_reason = None
+                manual_review_details = None
+                review_comment = None
+                review_details = None
 
-            if not skip_agent_c:
-                attempt = 0
-                while True:
-                    attempt_label = "Reintento" if attempt > 0 else "Pregunta"
-                    print(f"\n🧾 [W{worker_id}] {attempt_label} (chunk {chunk.chunk_id}, #{q_idx + 1}/{remaining}):")
-                    print(f"❓ {final_q.question}")
-                    print(f"   A) {final_q.answer1}")
-                    print(f"   B) {final_q.answer2}")
-                    print(f"   C) {final_q.answer3}")
-                    if final_q.answer4:
-                        print(f"   D) {final_q.answer4}")
-                    print(
-                        f"   🧪 [W{worker_id}] Agente C evaluando "
-                        f"(intento {attempt + 1}/{MAX_RETRIES_PER_QUESTION + 1})..."
-                    )
-                    temp_question = Question(
-                        academy=academy,
-                        topic=topic,
-                        question=final_q.question,
-                        answer1=final_q.answer1,
-                        answer2=final_q.answer2,
-                        answer3=final_q.answer3,
-                        answer4=final_q.answer4,
-                        solution=final_q.correct,
-                        tip=final_q.tip or "",
-                        article=final_q.article or "",
-                        source_chunk=final_context_text,
-                        source_chunk_id=chunk.chunk_id,
-                        source_document=chunk.source_document,
-                        generation_time=final_q.generation_time or 0.0
-                    )
-                    try:
-                        c_start = time.perf_counter()
-                        evaluation = evaluate_question(
-                            temp_question,
-                            chunk,
-                            retry_count=attempt,
-                            max_retries=MAX_RETRIES_PER_QUESTION,
-                            context_override=final_context_text
+                if not skip_agent_c:
+                    attempt = 0
+                    while True:
+                        attempt_label = "Reintento" if attempt > 0 else "Pregunta"
+                        print(f"\n🧾 [W{worker_id}] {attempt_label} (chunk {chunk.chunk_id}, #{q_idx + 1}/{remaining}):")
+                        print(f"❓ {final_q.question}")
+                        print(f"   A) {final_q.answer1}")
+                        print(f"   B) {final_q.answer2}")
+                        print(f"   C) {final_q.answer3}")
+                        if final_q.answer4:
+                            print(f"   D) {final_q.answer4}")
+                        print(
+                            f"   🧪 [W{worker_id}] Agente C evaluando "
+                            f"(intento {attempt + 1}/{MAX_RETRIES_PER_QUESTION + 1})..."
                         )
-                        c_elapsed += time.perf_counter() - c_start
-                    except Exception as exc:
-                        print(f"      ❌ [W{worker_id}] Error en Agente C: {exc}")
-                        evaluation = None
-                        break
+                        temp_question = Question(
+                            academy=academy,
+                            topic=topic,
+                            question=final_q.question,
+                            answer1=final_q.answer1,
+                            answer2=final_q.answer2,
+                            answer3=final_q.answer3,
+                            answer4=final_q.answer4,
+                            solution=final_q.correct,
+                            tip=final_q.tip or "",
+                            article=final_q.article or "",
+                            source_chunk=final_context_text,
+                            source_chunk_id=chunk.chunk_id,
+                            source_document=chunk.source_document,
+                            generation_time=final_q.generation_time or 0.0
+                        )
+                        try:
+                            c_start = time.perf_counter()
+                            evaluation = evaluate_question(
+                                temp_question,
+                                chunk,
+                                retry_count=attempt,
+                                max_retries=MAX_RETRIES_PER_QUESTION,
+                                context_override=final_context_text
+                            )
+                            c_elapsed += time.perf_counter() - c_start
+                        except Exception as exc:
+                            print(f"      ❌ [W{worker_id}] Error en Agente C: {exc}")
+                            evaluation = None
+                            break
 
-                    classification = evaluation.get("classification") if evaluation else None
-                    if classification == "auto_pass":
-                        correct_letter = ['A', 'B', 'C', 'D'][final_q.correct - 1]
-                        difficulty_eval = evaluation.get("difficulty") if evaluation else None
-                        difficulty_reason_eval = evaluation.get("difficulty_reason") if evaluation else None
-                        diff_str = f" | 📊 Dificultad: {difficulty_eval}" if difficulty_eval else ""
-                        print(f"   ✅ [W{worker_id}] Agente C: auto_pass (correcta {correct_letter}){diff_str}")
-                        if difficulty_reason_eval:
-                            print(f"   📊 [W{worker_id}] Razón dificultad: {difficulty_reason_eval}")
-                        feedback_text = (evaluation.get("feedback") or "").strip() if evaluation else ""
-                        if feedback_text:
-                            review_comment = feedback_text
-                            print(f"   📝 [W{worker_id}] Motivo C: {feedback_text}")
-                        break
-                    if classification == "manual_review":
-                        needs_manual_review = True
-                        difficulty_eval = evaluation.get("difficulty") if evaluation else None
-                        difficulty_reason_eval = evaluation.get("difficulty_reason") if evaluation else None
-                        diff_str = f" | 📊 Dificultad: {difficulty_eval}" if difficulty_eval else ""
-                        print(f"   ⚠️ [W{worker_id}] Agente C: manual_review{diff_str}")
-                        if difficulty_reason_eval:
-                            print(f"   📊 [W{worker_id}] Razón dificultad: {difficulty_reason_eval}")
+                        classification = evaluation.get("classification") if evaluation else None
+                        if classification == "auto_pass":
+                            correct_letter = ['A', 'B', 'C', 'D'][final_q.correct - 1]
+                            difficulty_eval = evaluation.get("difficulty") if evaluation else None
+                            difficulty_reason_eval = evaluation.get("difficulty_reason") if evaluation else None
+                            diff_str = f" | 📊 Dificultad: {difficulty_eval}" if difficulty_eval else ""
+                            print(f"   ✅ [W{worker_id}] Agente C: auto_pass (correcta {correct_letter}){diff_str}")
+                            if difficulty_reason_eval:
+                                print(f"   📊 [W{worker_id}] Razón dificultad: {difficulty_reason_eval}")
+                            feedback_text = (evaluation.get("feedback") or "").strip() if evaluation else ""
+                            if feedback_text:
+                                review_comment = feedback_text
+                                print(f"   📝 [W{worker_id}] Motivo C: {feedback_text}")
+                            break
+                        if classification == "manual_review":
+                            needs_manual_review = True
+                            difficulty_eval = evaluation.get("difficulty") if evaluation else None
+                            difficulty_reason_eval = evaluation.get("difficulty_reason") if evaluation else None
+                            diff_str = f" | 📊 Dificultad: {difficulty_eval}" if difficulty_eval else ""
+                            print(f"   ⚠️ [W{worker_id}] Agente C: manual_review{diff_str}")
+                            if difficulty_reason_eval:
+                                print(f"   📊 [W{worker_id}] Razón dificultad: {difficulty_reason_eval}")
+                            reasoning = evaluation.get("agent_reasoning") if evaluation else ""
+                            feedback_text = (evaluation.get("feedback") or "").strip() if evaluation else ""
+                            if feedback_text:
+                                manual_review_reason = feedback_text
+                                review_comment = feedback_text
+                                print(f"   📝 [W{worker_id}] Motivo C: {manual_review_reason}")
+                            elif reasoning:
+                                manual_review_reason = reasoning
+                                review_comment = reasoning
+                                print(f"   📝 [W{worker_id}] Motivo C: {manual_review_reason}")
+                            if reasoning:
+                                try:
+                                    if isinstance(reasoning, dict):
+                                        reason_text = json.dumps(reasoning, ensure_ascii=False, indent=2)
+                                    else:
+                                        parsed = json.loads(reasoning)
+                                        reason_text = json.dumps(parsed, ensure_ascii=False, indent=2)
+                                except Exception:
+                                    reason_text = str(reasoning)
+                                if len(reason_text) > 2000:
+                                    reason_text = reason_text[:2000] + "..."
+                                print(f"   🧠 [W{worker_id}] Razonamiento Agente C:\n{reason_text}")
+                                manual_review_details = reason_text
+                                review_details = reason_text
+                            if not manual_review_reason:
+                                metrics = evaluation.get("metrics") if evaluation else None
+                                if metrics:
+                                    f_score = getattr(metrics, "faithfulness", None)
+                                    r_score = getattr(metrics, "answer_relevancy", None)
+                                    if f_score is not None or r_score is not None:
+                                        scores_info = []
+                                        if f_score is not None:
+                                            scores_info.append(f"faithfulness={f_score:.2f}")
+                                        if r_score is not None:
+                                            scores_info.append(f"relevancy={r_score:.2f}")
+                                        manual_review_reason = f"Scores intermedios ({', '.join(scores_info)}): requiere verificación manual del tip, artículo o posible ambigüedad."
+                                    else:
+                                        manual_review_reason = "Evaluación incierta: verificar coherencia entre pregunta, tip y contexto."
+                                else:
+                                    manual_review_reason = "Evaluación incierta: verificar coherencia entre pregunta, tip y contexto."
+                                review_comment = manual_review_reason
+                                print(f"   📝 [W{worker_id}] Motivo C: {manual_review_reason}")
+                            break
+
+                        print(f"   ❌ [W{worker_id}] Agente C: auto_fail")
                         reasoning = evaluation.get("agent_reasoning") if evaluation else ""
                         feedback_text = (evaluation.get("feedback") or "").strip() if evaluation else ""
                         if feedback_text:
-                            manual_review_reason = feedback_text
+                            print(f"   📝 [W{worker_id}] Motivo C: {feedback_text}")
                             review_comment = feedback_text
-                            print(f"   📝 [W{worker_id}] Motivo C: {manual_review_reason}")
                         elif reasoning:
-                            manual_review_reason = reasoning
+                            print(f"   📝 [W{worker_id}] Motivo C: {reasoning}")
                             review_comment = reasoning
-                            print(f"   📝 [W{worker_id}] Motivo C: {manual_review_reason}")
                         if reasoning:
                             try:
                                 if isinstance(reasoning, dict):
@@ -280,59 +305,15 @@ def _process_chunk_group(
                                     reason_text = json.dumps(parsed, ensure_ascii=False, indent=2)
                             except Exception:
                                 reason_text = str(reasoning)
-                            if len(reason_text) > 2000:
-                                reason_text = reason_text[:2000] + "..."
-                            print(f"   🧠 [W{worker_id}] Razonamiento Agente C:\n{reason_text}")
-                            manual_review_details = reason_text
-                            review_details = reason_text
-                        if not manual_review_reason:
-                            # Generar razón basada en métricas si están disponibles
-                            metrics = evaluation.get("metrics") if evaluation else None
-                            if metrics:
-                                f_score = getattr(metrics, "faithfulness", None)
-                                r_score = getattr(metrics, "answer_relevancy", None)
-                                if f_score is not None or r_score is not None:
-                                    scores_info = []
-                                    if f_score is not None:
-                                        scores_info.append(f"faithfulness={f_score:.2f}")
-                                    if r_score is not None:
-                                        scores_info.append(f"relevancy={r_score:.2f}")
-                                    manual_review_reason = f"Scores intermedios ({', '.join(scores_info)}): requiere verificación manual del tip, artículo o posible ambigüedad."
-                                else:
-                                    manual_review_reason = "Evaluación incierta: verificar coherencia entre pregunta, tip y contexto."
-                            else:
-                                manual_review_reason = "Evaluación incierta: verificar coherencia entre pregunta, tip y contexto."
-                            review_comment = manual_review_reason
-                            print(f"   📝 [W{worker_id}] Motivo C: {manual_review_reason}")
-                        break
+                                if len(reason_text) > 2000:
+                                    reason_text = reason_text[:2000] + "..."
+                                print(f"   🧠 [W{worker_id}] Razonamiento Agente C:\n{reason_text}")
+                                review_details = reason_text
 
-                    print(f"   ❌ [W{worker_id}] Agente C: auto_fail")
-                    reasoning = evaluation.get("agent_reasoning") if evaluation else ""
-                    feedback_text = (evaluation.get("feedback") or "").strip() if evaluation else ""
-                    if feedback_text:
-                        print(f"   📝 [W{worker_id}] Motivo C: {feedback_text}")
-                        review_comment = feedback_text
-                    elif reasoning:
-                        print(f"   📝 [W{worker_id}] Motivo C: {reasoning}")
-                        review_comment = reasoning
-                    if reasoning:
-                        try:
-                            if isinstance(reasoning, dict):
-                                reason_text = json.dumps(reasoning, ensure_ascii=False, indent=2)
-                            else:
-                                parsed = json.loads(reasoning)
-                                reason_text = json.dumps(parsed, ensure_ascii=False, indent=2)
-                        except Exception:
-                            reason_text = str(reasoning)
-                            if len(reason_text) > 2000:
-                                reason_text = reason_text[:2000] + "..."
-                            print(f"   🧠 [W{worker_id}] Razonamiento Agente C:\n{reason_text}")
-                            review_details = reason_text
-
-                    feedback = (evaluation.get("feedback") or "").strip() if evaluation else ""
-                    if not feedback:
-                        feedback = (
-                            "Corrige referencias legales, precisión técnica, tip y distractores; "
+                        feedback = (evaluation.get("feedback") or "").strip() if evaluation else ""
+                        if not feedback:
+                            feedback = (
+                                "Corrige referencias legales, precisión técnica, tip y distractores; "
                                 "la respuesta correcta debe estar explícitamente en el contexto."
                             )
 
@@ -359,10 +340,10 @@ def _process_chunk_group(
                         final_q = regenerated[0]
                         final_context_text = _build_context_text(final_q, chunks_by_id, chunk)
 
-                    if final_q is None:
-                        continue
-                    q = final_q
-                    context_text = final_context_text
+                if final_q is None:
+                    continue
+                q = final_q
+                context_text = final_context_text
 
                 total_elapsed = b_elapsed + b_retry_elapsed + c_elapsed
                 retry_suffix = f" + reintentos: {b_retry_elapsed:.2f}s" if b_retry_elapsed > 0 else ""
@@ -372,7 +353,6 @@ def _process_chunk_group(
                 )
 
                 total_b_time = b_elapsed + b_retry_elapsed
-                # Extraer dificultad de la evaluación del Agente C
                 difficulty_from_eval = evaluation.get("difficulty") if evaluation else None
                 difficulty_reason_from_eval = evaluation.get("difficulty_reason") if evaluation else None
 
@@ -457,12 +437,6 @@ def main() -> int:
     parser.add_argument("--reset-cache", action="store_true", help="Reset chunk usage cache")
     parser.add_argument("--limit-chunks", type=int, default=0, help="Limit number of chunks to process")
     parser.add_argument(
-        "--workers",
-        type=int,
-        default=settings.b_parallel_agents,
-        help="Number of parallel agents"
-    )
-    parser.add_argument(
         "--list",
         action="store_true",
         help="List available cached chunk files and exit"
@@ -495,6 +469,9 @@ def main() -> int:
         cache_path = Path(settings.bcde_chunk_cache_path)
     else:
         cache_path = settings.output_dir / "chunk_question_cache.json"
+
+    # Ensure output directory exists
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
 
     if args.reset_cache and cache_path.exists():
         cache_path.unlink()
@@ -549,11 +526,16 @@ def main() -> int:
             if remaining > 0:
                 pending_chunks.append((chunk, remaining))
 
+        skipped_count = len(chunks) - len(pending_chunks)
+        if skipped_count > 0:
+            print(f"   ⏭️ {skipped_count} chunks ya procesados (cache), {len(pending_chunks)} pendientes")
+
         if args.limit_chunks > 0:
             pending_chunks = pending_chunks[: args.limit_chunks]
+            print(f"   📊 Limitado a {len(pending_chunks)} chunks ({args.limit_chunks} solicitados)")
 
         if not pending_chunks:
-            print("   ✅ Sin chunks pendientes")
+            print("   ✅ Sin chunks pendientes (usa --force para reprocesar)")
             continue
 
         retriever = get_chunk_retriever_service(

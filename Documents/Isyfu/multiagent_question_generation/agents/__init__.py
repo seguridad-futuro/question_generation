@@ -6,6 +6,7 @@ Este módulo contiene agentes autónomos con arquitectura StateGraph moderna:
 - Agente B (agent_b_generator): Genera preguntas usando herramientas y razonamiento
 - Agente C (agent_c_evaluator): Evalúa calidad con Ragas y decide aprobar/rechazar/retry
 - Agente E (agent_e_pdf_generator): Genera PDFs profesionales agrupados por tema
+- Agente F (agent_f_excel_generator): Genera Excels profesionales agrupados por tema
 """
 
 from agents.agent_z_rewriter import RewriterAgent
@@ -26,6 +27,11 @@ from agents.agent_e_pdf_generator import (
     generate_pdfs_from_questions
 )
 
+from agents.agent_f_excel_generator import (
+    ExcelGeneratorAgent,
+    generate_excels_from_questions
+)
+
 __all__ = [
     # Agente Z
     "RewriterAgent",
@@ -39,4 +45,7 @@ __all__ = [
     # Agente E
     "PDFGeneratorAgent",
     "generate_pdfs_from_questions",
+    # Agente F
+    "ExcelGeneratorAgent",
+    "generate_excels_from_questions",
 ]

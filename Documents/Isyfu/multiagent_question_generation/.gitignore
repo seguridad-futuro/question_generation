@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+
+# Environment / secrets
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Output artifacts (regenerable)
+output/
+questions_done.csv
+
+# Database (local SQLite)
+database/questions.db
+
+# LaTeX build artifacts
+Docs/*.aux
+Docs/*.log
+Docs/*.out
+Docs/missfont.log
+
+# Rewriter cache (large JSON files)
+input_docs/rewritten/
+
+# Pattern registry cache
+*.pattern_registry.json
