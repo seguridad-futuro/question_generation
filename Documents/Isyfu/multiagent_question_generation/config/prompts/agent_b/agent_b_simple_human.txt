@@ -7,5 +7,10 @@ FEEDBACK DEL AGENTE C (si existe):
 
 Aplica estos criterios y correcciones estrictamente en esta generación.
 
+FORMATO DE ENUNCIADO OBLIGATORIO:
+El enunciado DEBE empezar con la materia/concepto legal específico, seguido de punto, y luego el formato de pregunta.
+Ejemplos: "Motivación de las sentencias. Señale la opción CORRECTA.", "Edad mínima de admisión al trabajo. Opción CORRECTA.", "Acogimiento familiar. Proposición INCORRECTA."
+NUNCA pongas solo "Señale la opción CORRECTA" sin contexto legal previo.
+
 TEXTO:
 {content}

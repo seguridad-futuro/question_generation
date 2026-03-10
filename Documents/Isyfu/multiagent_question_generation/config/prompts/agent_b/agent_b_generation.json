@@ -12,7 +12,7 @@
       ],
       "num_options": 4,
       "options_style": "Deben ser plausibles, técnicamente precisas en su redacción, y usar terminología del documento fuente. NO incluyas letras (A, B, C, D) ni numeración en el texto de las opciones.",
-      "feedback_required": "Explicación detallada que justifique la respuesta correcta, cite artículos específicos, y explique por qué las otras opciones son incorrectas"
+      "feedback_required": "Explicación con formato enriquecido: usar **negrita** para respuesta correcta y términos clave, _cursiva_ para citas textuales, ^subrayado^ para referencias normativas, #encabezado al inicio de línea, y - viñetas para descartar cada opción incorrecta. Estructura: #Respuesta correcta → justificación → #¿Por qué se descartan las demás? → lista de descarte"
     },
     "content_guidelines": {
       "focus_areas": [
@@ -106,7 +106,7 @@
       "techniques_used": [
         "atribución_incorrecta_de_funciones"
       ],
-      "feedback": "La respuesta correcta es: El Consejo Internacional de Justicia, ya que el órgano judicial principal de la ONU se denomina oficialmente Corte Internacional de Justicia. Las opciones sobre el Consejo de Administración Fiduciaria, el Consejo Económico y Social y el Consejo de Seguridad se descartan porque sí son consejos definidos como órganos principales en la Carta."
+      "feedback": "#Respuesta correcta\nLa respuesta correcta es: **El Consejo Internacional de Justicia**.\n\nEste órgano no existe como tal; el órgano judicial principal de la ONU se denomina oficialmente **Corte Internacional de Justicia**, no _Consejo_. La confusión reside en el uso del término «Consejo» aplicado a un órgano que en realidad es una _Corte_ (^Artículo 92 de la Carta de las Naciones Unidas^).\n\n#¿Por qué se descartan las demás?\n- **Consejo de Administración Fiduciaria**: se descarta porque sí es uno de los órganos principales establecidos en ^el Artículo 7 de la Carta^.\n- **Consejo Económico y Social**: se descarta porque también figura como órgano principal en ^el Artículo 7^.\n- **Consejo de Seguridad**: se descarta porque es efectivamente uno de los seis órganos principales de la ONU."
     },
     {
       "example_number": 2,
@@ -122,7 +122,7 @@
       "techniques_used": [
         "eliminación_de_excepciones"
       ],
-      "feedback": "La respuesta correcta es: Toda persona tiene derecho a los seguros en caso de desempleo u otros casos de pérdida de sus medios de subsistencia por cualquier circunstancia, puesto que es la proposición incorrecta. El Artículo 25 de la Declaración Universal especifica que este derecho se activa solo por circunstancias independientes de la voluntad del individuo. Las demás opciones son afirmaciones correctas según el texto de la Declaración."
+      "feedback": "#Respuesta correcta\nLa respuesta correcta es: **Toda persona tiene derecho a los seguros en caso de desempleo u otros casos de pérdida de sus medios de subsistencia por cualquier circunstancia**, puesto que es la proposición incorrecta.\n\nEl error está en la expresión _por cualquier circunstancia_. ^El Artículo 25 de la Declaración Universal^ especifica que este derecho se activa solo por _circunstancias independientes de la voluntad_ del individuo, no por cualquier causa.\n\n#¿Por qué se descartan las demás?\n- **Recurso efectivo ante tribunales**: se descarta porque es una afirmación correcta recogida en ^el Artículo 8^.\n- **Acceso en igualdad a funciones públicas**: se descarta porque figura correctamente en ^el Artículo 21^.\n- **Deberes respecto a la comunidad**: se descarta porque es una afirmación correcta del ^Artículo 29^."
     },
     {
       "example_number": 3,
@@ -138,7 +138,7 @@
       "techniques_used": [
         "eliminación_de_excepciones"
       ],
-      "feedback": "La respuesta correcta es: Las sentencias, así como las resoluciones por las que las demandas se declaren admisibles o no admisibles, serán motivadas, ya que el Artículo 45.1 del Convenio exige motivación para ambos tipos de resoluciones. Las demás opciones son incorrectas porque sugieren que el Tribunal Europeo de Derechos Humanos puede omitir la fundamentación en ciertos casos."
+      "feedback": "#Respuesta correcta\nLa respuesta correcta es: **Las sentencias, así como las resoluciones por las que las demandas se declaren admisibles o no admisibles, serán motivadas**.\n\n^El Artículo 45.1 del Convenio^ establece expresamente la obligación de motivar _tanto las sentencias como las resoluciones de admisibilidad e inadmisibilidad_.\n\n#¿Por qué se descartan las demás?\n- **No es preciso motivar resoluciones de inadmisibilidad**: se descarta porque el Convenio exige motivación también para las inadmisibles.\n- **No es necesario motivar sentencias ni resoluciones de inadmisibilidad**: se descarta porque contradice directamente ^el Art. 45.1^.\n- **No es necesario motivar resoluciones de admisibilidad**: se descarta porque la obligación de motivar cubre ambos supuestos (admisibles e inadmisibles)."
     }
   ],
   "validation_checklist": [

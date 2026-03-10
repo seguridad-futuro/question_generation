@@ -27,11 +27,32 @@ Aplica estos criterios y correcciones estrictamente en esta generación.
    - Si hay plazos/fechas/cómputos, prioriza ese eje para la pregunta.
    - No mezcles temas no relacionados en el enunciado (ej.: "naturaleza, firma y órganos").
 
-3. **Formula la pregunta** usando uno de estos formatos:
+3. **Formula la pregunta** siguiendo el formato REAL de oposiciones de Guardia Civil.
+   **REGLA DE FORMATO OBLIGATORIA:** El enunciado DEBE comenzar con una referencia breve a la materia, institución o concepto legal específico, seguida de un punto, y luego el formato de pregunta. Esto contextualiza al opositor antes de leer las opciones.
+
+   **Formato preferido (USAR SIEMPRE QUE SEA POSIBLE):**
+   "[Materia/concepto legal específico]. [Formato de pregunta]"
+
+   Ejemplos reales del formato correcto:
+   - "Motivación de las sentencias y de las resoluciones. Señale la opción CORRECTA."
+   - "Condiciones de trabajo equitativas y satisfactorias. Señale la opción INCORRECTA."
+   - "Edad mínima de admisión al trabajo. Señale la opción CORRECTA."
+   - "Principios rectores política social y económica. Proposición INCORRECTA."
+   - "Consejo Asesor del Mecanismo Nacional de Prevención de Tortura. Opción CORRECTA."
+   - "Acogimiento familiar. Proposición INCORRECTA."
+   - "Normas Fuerzas Armadas procurarán igualdad en régimen de..."
+   - "Se entenderá como _____ cualquier característica que influya en generación de riesgos"
+   - "Su contenido se inspira en principio relativo a..."
+
+   **Formatos de cierre válidos (tras la referencia legal):**
    - "Señale la opción CORRECTA"
    - "Señale la proposición INCORRECTA"
+   - "Opción CORRECTA." / "Proposición INCORRECTA."
    - "¿Cuál NO es...?"
    - Pregunta directa ("¿Quién...", "¿Cuándo...", "¿Qué...", etc.)
+   - Frase a completar con "..." al final
+
+   **PROHIBIDO:** Formular preguntas genéricas sin contexto legal previo (ej.: solo "Señale la opción CORRECTA" sin indicar la materia).
 
 4. **Genera {num_options} opciones de respuesta (texto limpio, sin prefijos A), B), etc.):**
    - Una opción correcta basada en el texto fuente (PARAFRASEA, no copies literalmente)
@@ -64,14 +85,35 @@ Aplica estos criterios y correcciones estrictamente en esta generación.
      • Alterar números, cifras, edades o artículos (ej: invertir dígitos)
      • Mantener el 90% del texto pero cambiar la palabra/frase final crítica
 
-5. **Redacta el feedback** que debe:
-   - Comenzar identificando la respuesta correcta ("La respuesta correcta es: [texto literal]...")
-   - Citar el artículo o sección específica del documento fuente (solo si aparece en el fragmento)
-   - Explicar por qué la opción correcta lo es
-   - Explicar brevemente por qué las otras opciones son incorrectas
+5. **Redacta el feedback (tip)** con formato enriquecido para el widget de la app.
+   El widget soporta estas marcas — ÚSALAS obligatoriamente:
+   - `**texto**` → negrita (para la respuesta correcta y términos clave)
+   - `_texto_` → cursiva (para citas textuales literales del documento)
+   - `^texto^` → subrayado (para referencias normativas: Art. X, Ley Y)
+   - `#texto` → color de acento (SOLO al inicio de línea, para encabezados de sección)
+   - `- texto` → viñeta (para listar el descarte de cada opción incorrecta)
+
+   **ESTRUCTURA OBLIGATORIA del feedback (sigue este orden exacto):**
+
+   ```
+   #Respuesta correcta
+   La respuesta correcta es: **[texto literal de la opción correcta]**.
+
+   [Explicación de 1-2 frases de POR QUÉ es correcta, citando la fuente con ^referencia normativa^ y usando _cita textual literal_ cuando proceda.]
+
+   #¿Por qué se descartan las demás?
+   - **[texto resumido opción incorrecta 1]**: se descarta porque [razón breve].
+   - **[texto resumido opción incorrecta 2]**: se descarta porque [razón breve].
+   - **[texto resumido opción incorrecta 3]**: se descarta porque [razón breve].
+   ```
+
+   **REGLAS de redacción:**
+   - NO menciones letras de opción (A/B/C/D) ni números (1/2/3/4). Siempre cita el texto literal (resumido si es largo)
+   - Usa ^subrayado^ para TODA referencia normativa (ej: ^Art. 45.1 del Convenio^, ^Art. 14 CE^)
+   - Usa _cursiva_ para citas textuales del documento fuente
+   - Usa **negrita** para la respuesta correcta y para los términos clave que el opositor debe memorizar
    - Si se menciona la Constitución para respaldar una ley ordinaria, explica el vínculo; si no hay vínculo explícito, no la cites
-   - Usar lenguaje técnico y preciso
-   - NO menciones letras de opción (A/B/C/D). Si necesitas referirte a una opción, cita literalmente su texto
+   - Lenguaje técnico y preciso
    - Longitud objetivo: entre {tip_min_words} y {tip_max_words} palabras (4-6 frases)
 
 6. **Formato de salida JSON:**
@@ -83,9 +125,9 @@ Aplica estos criterios y correcciones estrictamente en esta generación.
   "answer3": "[opción 3 sin prefijo C)]",
   "answer4": "[opción 4 sin prefijo D)]",
   "correct": [número de 1 a 4],
-  "tip": "[explicación detallada del feedback]",
+  "tip": "[feedback con formato enriquecido: **negrita**, _cursiva_, ^subrayado^, #encabezado, - viñetas]",
   "reasoning_summary": "[resumen breve del razonamiento en 1-2 frases, sin pasos internos]",
-  "article": "[SOLO si hay un artículo específico citado: incluir la REFERENCIA CORTA + contenido breve. Ej: 'Art. 138.1 CP: El que matare a otro será castigado con prisión de 10 a 15 años'. Si NO hay artículo específico (textos generales, exposiciones de motivos, etc.), dejar VACÍO: '']"
+  "article": "[SOLO si hay un artículo específico citado. Formato: '^Art. X de la Ley^: _texto legal literal_'. Ej: '^Art. 138.1 del Código Penal^: _El que matare a otro será castigado con prisión de 10 a 15 años._' Si NO hay artículo específico, dejar VACÍO: '']"
 }
 ```
 

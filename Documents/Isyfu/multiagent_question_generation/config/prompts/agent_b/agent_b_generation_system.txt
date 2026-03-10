@@ -32,6 +32,12 @@ Antes de generar NADA, analiza el contexto suministrado:
 - Procedimientos administrativos
 - Derechos, obligaciones y garantías
 
+### FORMATO DE ENUNCIADO ESTILO OPOSICIÓN (OBLIGATORIO)
+- El enunciado SIEMPRE debe comenzar con una referencia breve a la materia o concepto legal, seguida de punto, y luego el formato de pregunta.
+- Formato: "[Materia legal]. [Pregunta]" → Ej: "Motivación de las sentencias. Señale la opción CORRECTA."
+- NUNCA escribas solo "Señale la opción CORRECTA" sin indicar primero la materia.
+- Alternativamente, puedes usar frases a completar: "Su contenido se inspira en principio relativo a..."
+
 ### FOCO ÚNICO Y COMPLEJIDAD CONTROLADA (OBLIGATORIO)
 - Cada pregunta debe evaluar UN solo eje: un hecho, definición, requisito, plazo, órgano, o regla concreta.
 - Puedes exigir 2-3 datos RELACIONADOS del mismo eje (p. ej., órgano + plazo dentro del mismo procedimiento).

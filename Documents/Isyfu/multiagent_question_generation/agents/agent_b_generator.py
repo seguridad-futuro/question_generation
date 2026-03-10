@@ -150,7 +150,7 @@ class QuestionData(BaseModel):
     answer3: str = Field(description="Opción 3 (sin prefijo C))")
     answer4: str = Field(description="Opción 4 (sin prefijo D))")
     correct: int = Field(description="Índice correcto (1-4)", ge=1, le=4)
-    tip: str = Field(default="", description="Explicación didáctica")
+    tip: str = Field(default="", description="Explicación didáctica con formato enriquecido: **negrita**, _cursiva_, ^subrayado^, #encabezado, - viñetas")
     reasoning_summary: Optional[str] = Field(
         default=None,
         description="Resumen breve del razonamiento (1-2 frases, sin pasos internos)"
@@ -158,16 +158,17 @@ class QuestionData(BaseModel):
     article: Optional[str] = Field(
         default=None,
         description=(
-            "Referencia legal profesional y bien redactada. REGLAS ESTRICTAS:\n"
-            "1. Formato: 'Artículo X de la [Ley/Código completo]: [texto legal relevante]'\n"
-            "2. Cita SOLO los apartados específicos que fundamentan la respuesta correcta\n"
-            "3. El texto legal debe ser LITERAL pero limpio (sin marcadores de página, sin errores de OCR)\n"
-            "4. NO copies párrafos enteros - extrae solo las líneas clave (máximo 3-4 líneas)\n"
-            "5. Si el artículo es largo, cita el apartado concreto: 'Artículo 14.1 CE: ...'\n"
-            "6. SIEMPRE especifica la norma completa (CE, CP, LECrim, LOPD, etc.)\n"
-            "7. NUNCA incluyas referencias a libros, editoriales, páginas o URLs\n"
-            "Ejemplo: 'Artículo 138.1 del Código Penal: El que matare a otro será castigado, "
-            "como reo de homicidio, con la pena de prisión de diez a quince años.'"
+            "Referencia legal profesional con formato enriquecido. REGLAS ESTRICTAS:\n"
+            "1. Formato: '^Artículo X de la [Ley/Código completo]^: _[texto legal relevante]_'\n"
+            "2. Usa ^subrayado^ para la referencia normativa y _cursiva_ para el texto literal\n"
+            "3. Cita SOLO los apartados específicos que fundamentan la respuesta correcta\n"
+            "4. El texto legal debe ser LITERAL pero limpio (sin marcadores de página, sin errores de OCR)\n"
+            "5. NO copies párrafos enteros - extrae solo las líneas clave (máximo 3-4 líneas)\n"
+            "6. Si el artículo es largo, cita el apartado concreto: '^Artículo 14.1 CE^: _..._'\n"
+            "7. SIEMPRE especifica la norma completa (CE, CP, LECrim, LOPD, etc.)\n"
+            "8. NUNCA incluyas referencias a libros, editoriales, páginas o URLs\n"
+            "Ejemplo: '^Artículo 138.1 del Código Penal^: _El que matare a otro será castigado, "
+            "como reo de homicidio, con la pena de prisión de diez a quince años._'"
         )
     )
     generation_method: str = Field(default="single_context", description="Método de generación")
